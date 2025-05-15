@@ -1,0 +1,164 @@
+.contact-section {
+  padding: 4rem 0; /* section-padding */
+  /* background-color: white; */ /* Will be handled by body theme */
+  /* color: #343a40; */ /* Will be handled by body theme */
+  font-family: 'Roboto', sans-serif; /* font-sans */
+  /* transition: background-color 0.5s ease, color 0.5s ease; */ /* Handled by body */
+}
+
+.light-mode .contact-section {
+  background-color: var(--section-bg-light);
+  color: var(--text-main-light);
+}
+
+.dark-mode .contact-section {
+  background-color: var(--section-bg-dark);
+  color: var(--text-main-dark);
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* container px-4 */
+}
+
+.contact-title {
+  font-size: 2.5rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  text-align: center;
+  margin-bottom: 3rem; /* mb-12 */
+  font-family: 'Montserrat', sans-serif; /* Heading font */
+}
+
+/* New grid layout for contact info and form */
+.contact-grid {
+  display: grid;
+  gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+    gap: 3rem; /* md:gap-12 */
+  }
+}
+
+.contact-info-block, .contact-form-block {
+  padding: 1.5rem; /* p-6 */
+  border-radius: 0.75rem; /* rounded-xl, increased rounding */
+}
+
+.light-mode .contact-info-block, .light-mode .contact-form-block {
+  background-color: var(--card-bg-light);
+  box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-light); /* shadow-md equivalent */
+}
+
+.dark-mode .contact-info-block, .dark-mode .contact-form-block {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 0 10px -2px var(--shadow-dark); /* Subtle glow */
+}
+
+.contact-subtitle {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.light-mode .contact-subtitle {
+  color: var(--text-main-light);
+}
+.dark-mode .contact-subtitle {
+  color: var(--text-main-dark);
+}
+
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem; /* mb-4 */
+  font-size: 1rem; /* text-base */
+}
+
+.light-mode .contact-info-item {
+  color: var(--text-main-light);
+}
+.dark-mode .contact-info-item {
+  color: var(--text-main-dark);
+}
+
+.contact-info-item span { /* Style for icons */
+  margin-right: 0.75rem; /* mr-3 */
+  font-size: 1.25rem; /* text-xl */
+}
+.light-mode .contact-info-item span {
+  color: var(--accent-light);
+}
+.dark-mode .contact-info-item span {
+  color: var(--accent-dark);
+}
+
+.contact-info-item p a {
+  word-break: break-all; /* Prevent long emails/links from breaking layout */
+}
+.light-mode .contact-info-item p a {
+  color: var(--accent-light);
+}
+.dark-mode .contact-info-item p a {
+  color: var(--accent-dark);
+}
+.light-mode .contact-info-item p a:hover {
+  color: var(--accent-secondary-light);
+}
+.dark-mode .contact-info-item p a:hover {
+  color: var(--accent-secondary-dark);
+}
+
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem; /* mb-2 */
+  font-weight: 500; /* font-medium */
+}
+.light-mode .form-label {
+  color: var(--text-main-light);
+}
+.dark-mode .form-label {
+  color: var(--text-main-dark);
+}
+
+/* .form-input, .form-textarea are already defined in index.css with theme variables */
+
+
+.contact-socials-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+}
+.light-mode .contact-socials-title {
+  color: var(--text-main-light);
+}
+.dark-mode .contact-socials-title {
+  color: var(--text-main-dark);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem; /* gap-4 */
+}
+
+.social-icon {
+  font-size: 1.5rem; /* text-2xl */
+  transition: color 0.3s ease;
+}
+.light-mode .social-icon {
+  color: var(--icon-color-secondary-light);
+}
+.dark-mode .social-icon {
+  color: var(--icon-color-secondary-dark);
+}
+
+.light-mode .social-icon:hover {
+  color: var(--accent-light);
+}
+.dark-mode .social-icon:hover {
+  color: var(--accent-dark);
+}

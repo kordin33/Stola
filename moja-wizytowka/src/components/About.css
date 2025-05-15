@@ -1,0 +1,110 @@
+.about-section {
+  padding: 4rem 0; /* section-padding */
+  font-family: 'Roboto', sans-serif; /* font-sans */
+  /* transition: background-color 0.5s ease, color 0.5s ease; */ /* Handled by body or theme provider */
+}
+
+.light-mode .about-section {
+  background-color: var(--section-bg-light); /* Consistent section background */
+  color: var(--text-main-light);
+}
+
+.dark-mode .about-section {
+  background-color: var(--section-bg-dark);
+  color: var(--text-main-dark);
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* container px-4 */
+}
+
+.about-title {
+  font-size: 2.5rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  text-align: center;
+  margin-bottom: 3rem; /* mb-12 */
+  font-family: 'Montserrat', sans-serif; /* Heading font */
+}
+
+.light-mode .about-title {
+  color: var(--text-main-light);
+}
+.dark-mode .about-title {
+  color: var(--text-main-dark);
+}
+
+.about-content-wrapper {
+  display: flex;
+  flex-direction: column; /* default for mobile */
+  gap: 2rem; /* Reduced gap for mobile */
+}
+
+.about-image-container {
+  width: 100%; /* Default width */
+}
+
+.about-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem; /* rounded-xl, more rounding */
+  object-fit: cover; /* Ensure image covers area without distortion */
+  filter: saturate(0.6) brightness(0.8); /* Reduce saturation and brightness */
+  transition: filter 0.3s ease; /* Smooth transition for filter */
+}
+
+/* Optional overlay for more control over image appearance */
+/* .about-image-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2); // Subtle dark overlay
+  border-radius: 0.75rem;
+  z-index: 1;
+} */
+
+
+.light-mode .about-image {
+  box-shadow: 0 10px 15px -3px var(--shadow-light), 0 4px 6px -2px var(--shadow-light);
+}
+.dark-mode .about-image {
+  box-shadow: 0 0 15px -3px var(--shadow-dark);
+}
+
+
+.about-text-container {
+  width: 100%; /* Default width */
+  /* display: flex; flex-direction: column; justify-content: center; */ /* Removed flex to allow natural top alignment */
+  padding-top: 0; /* Ensure no extra padding at the top */
+}
+
+.about-description {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.7; /* Slightly more leading */
+}
+.light-mode .about-description {
+  color: var(--text-main-light);
+}
+.dark-mode .about-description {
+  color: var(--text-main-dark);
+}
+
+
+/* Responsive adjustments */
+@media (min-width: 768px) { /* md breakpoint */
+  .about-content-wrapper {
+    flex-direction: row;
+    align-items: center; /* Align items to center for vertical alignment */
+    gap: 4rem; /* Increased gap */
+  }
+  .about-image-container,
+  .about-text-container {
+    width: 50%;
+    padding: 0 1rem; /* Add horizontal padding within columns */
+  }
+  .about-text-container {
+    /* justify-content: flex-start; */ /* Not needed if not flex container */
+  }
+}

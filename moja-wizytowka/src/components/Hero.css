@@ -1,0 +1,119 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-main-dark); /* Default to dark theme text color for hero */
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-main-dark); /* Default to dark theme bg for hero */
+  padding: 6rem 1rem; /* Increased vertical padding */
+}
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Increased opacity as requested */
+  z-index: 1;
+}
+
+/* Optional subtle texture */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* Above overlay, below content */
+  /* Example texture: subtle radial gradient */
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  pointer-events: none; /* Don't block interaction */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 1rem;
+  max-width: 56rem; /* max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-logo-container {
+  position: absolute; /* Position absolutely within hero-section */
+  top: 2rem; /* Distance from top */
+  left: 2rem; /* Distance from left */
+  z-index: 20; /* Ensure it's above other content */
+  /* margin-bottom: 2rem; */ /* Not needed with absolute positioning */
+}
+
+.hero-logo-image {
+  /* max-width: 220px; */ /* Max width can be set, but height is primary */
+  width: auto; /* Allow width to adjust based on height */
+  height: 40px; /* Set height as requested */
+  display: block;
+  /* margin: 0 auto 1.5rem auto; */ /* Not needed with absolute positioning */
+  color: #FFFFFF; /* Forcing white color for logo in Hero section for better contrast */
+}
+/* currentColor might not work as expected when SVG is used in <img> tag for fill/stroke.
+   If the SVG itself uses currentColor, this CSS 'color' might not affect its internal parts.
+   The SVG I created uses currentColor, so this CSS 'color' *should* work.
+   If not, we might need to embed the SVG differently or have a white version of the SVG.
+*/
+
+
+.hero-title {
+  font-size: 3rem; /* text-5xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  color: var(--text-main-dark); /* Explicitly set for contrast on image */
+  font-family: 'Montserrat', sans-serif; /* Heading font */
+  text-transform: uppercase; /* Match logo style */
+  letter-spacing: -0.02em; /* Reduced letter-spacing */
+  line-height: 1.2; /* Adjusted line-height */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle shadow for readability */
+  position: relative; /* Needed for absolute positioning of glare */
+  overflow: hidden; /* Hide glare outside text bounds */
+}
+
+/* Keyframes for glare animation */
+@keyframes glare {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Style for the glare element */
+.hero-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start off-screen */
+  width: 50%; /* Width of the glare */
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: glare 3s infinite linear; /* Apply animation */
+  pointer-events: none; /* Don't block text interaction */
+}
+
+
+.hero-subtitle {
+  font-size: 1.25rem; /* text-xl */
+  margin-bottom: 2rem; /* mb-8 */
+  color: #ccc; /* Lighter color as requested */
+  opacity: 1; /* Full opacity */
+  font-family: 'Roboto', sans-serif; /* Body font */
+  letter-spacing: -0.01em; /* Reduced letter-spacing */
+  line-height: 1.4; /* Adjusted line-height */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+/* Responsive adjustments */
+@media (min-width: 768px) { /* md breakpoint */
+  .hero-title {
+    font-size: 4.5rem; /* md:text-7xl */
+  }
+  .hero-subtitle {
+    font-size: 1.5rem; /* md:text-2xl */
+  }
+}

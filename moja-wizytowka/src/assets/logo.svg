@@ -1,0 +1,13 @@
+<svg viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sygnet -->
+  <g id="sygnet">
+    <rect x="5" y="5" width="90" height="90" stroke="currentColor" stroke-width="6" fill="none" />
+    <path d="M 25 25 L 75 25 L 75 45 L 35 45 L 35 55 L 75 55 L 75 75 L 25 75 L 25 55 L 65 55 L 65 45 L 25 45 Z" fill="currentColor" />
+  </g>
+
+  <!-- Tekst -->
+  <g id="tekst" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="currentColor">
+    <text x="115" y="40" font-size="30">STOLARZ</text>
+    <text x="115" y="75" font-size="30">NOWOCZESNY</text>
+  </g>
+</svg>

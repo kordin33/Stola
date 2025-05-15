@@ -1,0 +1,104 @@
+.testimonials-section {
+  /* background-color: #f9f7f4; */ /* Example: light cream background */
+}
+
+.light-mode .testimonials-section {
+  background-color: var(--section-bg-light);
+}
+
+.dark-mode .testimonials-section {
+  background-color: var(--section-bg-dark);
+}
+
+.testimonials-title {
+  font-size: 2.5rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.light-mode .testimonials-title {
+  color: var(--text-main-light);
+}
+
+.dark-mode .testimonials-title {
+  color: var(--text-main-dark);
+}
+
+.testimonials-grid {
+  display: grid;
+  gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.testimonial-card {
+  padding: 2rem; /* p-8 */
+  border-radius: 0.75rem; /* rounded-xl */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.light-mode .testimonial-card {
+  background-color: var(--card-bg-light);
+  box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-light); /* shadow-md */
+  color: var(--text-main-light);
+}
+.light-mode .testimonial-card:hover {
+  box-shadow: 0 10px 15px -3px var(--shadow-light), 0 4px 6px -2px var(--shadow-light); /* shadow-lg */
+}
+
+.dark-mode .testimonial-card {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 0 10px -2px var(--shadow-dark); /* Subtle glow */
+  color: var(--text-main-dark);
+}
+.dark-mode .testimonial-card:hover {
+  box-shadow: 0 0 20px -3px var(--shadow-dark); /* Enhanced glow */
+}
+
+.testimonial-avatar {
+  width: 100px; /* w-24 */
+  height: 100px; /* h-24 */
+  border-radius: 9999px; /* rounded-full */
+  margin: 0 auto 1.5rem auto; /* mx-auto mb-6 */
+  object-fit: cover;
+}
+
+.light-mode .testimonial-avatar {
+ border: 3px solid var(--accent-secondary-light); /* Amber border */
+}
+.dark-mode .testimonial-avatar {
+ border: 3px solid var(--accent-secondary-dark); /* Blue border */
+}
+
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 1.5rem; /* mb-6 */
+  font-size: 1rem; /* text-base */
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  font-weight: 600; /* font-semibold */
+  font-size: 0.875rem; /* text-sm */
+}
+
+.testimonial-company {
+  font-weight: 400; /* font-normal */
+  opacity: 0.8;
+}

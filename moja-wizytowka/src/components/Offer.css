@@ -1,0 +1,80 @@
+.offer-section {
+  padding: 4rem 0; /* section-padding */
+  background-color: white; /* bg-white */
+  color: #343a40; /* text-gray-800 */
+  font-family: 'Roboto', sans-serif; /* font-sans */
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .offer-section {
+  background-color: #212529; /* dark:bg-gray-900 */
+  color: white; /* dark:text-white */
+}
+
+.offer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* container px-4 */
+}
+
+.offer-title {
+  font-size: 2.5rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  text-align: center;
+  margin-bottom: 3rem; /* mb-12 */
+  font-family: 'Montserrat', sans-serif; /* Heading font */
+}
+
+.offer-items-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+  gap: 2rem; /* gap-8 */
+}
+
+.offer-item-card {
+  background-color: #f8f9fa; /* bg-gray-100 */
+  padding: 1.5rem; /* p-6 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  text-align: center;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .offer-item-card {
+  background-color: #343a40; /* dark:bg-gray-800 */
+  color: #edebe8; /* text-wood-100 */
+}
+
+.offer-item-icon {
+  font-size: 3rem; /* text-5xl */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.offer-item-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 1rem; /* mb-4 */
+  font-family: 'Montserrat', sans-serif; /* Heading font */
+}
+
+.offer-item-description {
+  color: #495057; /* text-gray-700 (using metal-700) */
+}
+
+.dark-mode .offer-item-description {
+  color: #ced4da; /* dark:text-gray-300 (using metal-300) */
+}
+
+
+/* Responsive adjustments */
+@media (min-width: 768px) { /* md breakpoint */
+  .offer-items-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .offer-items-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+  }
+}
