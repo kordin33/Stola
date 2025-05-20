@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './Testimonials.css';
-import avatarKobieta1 from '../assets/BauServ.png';
+import avatarKobieta1 from '../assets/BAUServ.png';
 import avatarFacet1 from '../assets/Human.png';
 import avatarFacet2 from '../assets/Fenubis.png';
 
