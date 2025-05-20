@@ -48,6 +48,13 @@
 .offer-item-icon {
   font-size: 3rem; /* text-5xl */
   margin-bottom: 1rem; /* mb-4 */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 80px; /* Set a fixed width */
+  height: 80px; /* Set a fixed height */
+  margin-left: auto; /* Center the block element */
+  margin-right: auto; /* Center the block element */
 }
 
 .offer-item-title {

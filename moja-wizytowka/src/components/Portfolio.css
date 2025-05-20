@@ -4,12 +4,12 @@
 }
 
 .light-mode .portfolio-section {
-  background-color: var(--section-bg-light);
+  background: linear-gradient(135deg, var(--section-bg-light) 0%, color-mix(in srgb, var(--section-bg-light) 92%, #000000 8%) 100%);
   color: var(--text-main-light);
 }
 
 .dark-mode .portfolio-section {
-  background-color: var(--section-bg-dark);
+  background: linear-gradient(135deg, var(--section-bg-dark) 0%, color-mix(in srgb, var(--section-bg-dark) 92%, #ffffff 8%) 100%);
   color: var(--text-main-dark);
 }
 
@@ -38,6 +38,12 @@
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
   gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .portfolio-items-grid {
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  }
 }
 
 .portfolio-item {
@@ -115,11 +121,5 @@
 @media (min-width: 640px) { /* sm breakpoint */
   .portfolio-items-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* sm:grid-cols-2 */
-  }
-}
-
-@media (min-width: 1024px) { /* lg breakpoint */
-  .portfolio-items-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
   }
 }

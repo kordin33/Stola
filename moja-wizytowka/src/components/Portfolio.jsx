@@ -33,6 +33,12 @@ const Portfolio = () => {
       alt: t('portfolio_image_3_alt_pl'),
       caption: t('portfolio_caption_3_pl'),
     },
+    {
+      id: 4,
+      image: portfolioImage1, // Use actual image (reused from item 1)
+      alt: t('portfolio_image_1_alt_pl'), // Placeholder, to be updated
+      caption: t('portfolio_caption_1_pl'), // Placeholder, to be updated
+    },
     // TODO: Add more portfolio items as needed and replace placeholder images
   ];
 

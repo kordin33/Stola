@@ -28,14 +28,30 @@
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  position: relative; /* Zachowano position: relative */
+  /* Usunięto z-index z nagłówka, polegamy na z-index kontenera logo */
+}
+
+/* Dodajemy kontener dla logo w navbarze dla lepszej kontroli z-index */
+.navbar-logo-container {
+  position: relative; /* Zachowano position: relative */
+  z-index: 60; /* Bardzo wysoki z-index na kontenerze logo */
+  transform: translateZ(0); /* Dodano, aby wymusić nowy kontekst stosu */
+}
+
+.navbar-motion-logo { /* Nowa klasa dla motion.div logo */
+  position: relative; /* Zachowano position: relative */
+  /* Usunięto z-index */
 }
 
 .navbar-logo-image { /* Style for the actual logo image */
   max-height: 40px; /* Adjust as needed */
   width: auto;
+  display: block; /* Dla pewności, że transformacje i z-index działają poprawnie */
+  position: relative; /* Zachowano position: relative */
+  /* Usunięto z-index z obrazka, polegamy na z-index kontenera */
   /* Consider adding a filter for better visibility on different backgrounds if needed */
   /* .light-mode & { filter: brightness(0.8); } */ /* Example: darken logo slightly on light bg */
-  /* border: 1px solid red; */ /* Temporary border for debugging - REMOVED */
 }
 
 .navbar-links-desktop {

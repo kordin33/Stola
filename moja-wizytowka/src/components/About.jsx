@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './About.css'; // Import component-specific CSS
 
 // Import actual assets
-import aboutImage from '../assets/stolarz-1.png'; // Changed to stolarz-1.png
+import aboutImage from '../assets/stolarz-1.jpeg'; // Changed to stolarz-1.png
 
 const About = () => {
   const { t } = useTranslation();

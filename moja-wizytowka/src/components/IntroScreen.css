@@ -61,23 +61,26 @@
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  color: #F3F4F6; /* Light text as per dark theme */
+  /* color: white; */ /* Usunięto - kolor bazowy będzie z gradientu */
   position: relative; /* For z-index if needed */
   z-index: 10; /* Ensure text is above reflection */
+
+  display: block !important; /* Zapewnienie, że element jest blokowy dla background-clip */
+  -webkit-text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: #FAF0E6; /* Kolor dla text-shadow i jako fallback */
+
+  /* Pierwszy gradient to błysk (węższy), drugi to stały kolor tekstu */
+  background-image: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.8) 55%, transparent 100%), linear-gradient(to right, #FAF0E6, #FAF0E6);
+  background-size: 250% 100%, 100% 100%; /* Błysk nieco węższy, ale nadal szerszy niż tekst dla płynności */
+  background-position: -125% 0, 0 0; /* Start błysku bardziej na lewo */
+  background-repeat: no-repeat, no-repeat; /* Ważne dla wielu teł */
+  
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Dodano cień */
+  background-origin: border-box; /* Zachowano */
 }
 
-.intro-glare-effect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Glare width, can be smaller e.g. 30% */
-  height: 100%;
-  /* Gradient from MCP, adjusted for standard CSS */
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-  z-index: 15; /* Above text, below nothing or for specific layering */
-  pointer-events: none; /* So it doesn't interfere with text selection if any */
-  transform: skewX(-20deg); /* Angled glare */
-}
 
 .intro-glass-reflection {
   position: absolute;
@@ -106,6 +109,14 @@
 @media (min-width: 768px) { /* md breakpoint */
   .intro-logo-text {
     font-size: 5rem; /* md:text-5xl (original was 6rem, adjusted for balance) */
+    /* display: block !important; */ /* Już jest w głównej regule */
+    /* -webkit-text-fill-color: transparent !important; */ /* Już jest w głównej regule */
+    /* background-origin: border-box; */ /* Już jest w głównej regule */
+    /* background-repeat: no-repeat; */ /* Już jest w głównej regule i inaczej skonfigurowane */
+    /* -webkit-background-clip: text !important; */ /* Już jest w głównej regule */
+    /* background-clip: text !important; */ /* Już jest w głównej regule */
+    /* color: transparent !important; */ /* Usunięto, kolor bazowy z głównej reguły */
+    /* background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent) !important; */ /* Usunięto, dziedziczy z głównej reguły */
   }
   .intro-subtitle-text {
     font-size: 1.5rem; /* md:text-base (original was 1.8rem) */

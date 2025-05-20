@@ -8,8 +8,8 @@ const resources = {
   pl: {
     translation: {
       // Hero Section
-      hero_title_pl: 'Nowoczesne Meble na Wymiar',
-      hero_subtitle_pl: 'Tworzymy unikalne projekty z pasją do drewna.',
+      hero_title_pl: 'BAU GREEN',
+      hero_subtitle_pl: 'Tworzymy unikalne projekty z pasją.',
       hero_cta_pl: 'Odkryj Naszą Ofertę',
 
       // Navbar
@@ -23,7 +23,7 @@ const resources = {
       // About Section
       about_title_pl: 'Poznaj Naszą Historię',
       about_image_alt_pl: 'Nowoczesne wnętrze z drewnianymi elementami',
-      opis_o_nas: loremIpsum,
+      opis_o_nas: "Firma BAU GREEN działa na rynku od 2023 roku, jednak jej obecna forma to efekt nowego podejścia i kierunku, który nadał jej Karol Sobocik po przejęciu działalności.\n\nKarol zdobywał doświadczenie w Niemczech, gdzie nauczył się, czym jest prawdziwa jakość w montażu i sprzedaży stolarki otworowej. Pracując na wymagającym rynku niemieckim, poznał nowoczesne technologie i standardy montażu, które dziś stara się przenieść na polski grunt – oferując klientom usługi na europejskim poziomie.\n\nObecnie BAU GREEN prowadzi działalność zarówno w Polsce, jak i w Niemczech. Współpracujemy z wieloma partnerami z Niemiec, zapewniając kompleksową obsługę w zakresie sprzedaży i montażu okien, drzwi oraz rolet. Naszym priorytetem jest rzetelność, terminowość i dbałość o każdy detal wykonania – dokładnie tak, jak robi się to u naszych zachodnich sąsiadów.",
 
       // Offer Section
       offer_title_pl: 'Co Możemy Dla Ciebie Zrobić?',
@@ -73,7 +73,7 @@ const resources = {
       // About Section
       about_title_en: 'Discover Our Story',
       about_image_alt_en: 'Modern interior with wooden elements',
-      opis_o_nas: loremIpsum,
+      opis_o_nas: "Od lat tworzymy wysokiej jakości drewniane ramy okienne, łącząc tradycyjne rzemiosło z nowoczesną technologią. Specjalizujemy się w produkcji okien, które wyróżniają się trwałością, estetyką oraz doskonałą izolacją termiczną i akustyczną.Każde zlecenie traktujemy indywidualnie — od projektu, przez selekcję materiałów, aż po precyzyjne wykończenie. Pracujemy wyłącznie na sprawdzonym drewnie z certyfikowanych źródeł, dbając o środowisko i zadowolenie naszych klientów. Naszą misją jest tworzenie okien, które nie tylko chronią i izolują, ale też stanowią element stylu i charakteru każdego wnętrza.",
 
       // Offer Section
       offer_title_en: 'What Can We Do For You?',
@@ -125,6 +125,9 @@ const resources = {
       about_image_alt_de: 'Modernes Interieur mit Holzelementen',
       opis_o_nas: loremIpsum,
 
+      // Footer Company Description (Placeholder)
+      footer_company_description_de: 'Ein Unternehmen, das sich auf moderne Schreinerlösungen spezialisiert hat.',
+
       // Offer Section
       offer_title_de: 'Was Können Wir Für Sie Tun?',
       offer_item_1_title_de: 'Küchenmöbel',
@@ -152,6 +155,17 @@ const resources = {
       contact_submit_button_de: 'Nachricht Senden',
 
       // Footer
+      footer_company_description_de: 'Ein Unternehmen, das sich auf moderne Schreinerlösungen spezialisiert hat.',
+      footer_contact_title_de: 'Kontakt',
+      contact_address_de: 'Beispieladresse, 12-345 Stadt',
+      contact_phone_de: '+48 123 456 789',
+      contact_email_de: 'kontakt@moderner-tischler.de',
+      footer_links_title_de: 'Nützliche Links',
+      footer_link_downloads_de: 'Katalog Herunterladen',
+      footer_link_faq_de: 'FAQ',
+      footer_link_privacy_de: 'Datenschutzrichtlinie',
+      footer_link_rodo_de: 'DSGVO',
+      footer_services_title_de: 'Unsere Dienstleistungen', // This key is not used in Footer.jsx anymore, but keeping it in i18n for completeness
       footer_text_de: `© ${new Date().getFullYear()} ModernerTischler. Alle Rechte vorbehalten.`,
     },
   },

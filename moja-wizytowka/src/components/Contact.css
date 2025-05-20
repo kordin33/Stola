@@ -86,14 +86,17 @@
   color: var(--text-main-dark);
 }
 
-.contact-info-item span { /* Style for icons */
+.contact-info-icon {
   margin-right: 0.75rem; /* mr-3 */
-  font-size: 1.25rem; /* text-xl */
+  width: 1.5rem; /* w-6 */
+  height: 1.5rem; /* h-6 */
 }
-.light-mode .contact-info-item span {
+
+.light-mode .contact-info-icon {
   color: var(--accent-light);
 }
-.dark-mode .contact-info-item span {
+
+.dark-mode .contact-info-icon {
   color: var(--accent-dark);
 }
 
@@ -126,7 +129,91 @@
   color: var(--text-main-dark);
 }
 
-/* .form-input, .form-textarea are already defined in index.css with theme variables */
+/* Form styling */
+.form-input,
+.form-textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+}
+
+.light-mode .form-input,
+.light-mode .form-textarea {
+  background-color: var(--input-bg-light);
+  border-color: var(--border-color-light);
+  color: var(--text-main-light);
+}
+
+.dark-mode .form-input,
+.dark-mode .form-textarea {
+  background-color: var(--input-bg-dark);
+  border-color: var(--border-color-dark);
+  color: var(--text-main-dark);
+}
+
+.light-mode .form-input::placeholder,
+.light-mode .form-textarea::placeholder {
+  color: var(--text-placeholder-light);
+}
+
+.dark-mode .form-input::placeholder,
+.dark-mode .form-textarea::placeholder {
+  color: var(--text-placeholder-dark);
+}
+
+.light-mode .form-input:focus,
+.light-mode .form-textarea:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px var(--accent-light-transparent);
+  outline: none;
+}
+
+.dark-mode .form-input:focus,
+.dark-mode .form-textarea:focus {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 3px var(--accent-dark-transparent);
+  outline: none;
+}
+
+.form-group {
+  margin-bottom: 1.25rem; /* Reduced from mb-6 to mb-5 if needed, or keep as is */
+}
+
+/* Button styling - assuming .btn and .btn-primary are defined globally or need specific overrides here */
+.contact-form-block .btn-primary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px; /* rounded-full */
+  font-weight: 600; /* font-semibold */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.light-mode .contact-form-block .btn-primary {
+  background-color: var(--accent-light);
+  color: var(--button-text-light);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+.dark-mode .contact-form-block .btn-primary {
+  background-color: var(--accent-dark);
+  color: var(--button-text-dark);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12); /* shadow-md, adjusted for dark */
+}
+
+.light-mode .contact-form-block .btn-primary:hover {
+  background-color: var(--accent-secondary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+}
+
+.dark-mode .contact-form-block .btn-primary:hover {
+  background-color: var(--accent-secondary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* shadow-lg, adjusted for dark */
+}
 
 
 .contact-socials-title {
@@ -140,25 +227,102 @@
   color: var(--text-main-dark);
 }
 
-.social-links {
-  display: flex;
-  gap: 1rem; /* gap-4 */
+.social-media-section {
+  /* Styles for the container of social media title and links */
 }
 
-.social-icon {
-  font-size: 1.5rem; /* text-2xl */
+.social-links-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* gap-4, spacing between icons */
+}
+
+.social-icon-link {
+  display: inline-flex; /* Helps with alignment and hover effects */
+  padding: 0.5rem; /* p-2, clickable area */
+  border-radius: 50%; /* rounded-full for the background on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icon-svg {
+  width: 1.75rem; /* w-7, size of the SVG icon itself */
+  height: 1.75rem; /* h-7 */
   transition: color 0.3s ease;
 }
-.light-mode .social-icon {
+
+.light-mode .social-icon-svg {
   color: var(--icon-color-secondary-light);
 }
-.dark-mode .social-icon {
+
+.dark-mode .social-icon-svg {
   color: var(--icon-color-secondary-dark);
 }
 
-.light-mode .social-icon:hover {
+.light-mode .social-icon-link:hover .social-icon-svg {
   color: var(--accent-light);
 }
-.dark-mode .social-icon:hover {
+
+.dark-mode .social-icon-link:hover .social-icon-svg {
   color: var(--accent-dark);
+}
+
+.light-mode .social-icon-link:hover {
+  background-color: var(--accent-light-transparent-hover);
+  transform: scale(1.1);
+}
+
+.dark-mode .social-icon-link:hover {
+  background-color: var(--accent-dark-transparent-hover);
+  transform: scale(1.1);
+}
+
+
+@keyframes shake-and-scale {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  10%, 30%, 50% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  20%, 40% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  70% {
+    transform: scale(1.15) rotate(0deg); /* Slightly larger scale */
+  }
+  80% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  90% {
+    transform: scale(1.05) rotate(0deg);
+  }
+}
+
+@keyframes hover-shake-grow {
+  0%, 100% { transform: scale(1.1) rotate(0deg); }
+  25% { transform: scale(1.2) rotate(-5deg); }
+  50% { transform: scale(1.2) rotate(5deg); }
+  75% { transform: scale(1.2) rotate(-5deg); }
+}
+
+.animate-icon-attention {
+  animation: shake-and-scale 4s infinite;
+  /* Removed animation-delay */
+  display: inline-block; /* Necessary for transform to work as expected */
+}
+
+/* Apply hover animation and stop continuous one */
+.contact-info-item:hover .animate-icon-attention {
+  animation: hover-shake-grow 0.5s ease-in-out forwards;
+  /* Ensure it stays scaled up after animation */
+  transform: scale(1.2);
+}
+
+/* Optional: if you want to target .contact-info-icon directly when it has this class */
+.contact-info-icon.animate-icon-attention {
+  /* Specific styles for animated contact info icons if needed,
+     otherwise, the .animate-icon-attention class handles it. */
 }

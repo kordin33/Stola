@@ -3,10 +3,12 @@
 }
 
 .light-mode .testimonials-section {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--section-bg-light) 90%, #000000 10%) 0%, var(--section-bg-light) 100%);
   background-color: var(--section-bg-light);
 }
 
 .dark-mode .testimonials-section {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--section-bg-dark) 90%, #ffffff 10%) 0%, var(--section-bg-dark) 100%);
   background-color: var(--section-bg-dark);
 }
 

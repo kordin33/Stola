@@ -3,19 +3,27 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './Contact.css'; // Import component-specific CSS
 
-// Import icons (using simple text placeholders for now, replace with actual SVG imports)
-const LocationIcon = () => <span>📍</span>; // Placeholder for location icon
-const PhoneIcon = () => <span>📞</span>; // Placeholder for phone icon
-const EmailIcon = () => <span>✉️</span>; // Placeholder for email icon
+// Import icons
+import LocationIcon from '../assets/icons/LocationIcon';
+import PhoneIcon from '../assets/icons/PhoneIcon';
+import EmailIcon from '../assets/icons/EmailIcon';
+import FacebookIcon from '../assets/icons/FacebookIcon';
+import TwitterIcon from '../assets/icons/TwitterIcon';
+import InstagramIcon from '../assets/icons/InstagramIcon';
 
 const Contact = () => {
   const { t } = useTranslation();
 
-  // Przykładowe dane kontaktowe
+  // Dane kontaktowe
   const contactDetails = {
-    address: "ul. Przykładowa 123, 00-000 Warszawa",
-    phone: "+48 123 456 789",
-    email: "kontakt@stolarznowoczesny.pl"
+    companyName: "BAUGREEN SP Z O O (w komunikacji handlowej: BAU GREEN)",
+    address: "Raciborska 97, 47-480 Maków, Polska",
+    nip: "PL6472603097",
+    
+    phone: "+48 609 320 236",
+    email1: "sobocik1991@gmail.com",
+    email2: "baugreen.pl@gmail.com",
+    contactPerson: "Karol Sobocik"
   };
 
   // Przykładowe dane dla placeholderów formularza (można je też przenieść do i18n)
@@ -50,21 +58,43 @@ const Contact = () => {
           >
             <h3 className="contact-subtitle mb-6">{t('contact_info_subtitle_pl', "Dane Kontaktowe")}</h3>
             <div className="contact-info-item">
-              <LocationIcon /> <p>{contactDetails.address}</p>
+              <p><strong>{contactDetails.companyName}</strong></p>
             </div>
             <div className="contact-info-item">
-              <PhoneIcon /> <p><a href={`tel:${contactDetails.phone.replace(/\s/g, '')}`}>{contactDetails.phone}</a></p>
+              <LocationIcon className="contact-info-icon animate-icon-attention" /> <p>{contactDetails.address}</p>
+            </div>
+            <div className="contact-info-item">
+              <p><strong>NIP:</strong> {contactDetails.nip}</p>
+            </div>
+            <div className="contact-info-item">
+              <p><strong>Numer konta:</strong> {contactDetails.bankAccount}</p>
+            </div>
+            <div className="contact-info-item">
+              <PhoneIcon className="contact-info-icon animate-icon-attention" /> <p><a href={`tel:${contactDetails.phone.replace(/\s/g, '')}`}>{contactDetails.phone}</a></p>
             </div>
              <div className="contact-info-item">
-              <EmailIcon /> <p><a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a></p>
+              <EmailIcon className="contact-info-icon animate-icon-attention" /> <p><a href={`mailto:${contactDetails.email1}`}>{contactDetails.email1}</a></p>
             </div>
-            {/* Social Media Links - Moved here */}
-            <div className="social-links mt-8">
-                <h4 className="contact-socials-title mb-4">{t('contact_socials_title_pl', "Znajdź nas na:")}</h4>
-                {/* TODO: Replace with actual social icons/links */}
-                <a href="#" className="social-icon">F</a> {/* Facebook placeholder */}
-                <a href="#" className="social-icon">T</a> {/* Twitter placeholder */}
-                <a href="#" className="social-icon">I</a> {/* Instagram placeholder */}
+             <div className="contact-info-item">
+              <EmailIcon className="contact-info-icon animate-icon-attention" /> <p><a href={`mailto:${contactDetails.email2}`}>{contactDetails.email2}</a></p>
+            </div>
+            <div className="contact-info-item">
+              <p><strong>Osoba kontaktowa:</strong> {contactDetails.contactPerson}</p>
+            </div>
+            {/* Social Media Links */}
+            <div className="social-media-section mt-8">
+                <h4 className="contact-socials-title mb-4">{t('contact_socials_cta_pl', "Połącz się z nami:")}</h4>
+                <div className="social-links-container">
+                    <a href="#" aria-label={t('facebook_aria_label', 'Facebook')} className="social-icon-link">
+                        <FacebookIcon className="social-icon-svg" />
+                    </a>
+                    <a href="#" aria-label={t('twitter_aria_label', 'Twitter')} className="social-icon-link">
+                        <TwitterIcon className="social-icon-svg" />
+                    </a>
+                    <a href="#" aria-label={t('instagram_aria_label', 'Instagram')} className="social-icon-link">
+                        <InstagramIcon className="social-icon-svg" />
+                    </a>
+                </div>
             </div>
           </motion.div>
 

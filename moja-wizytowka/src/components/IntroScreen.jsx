@@ -14,12 +14,12 @@ const IntroScreen = ({ onAnimationComplete }) => {
     const sequence = async () => {
       // Start glare effect after a short delay
       await controls.start({
-        x: ["-100%", "200%"],
-        opacity: [0, 0.3, 0.5, 0.3, 0], // More subtle glare
+        // Animate only the first background layer's position (the glare)
+        // The second background layer (solid color) remains at "0 0"
+        backgroundPosition: ["-100% 0, 0 0", "200% 0, 0 0"], 
         transition: {
           duration: 2, // Slower, smoother glare
           ease: "circInOut", // Smoother ease
-          times: [0, 0.3, 0.5, 0.7, 1],
           delay: 0.8, // Delay glare start
         }
       });
@@ -36,7 +36,7 @@ const IntroScreen = ({ onAnimationComplete }) => {
         if (onAnimationComplete) {
           onAnimationComplete();
         }
-      }, 3000); // Start exit animation after 3s (adjust based on internal anims)
+      }, 2000); // Start exit animation after 3s (adjust based on internal anims)
     };
 
     sequence();
@@ -98,15 +98,8 @@ const IntroScreen = ({ onAnimationComplete }) => {
             }}
             className="intro-logo-text"
           >
-            STOLARZNOWOCZESNY
+            {t('hero_title_pl')}
           </motion.div>
-
-          {/* Glare effect - will be styled in CSS */}
-          <motion.div
-            className="intro-glare-effect"
-            animate={controls} // Already defined to start after delay
-            initial={{ x: "-100%", opacity: 0 }}
-          />
 
           {/* Glass reflection - will be styled in CSS */}
           <motion.div
