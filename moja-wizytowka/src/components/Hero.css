@@ -17,7 +17,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* Increased opacity as requested */
+  background-color: rgba(216, 26, 26, 0.6); /* Increased opacity as requested */
   z-index: 1;
 }
 
