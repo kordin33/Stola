@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import './Navbar.css'; // Import component-specific CSS
 
 // Import SVG logo as URL
-import siteLogoUrl from '../assets/logo1.png';
+import siteLogoUrl from '../assets/Logo1.png';
 
 const Navbar = ({ theme, toggleTheme }) => {
   const { t, i18n } = useTranslation();

@@ -18,27 +18,10 @@ const Footer = () => {
           {/* Company Info */}
           <div className="footer-col company-info">
             <img src={siteLogo} alt={t('site_title')} className="footer-logo" /> {/* Use actual logo and translated alt text */}
-            <p className="company-description">{t('footer_company_description')}</p> {/* Use translated description */}
+            <p className="company-description">{t('BauGreen ')}</p> {/* Use translated description */}
           </div>
 
-          {/* Contact Info */}
-          <div className="footer-col contact-info">
-            <h4>{t('footer_contact_title')}</h4> {/* Use translated title */}
-            <p>{t('contact_address')}</p> {/* Use translated address */}
-            <p>{t('contact_phone')}</p> {/* Use translated phone */}
-            <p>{t('contact_email')}</p> {/* Use translated email */}
-          </div>
-
-          {/* Links */}
-          <div className="footer-col footer-links">
-            <h4>{t('footer_links_title')}</h4> {/* Use translated title */}
-            <ul>
-              <li><a href="#">{t('footer_link_downloads')}</a></li> {/* Use translated link text */}
-              <li><a href="#">{t('footer_link_faq')}</a></li> {/* Use translated link text */}
-              <li><a href="#">{t('footer_link_privacy')}</a></li> {/* Use translated link text */}
-              <li><a href="#">{t('footer_link_rodo')}</a></li> {/* Use translated link text */}
-            </ul>
-          </div>
+         
 
           {/* Our Services - Placeholder removed, assuming actual logos/content will be added */}
           {/* <div className="footer-col our-services">
