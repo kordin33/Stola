@@ -18,26 +18,26 @@ const Portfolio = () => {
     {
       id: 1,
       image: portfolioImage1, // Use actual image
-      alt: t('portfolio_image_1_alt_pl'),
-      caption: t('portfolio_caption_1_pl'),
+      alt: t('portfolio_image_1_alt'),
+      caption: t('portfolio_caption_1'),
     },
     {
       id: 2,
       image: portfolioImage2, // Use actual image
-      alt: t('portfolio_image_2_alt_pl'),
-      caption: t('portfolio_caption_2_pl'),
+      alt: t('portfolio_image_2_alt'),
+      caption: t('portfolio_caption_2'),
     },
     {
       id: 3,
       image: portfolioImage3, // Use actual image
-      alt: t('portfolio_image_3_alt_pl'),
-      caption: t('portfolio_caption_3_pl'),
+      alt: t('portfolio_image_3_alt'),
+      caption: t('portfolio_caption_3'),
     },
     {
       id: 4,
       image: portfolioImage1, // Use actual image (reused from item 1)
-      alt: t('portfolio_image_1_alt_pl'), // Placeholder, to be updated
-      caption: t('portfolio_caption_1_pl'), // Placeholder, to be updated
+      alt: t('portfolio_image_4_alt'), // Placeholder, to be updated
+      caption: t('portfolio_caption_4'), // Placeholder, to be updated
     },
     // TODO: Add more portfolio items as needed and replace placeholder images
   ];
@@ -52,7 +52,7 @@ const Portfolio = () => {
           transition={{ duration: 0.6 }}
           className="portfolio-title" // Use custom CSS class
         >
-          {t('portfolio_title_pl')}
+          {t('portfolio_title')}
         </motion.h2>
 
         <div className="portfolio-items-grid"> {/* Use custom CSS class */}

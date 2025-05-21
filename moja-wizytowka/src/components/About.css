@@ -81,17 +81,21 @@
   border-radius: 0.75rem;
   object-fit: cover;
   filter: saturate(0.7) brightness(0.9);
-  transition: filter 0.3s ease, box-shadow 0.3s ease;
+  transition: filter 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Add transform */
+}
+
+.about-image:hover {
+  transform: scale(1.03); /* Slight zoom on hover */
 }
 
 .light-mode .about-image {
   box-shadow:
-    0 12px 20px -5px var(--shadow-light),
-    0 6px 10px -4px var(--shadow-light);
+    0 10px 20px -5px rgba(0, 0, 0, 0.12), /* Adjusted shadow */
+    0 6px 10px -4px rgba(0, 0, 0, 0.08);
 }
 
 .dark-mode .about-image {
-  box-shadow: 0 0 20px -5px var(--shadow-dark);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
 }
 
 .about-text-container {
@@ -99,30 +103,53 @@
 }
 
 .about-description {
-  font-size: 1.225rem;
-  line-height: 1.7;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.02em; /* Keep this */
+}
+
+.about-description p {
+  margin-bottom: 1.2em;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.about-description p:last-child {
+  margin-bottom: 0;
 }
 
 .light-mode .about-description {
   color: var(--text-main-light);
-  text-shadow: 1px 1px 1px rgba(29, 23, 23, 0.08);
+  /* text-shadow: 1px 1px 1px rgba(29, 23, 23, 0.08); /* Removed */
 }
 
 .dark-mode .about-description {
   color: var(--text-main-dark);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);  Removed */
 }
 
 @media (min-width: 768px) {
   .about-content-wrapper {
     flex-direction: row;
-    align-items: center;
-    gap: 4rem;
+    align-items: flex-start; /* Align items to the top */
+    gap: 2.5rem; /* Adjusted gap */
   }
-  .about-image-container,
+  .about-image-container {
+    width: 40%; /* Give image a bit less space */
+    max-width: 450px;
+    flex-shrink: 0;
+  }
   .about-text-container {
-    width: 50%;
-    padding: 0 1rem;
+    width: 60%; /* Give text more space */
+    padding: 1rem 1.5rem; /* Vertical and horizontal padding */
+    border-radius: 8px;
+  }
+
+  .light-mode .about-text-container {
+    background-color: #f8f9fa; /* A very light grey, almost white */
+    border-left: 5px solid #007bff; /* Example primary blue */
+  }
+
+  .dark-mode .about-text-container {
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background for dark mode */
+    border-left: 5px solid #00aeff; /* Lighter blue for dark mode */
   }
 }

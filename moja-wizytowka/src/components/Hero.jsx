@@ -50,7 +50,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="hero-title" // Use custom CSS class
         >
-          {t('hero_title_pl')}
+          {t('hero_title')}
         </motion.h1>
 
         {/* Subtitle */}
@@ -60,7 +60,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="hero-subtitle" // Use custom CSS class
         >
-          {t('hero_subtitle_pl')}
+          {t('hero_subtitle')}
         </motion.p>
 
         {/* CTA Button */}
@@ -75,7 +75,7 @@ const Hero = () => {
             duration={500}
             className="btn btn-primary" // Use custom CSS classes
           >
-            {t('hero_cta_pl', "Zobacz Opinie")} {/* Updated fallback text if needed */}
+            {t('hero_cta', "Zobacz Opinie")} {/* Updated fallback text if needed */}
           </ScrollLink>
         </motion.div>
       </div>

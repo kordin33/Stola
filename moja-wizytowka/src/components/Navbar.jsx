@@ -31,11 +31,11 @@ const Navbar = ({ theme, toggleTheme }) => {
   };
 
   const navLinks = [
-    { name: t('nav_hero_pl'), id: 'hero' },
-    { name: t('nav_about_pl'), id: 'about' },
-    { name: t('nav_offer_pl'), id: 'offer' },
-    { name: t('nav_portfolio_pl'), id: 'portfolio' },
-    { name: t('nav_contact_pl'), id: 'contact' },
+    { name: t('nav_hero'), id: 'hero' },
+    { name: t('nav_about'), id: 'about' },
+    { name: t('nav_offer'), id: 'offer' },
+    { name: t('nav_portfolio'), id: 'portfolio' },
+    { name: t('nav_contact'), id: 'contact' },
   ];
 
   return (

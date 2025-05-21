@@ -18,7 +18,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="about-title"
         >
-          {t('about_title_pl')}
+          {t('about_title')}
         </motion.h2>
 
         <div className="about-content-wrapper">
@@ -31,7 +31,7 @@ const About = () => {
           >
             <img
               src={aboutImage}
-              alt={t('about_image_alt_pl')}
+              alt={t('about_image_alt')}
               className="about-image"
             />
           </motion.div>
@@ -43,9 +43,11 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="about-text-container"
           >
-            <p className="about-description">
-              {t('opis_o_nas')}
-            </p>
+            <div className="about-description">
+              {t('opis_o_nas').split('\n\n').map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
             {/* + dodatkowe akapity lub listy wedle potrzeb */}
           </motion.div>
         </div>

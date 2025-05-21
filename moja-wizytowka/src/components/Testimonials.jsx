@@ -68,7 +68,7 @@ const Testimonials = () => {
           transition={{ duration: 0.5 }}
           className="testimonials-title text-center mb-12"
         >
-          {t('testimonials_title', "Co Mówią Nasi Klienci")}
+          {t('testimonials_title')}
         </motion.h2>
         <div className="testimonials-grid">
           {testimonialsData.map((testimonial) => (
