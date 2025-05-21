@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './Testimonials.css';
-import avatarKobieta1 from '../assets/BAUServ.png';
+import avatarKobieta1 from '../assets/BauService.jpg';
 import avatarFacet1 from '../assets/Human.png';
-import avatarFacet2 from '../assets/Fenubis.png';
+import avatarFacet2 from '../assets/Fenubis.webp';
 
 // Dane rekomendacji
 const testimonialsData = [
@@ -37,7 +37,7 @@ const testimonialsData = [
   },
 ];
 
-const TestimonialCard = ({ name, avatar, testimonial, company, lang }) => {
+const TestimonialCard = ({ id, name, avatar, testimonial, company, lang }) => {
   const currentTestimonial = testimonial[`testimonial_${lang}`] || testimonial['testimonial_pl'];
   return (
     <motion.div
@@ -47,7 +47,7 @@ const TestimonialCard = ({ name, avatar, testimonial, company, lang }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <img src={avatar} alt={name} className="testimonial-avatar" />
+      <img src={avatar} alt={name} className={`testimonial-avatar testimonial-avatar-${id}`} />
       <p className="testimonial-text">"{currentTestimonial}"</p>
       <p className="testimonial-author">- {name}, <span className="testimonial-company">{company}</span></p>
     </motion.div>
@@ -74,6 +74,7 @@ const Testimonials = () => {
           {testimonialsData.map((testimonial) => (
             <TestimonialCard
               key={testimonial.id}
+              id={testimonial.id} // Pass the id
               name={testimonial.name}
               avatar={testimonial.avatar}
               testimonial={{

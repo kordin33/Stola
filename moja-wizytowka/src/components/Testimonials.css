@@ -73,11 +73,30 @@
 }
 
 .testimonial-avatar {
-  width: 100px; /* w-24 */
-  height: 100px; /* h-24 */
+  width: 150px; /* Revert to original size */
+  height: 150px; /* Revert to original size */
   border-radius: 9999px; /* rounded-full */
-  margin: 0 auto 1.5rem auto; /* mx-auto mb-6 */
+  margin: 1.5rem auto; /* mx-auto mb-6 */
   object-fit: cover;
+  /* Default object-position */
+  object-position: center;
+  overflow: hidden; /* Hide content outside the rounded border */
+}
+
+/* Specific adjustments for each avatar */
+.testimonial-avatar-1 {
+  object-position: 50% 50%; /* Adjust as needed */
+  transform: scale(1.2); /* Scale image content */
+}
+
+.testimonial-avatar-2 {
+  object-position: 50% 50%; /* Adjust as needed */
+  transform: scale(1.2); /* Scale image content */
+}
+
+.testimonial-avatar-3 {
+  object-position: 60% 1%; /* Adjust as needed */
+  transform: scale(1.2); /* Scale image content */
 }
 
 .light-mode .testimonial-avatar {

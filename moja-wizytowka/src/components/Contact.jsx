@@ -47,28 +47,26 @@ const Contact = () => {
           {t('contact_title_pl', "Skontaktuj Się z Nami")}
         </motion.h2>
 
-        <div className="contact-grid"> {/* Wrapper for side-by-side layout */}
+        <div className="contact-grid"> {/* Wrapper for layout - will adjust for map */}
           {/* Contact Information (Left Side) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }} // Changed y to x for side animation
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="contact-info-block" // New class for styling
+            className="contact-info-block"
           >
             <h3 className="contact-subtitle mb-6">{t('contact_info_subtitle_pl', "Dane Kontaktowe")}</h3>
             <div className="contact-info-item">
               <p><strong>{contactDetails.companyName}</strong></p>
+              
             </div>
+           
             <div className="contact-info-item">
               <LocationIcon className="contact-info-icon animate-icon-attention" /> <p>{contactDetails.address}</p>
             </div>
-            <div className="contact-info-item">
-              <p><strong>NIP:</strong> {contactDetails.nip}</p>
-            </div>
-            <div className="contact-info-item">
-              <p><strong>Numer konta:</strong> {contactDetails.bankAccount}</p>
-            </div>
+           
+            
             <div className="contact-info-item">
               <PhoneIcon className="contact-info-icon animate-icon-attention" /> <p><a href={`tel:${contactDetails.phone.replace(/\s/g, '')}`}>{contactDetails.phone}</a></p>
             </div>
@@ -98,6 +96,31 @@ const Contact = () => {
             </div>
           </motion.div>
 
+          {/* Wrapper for Map and Form */}
+          <div className="contact-main-content-wrapper">
+            {/* Google Map Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }} // Adjusted delay
+            className="contact-map-block"
+          >
+            <h3 className="contact-subtitle mb-6">{t('contact_map_title_pl', "Nasza Lokalizacja")}</h3>
+            <div className="map-responsive-container">
+              <iframe
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(contactDetails.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                width="100%"
+                height="400" // Adjust height as needed
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={t('google_maps_title_pl', 'Mapa lokalizacji firmy BAU GREEN')}
+              ></iframe>
+            </div>
+          </motion.div>
+
           {/* Contact Form (Right Side) */}
           <motion.form
             initial={{ opacity: 0, x: 50 }} // Changed y to x for side animation
@@ -124,7 +147,8 @@ const Contact = () => {
               {t('contact_submit_button_pl', "Wyślij Wiadomość")}
             </button>
           </motion.form>
-        </div> {/* Closes contact-grid */}
+        </div> {/* Closes contact-main-content-wrapper */}
+      </div> {/* Closes contact-grid */}
       </div> {/* Closes container contact-container */}
     </section>
   );

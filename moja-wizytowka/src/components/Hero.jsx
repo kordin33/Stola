@@ -7,7 +7,7 @@ import './Hero.css'; // Import component-specific CSS
 // Import actual assets
 import heroBackground from '../assets/Stolarz_pracuje.jpg'; // Use the provided background image
 // import siteLogo from '../assets/Logo.png'; // Old PNG logo
-import siteLogoUrl from '../assets/logo.svg'; // Import SVG as a URL
+import siteLogoUrl from '../assets/Logo1.png'; // Import SVG as a URL
 
 const Hero = () => {
   const { t } = useTranslation();

@@ -30,18 +30,82 @@
   font-family: 'Montserrat', sans-serif; /* Heading font */
 }
 
-/* New grid layout for contact info and form */
-.contact-grid {
-  display: grid;
-  gap: 2rem; /* gap-8 */
+/* Styles for the contact form block */
+
+/* Styles for the Google Map block */
+.contact-map-block {
+  padding: 1.5rem; /* Consistent padding */
+  border-radius: 0.75rem; /* Consistent rounding */
+  /* Removed background-color, box-shadow, margin-bottom to be handled by themes or parent gap */
 }
 
+.map-responsive-container {
+  overflow: hidden;
+  padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+  position: relative;
+  height: 0;
+  border-radius: var(--border-radius-sm); /* Rounded corners for the map container */
+  border: 1px solid var(--border-color-light);
+}
+
+.dark-mode .map-responsive-container {
+  border-color: var(--border-color-dark);
+}
+
+.map-responsive-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: none; /* Ensure no default border from iframe */
+}
+
+/* Main grid for the contact section */
+.contact-grid {
+  display: grid;
+  gap: 2rem; /* Spacing between direct children of the grid */
+}
+
+/* Wrapper for map and form, to group them for layout purposes */
+.contact-main-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Spacing between map and form */
+}
+
+/* On medium screens and up, arrange info block and main content (map + form) side by side */
 @media (min-width: 768px) { /* md breakpoint */
   .contact-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
-    gap: 3rem; /* md:gap-12 */
+    grid-template-columns: 1fr; /* Stack on medium by default */
   }
 }
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .contact-grid {
+    grid-template-columns: 1fr 2fr; /* Info block takes 1 part, map+form wrapper takes 2 parts */
+    gap: 3rem; /* Increase gap on larger screens */
+    align-items: start; /* Added to prevent uneven vertical stretching */
+  }
+
+  .contact-info-block {
+    /* Styles for the info block if it needs specific adjustments in this layout */
+  }
+
+  .contact-main-content-wrapper {
+    /* Styles for the map and form wrapper */
+  }
+
+  .contact-map-block {
+    /* Map specific adjustments if needed */
+  }
+
+  .contact-form-block {
+    /* Form specific adjustments if needed */
+  }
+}
+
+
 
 .contact-info-block, .contact-form-block {
   padding: 1.5rem; /* p-6 */
@@ -54,6 +118,16 @@
 }
 
 .dark-mode .contact-info-block, .dark-mode .contact-form-block {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 0 10px -2px var(--shadow-dark); /* Subtle glow */
+}
+
+.light-mode .contact-map-block {
+  background-color: var(--card-bg-light);
+  box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-light); /* shadow-md equivalent */
+}
+
+.dark-mode .contact-map-block {
   background-color: var(--card-bg-dark);
   box-shadow: 0 0 10px -2px var(--shadow-dark); /* Subtle glow */
 }

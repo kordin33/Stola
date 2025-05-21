@@ -1,52 +1,52 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import './About.css'; // Import component-specific CSS
+import './About.css';
 
-// Import actual assets
-import aboutImage from '../assets/stolarz-1.jpeg'; // Changed to stolarz-1.png
+import aboutImage from '../assets/stolarz-1.jpeg';
 
 const About = () => {
   const { t } = useTranslation();
-  // TODO: Add actual content for the About section (PL/EN/DE)
 
   return (
-    <section id="about" className="about-section"> {/* Use custom CSS class */}
-      <div className="container about-container"> {/* Use custom CSS class and global container */}
+    <section id="about" className="about-section">
+      <div className="container about-container">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="about-title" // Use custom CSS class
+          className="about-title"
         >
           {t('about_title_pl')}
         </motion.h2>
 
-        <div className="about-content-wrapper"> {/* Use custom CSS class */}
-          {/* Image */}
+        <div className="about-content-wrapper">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="about-image-container" // Use custom CSS class
+            className="about-image-container"
           >
-            <img src={aboutImage} alt={t('about_image_alt_pl')} className="about-image" /> {/* Use actual image and custom CSS class */}
+            <img
+              src={aboutImage}
+              alt={t('about_image_alt_pl')}
+              className="about-image"
+            />
           </motion.div>
 
-          {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="about-text-container" // Use custom CSS class
+            className="about-text-container"
           >
-            <p className="about-description"> {/* Use custom CSS class */}
+            <p className="about-description">
               {t('opis_o_nas')}
             </p>
-            {/* TODO: Add more paragraphs or list if needed */}
+            {/* + dodatkowe akapity lub listy wedle potrzeb */}
           </motion.div>
         </div>
       </div>

@@ -2,7 +2,7 @@
   position: fixed;
   width: 100%;
   z-index: 50;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(11px);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -17,9 +17,9 @@
 }
 
 .navbar-container {
-  max-width: 1200px;
+  max-width: 1900px;
   margin: 0 auto;
-  padding: 0 1.5rem; /* Increased padding */
+  padding: 0 20 rem; /* Increased padding */
 }
 
 .navbar-header {
@@ -29,7 +29,7 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   position: relative; /* Zachowano position: relative */
-  /* Usunięto z-index z nagłówka, polegamy na z-index kontenera logo */
+  
 }
 
 /* Dodajemy kontener dla logo w navbarze dla lepszej kontroli z-index */
@@ -37,6 +37,7 @@
   position: relative; /* Zachowano position: relative */
   z-index: 60; /* Bardzo wysoki z-index na kontenerze logo */
   transform: translateZ(0); /* Dodano, aby wymusić nowy kontekst stosu */
+  
 }
 
 .navbar-motion-logo { /* Nowa klasa dla motion.div logo */
@@ -45,10 +46,11 @@
 }
 
 .navbar-logo-image { /* Style for the actual logo image */
-  max-height: 40px; /* Adjust as needed */
+  max-height: 50px; /* Adjust as needed */
   width: auto;
   display: block; /* Dla pewności, że transformacje i z-index działają poprawnie */
   position: relative; /* Zachowano position: relative */
+  transition: background-color 0.9s ease, box-shadow 0.3s ease;
   /* Usunięto z-index z obrazka, polegamy na z-index kontenera */
   /* Consider adding a filter for better visibility on different backgrounds if needed */
   /* .light-mode & { filter: brightness(0.8); } */ /* Example: darken logo slightly on light bg */
