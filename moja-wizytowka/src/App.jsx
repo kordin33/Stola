@@ -11,6 +11,7 @@ import Testimonials from './components/Testimonials'; // Import Testimonials com
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer'; // Import Footer component
+import ScrollToTopButton from './components/ScrollToTopButton'; // Import ScrollToTopButton
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -47,6 +48,7 @@ function App() {
           <Portfolio />
           <Contact />
           <Footer />
+          <ScrollToTopButton /> {/* Add ScrollToTopButton here */}
         </div>
       )}
     </I18nextProvider>

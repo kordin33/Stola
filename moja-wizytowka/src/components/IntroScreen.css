@@ -4,121 +4,47 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: #0e0e0e; */ /* Base color */
-  background: linear-gradient(135deg, #0a0a0a, #121212); /* Gradient background */
-  display: flex; /* Keep for centering */
-  align-items: center; /* Keep for centering */
-  justify-content: center; /* Keep for centering */
-  z-index: 9999;
-  pointer-events: none; /* Allow clicks to pass through to content below if intro is transparent or partially visible */
-  overflow: hidden; /* Prevent glare from showing outside */
-}
-
-.intro-background-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Gradient from MCP, adjusted for standard CSS */
-  background: linear-gradient(135deg, rgba(14, 14, 14, 0.3), transparent, rgba(14, 14, 14, 0.2));
-  z-index: 1; /* Behind content */
-  overflow: hidden; /* Ensure mover doesn't overflow */
-}
-
-.intro-background-mover {
-  position: absolute;
-  top: -10%; /* Start slightly outside to avoid edges during movement */
-  left: -10%;
-  width: 120%; /* Larger than screen to allow for movement */
-  height: 120%;
-  background: radial-gradient(circle at center, rgba(50,50,50,0.2) 0%, rgba(18,18,18,0.1) 30%, transparent 70%),
-              linear-gradient(160deg, rgba(20,20,20,0.1) 0%, rgba(30,30,30,0.2) 50%, rgba(20,20,20,0.1) 100%);
-  background-size: 200% 200%; /* For gradient animation if backgroundPosition is used */
-  z-index: 0; /* Behind overlay's direct content if any, but part of overlay */
-}
-
-.intro-content-centered {
-  position: relative; /* For z-indexing of glare/reflection */
-  text-align: center;
-  color: white;
-  z-index: 2; /* Above background overlay */
+  background-color: #181818; /* Dark neutral background, adjust if needed */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack logo and subtitle vertically */
   align-items: center;
   justify-content: center;
-  padding: 1rem; /* For smaller screens */
+  z-index: 9999;
+  pointer-events: auto; /* Ensure it captures events while visible */
+  overflow: hidden;
 }
 
-.intro-logo-wrapper {
-  position: relative; /* For glare and reflection positioning */
-  overflow: hidden; /* To contain glare */
-  margin-bottom: 1rem; /* Spacing from existing .intro-logo */
+.intro-logo-svg {
+  width: 60%; /* Responsive width */
+  max-width: 250px; /* Max size for larger screens */
+  height: auto;
+  margin-bottom: 2rem; /* Space between logo and subtitle */
 }
 
-.intro-logo-text { /* Renamed from .intro-logo to avoid conflict if old styles remain */
-  font-size: 3rem; /* Base size */
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  /* color: white; */ /* Usunięto - kolor bazowy będzie z gradientu */
-  position: relative; /* For z-index if needed */
-  z-index: 10; /* Ensure text is above reflection */
-
-  display: block !important; /* Zapewnienie, że element jest blokowy dla background-clip */
-  -webkit-text-fill-color: transparent !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: #FAF0E6; /* Kolor dla text-shadow i jako fallback */
-
-  /* Pierwszy gradient to błysk (węższy), drugi to stały kolor tekstu */
-  background-image: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.8) 55%, transparent 100%), linear-gradient(to right, #FAF0E6, #FAF0E6);
-  background-size: 250% 100%, 100% 100%; /* Błysk nieco węższy, ale nadal szerszy niż tekst dla płynności */
-  background-position: -125% 0, 0 0; /* Start błysku bardziej na lewo */
-  background-repeat: no-repeat, no-repeat; /* Ważne dla wielu teł */
-  
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Dodano cień */
-  background-origin: border-box; /* Zachowano */
-}
-
-
-.intro-glass-reflection {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Gradient from MCP, adjusted for standard CSS */
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
-  border-radius: 0.5rem; /* rounded-lg */
-  /* backdrop-filter: blur(1px); */ /* May be performance intensive, use with caution */
-  z-index: 5; /* Below text, above wrapper background if any */
-  opacity: 0; /* Controlled by framer-motion */
-}
-
-
-.intro-subtitle-text { /* Renamed from .intro-subtitle */
-  font-size: 1.25rem; /* Base size */
+.intro-subtitle-text {
+  font-size: 1.2rem; /* Base size */
   font-family: 'Roboto', sans-serif;
-  color: rgba(243, 244, 246, 0.6); /* text-white/60 */
-  letter-spacing: 0.05em; /* tracking-wider */
-  margin-top: 1rem; /* mt-4 */
+  color: rgba(243, 244, 246, 0.7); /* Light text color, slightly transparent */
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0 1rem; /* Padding for smaller screens */
 }
 
 /* Responsive adjustments */
 @media (min-width: 768px) { /* md breakpoint */
-  .intro-logo-text {
-    font-size: 5rem; /* md:text-5xl (original was 6rem, adjusted for balance) */
-    /* display: block !important; */ /* Już jest w głównej regule */
-    /* -webkit-text-fill-color: transparent !important; */ /* Już jest w głównej regule */
-    /* background-origin: border-box; */ /* Już jest w głównej regule */
-    /* background-repeat: no-repeat; */ /* Już jest w głównej regule i inaczej skonfigurowane */
-    /* -webkit-background-clip: text !important; */ /* Już jest w głównej regule */
-    /* background-clip: text !important; */ /* Już jest w głównej regule */
-    /* color: transparent !important; */ /* Usunięto, kolor bazowy z głównej reguły */
-    /* background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent) !important; */ /* Usunięto, dziedziczy z głównej reguły */
+  .intro-logo-svg {
+    max-width: 300px; /* Slightly larger logo on medium screens */
   }
   .intro-subtitle-text {
-    font-size: 1.5rem; /* md:text-base (original was 1.8rem) */
+    font-size: 1.4rem; 
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .intro-logo-svg {
+    max-width: 350px; /* Larger logo on large screens */
+  }
+  .intro-subtitle-text {
+    font-size: 1.6rem;
   }
 }

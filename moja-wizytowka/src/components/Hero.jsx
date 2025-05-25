@@ -16,7 +16,7 @@ const Hero = () => {
   const backgroundImage = heroBackground;
 
   // Using the SVG logo as an image
-  const Logo = () => <img src={siteLogoUrl} alt="StolarzNowoczesny Logo" className="hero-logo-image" />;
+  const Logo = () => <img src={siteLogoUrl} alt={t('hero_logo_alt', 'BauGreen Logo')} className="hero-logo-image" />;
 
   return (
     <motion.section // Animate the section itself

@@ -18,7 +18,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="footer-col company-info">
             <img src={siteLogo} alt={t('site_title')} className="footer-logo" /> {/* Use actual logo and translated alt text */}
-            <p className="company-description">{t('BauGreen ')}</p> {/* Use translated description */}
+            <p className="company-description">{t('footer_company_description', 'BauGreen specjalizuje się w kompleksowej budowie i montażu konstrukcji stalowych oraz aluminiowych, oferując również profesjonalne usługi spawalnicze.')}</p> {/* Use translated description */}
           </div>
 
          

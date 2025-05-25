@@ -15,7 +15,7 @@ const Navbar = ({ theme, toggleTheme }) => {
   const Logo = () => (
     <img
       src={siteLogoUrl}
-      alt="StolarzNowoczesny Logo"
+      alt={t('navbar_logo_alt', 'BauGreen Logo')}
       className="navbar-logo-image"
     />
   );

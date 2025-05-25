@@ -28,9 +28,9 @@ const Contact = () => {
 
   // Przykładowe dane dla placeholderów formularza (można je też przenieść do i18n)
   const formPlaceholders = {
-    name: t('contact_name_placeholder_pl', "Twoje Imię"),
-    email: t('contact_email_placeholder_pl', "Twój Email"),
-    message: t('contact_message_placeholder_pl', "Twoja Wiadomość")
+    name: t('contact_name_placeholder', "Twoje Imię"),
+    email: t('contact_email_placeholder', "Twój Email"),
+    message: t('contact_message_placeholder', "Twoja Wiadomość")
   };
 
 
@@ -64,10 +64,10 @@ const Contact = () => {
               <LocationIcon className="contact-info-icon animate-icon-attention" /> <p>{contactDetails.address}</p>
             </div>
             <div className="contact-info-item">
-              <p><strong>NIP:</strong> {contactDetails.nip}</p>
+              <p><strong>{t('contact_nip_label', 'NIP:')}</strong> {contactDetails.nip}</p>
             </div>
             <div className="contact-info-item">
-              <p><strong>Numer konta:</strong> {contactDetails.bankAccount}</p>
+              <p><strong>{t('contact_bank_account_label', 'Numer konta:')}</strong> {contactDetails.bankAccount}</p>
             </div>
             <div className="contact-info-item">
               <PhoneIcon className="contact-info-icon animate-icon-attention" /> <p><a href={`tel:${contactDetails.phone.replace(/\s/g, '')}`}>{contactDetails.phone}</a></p>
@@ -79,7 +79,7 @@ const Contact = () => {
               <EmailIcon className="contact-info-icon animate-icon-attention" /> <p><a href={`mailto:${contactDetails.email2}`}>{contactDetails.email2}</a></p>
             </div>
             <div className="contact-info-item">
-              <p><strong>Osoba kontaktowa:</strong> {contactDetails.contactPerson}</p>
+              <p><strong>{t('contact_person_label', 'Osoba kontaktowa:')}</strong> {contactDetails.contactPerson}</p>
             </div>
             {/* Social Media Links */}
             <div className="social-media-section mt-8">
@@ -125,6 +125,27 @@ const Contact = () => {
             </button>
           </motion.form>
         </div> {/* Closes contact-grid */}
+
+        {/* Google Maps Embed */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="map-container mt-12" // Added margin top
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156380.53998300223!2d20.92111203205764!3d52.233021920448005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f00ea32152fd2e!2sWarsaw%2C%20Poland!5e0!3m2!1sen!2sus!4v1678886460000!5m2!1sen!2sus"
+            width="100%" // Changed to 100% for responsiveness
+            height="450"
+            style={{ border:0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title={t('google_maps_title_pl', "Mapa Google z lokalizacją Warszawa, Polska")} // Added title for accessibility
+          ></iframe>
+        </motion.div>
+
       </div> {/* Closes container contact-container */}
     </section>
   );

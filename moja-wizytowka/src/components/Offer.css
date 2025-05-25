@@ -1,14 +1,17 @@
 .offer-section {
   padding: 4rem 0; /* section-padding */
-  background-color: white; /* bg-white */
-  color: #343a40; /* text-gray-800 */
   font-family: 'Roboto', sans-serif; /* font-sans */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+.light-mode .offer-section {
+  background-color: var(--section-bg-light);
+  color: var(--text-main-light);
+}
+
 .dark-mode .offer-section {
-  background-color: #212529; /* dark:bg-gray-900 */
-  color: white; /* dark:text-white */
+  background-color: var(--section-bg-dark);
+  color: var(--text-main-dark);
 }
 
 .offer-container {
@@ -32,17 +35,22 @@
 }
 
 .offer-item-card {
-  background-color: #f8f9fa; /* bg-gray-100 */
   padding: 1.5rem; /* p-6 */
   border-radius: 0.5rem; /* rounded-lg */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
   text-align: center;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+}
+
+.light-mode .offer-item-card {
+  background-color: var(--card-bg-light);
+  color: var(--text-main-light); /* Ensure text color contrasts with card background */
+  box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-light); /* shadow-md equivalent */
 }
 
 .dark-mode .offer-item-card {
-  background-color: #343a40; /* dark:bg-gray-800 */
-  color: #edebe8; /* text-wood-100 */
+  background-color: var(--card-bg-dark);
+  color: var(--text-main-dark); /* Ensure text color contrasts with card background */
+  box-shadow: 0 0 10px -2px var(--shadow-dark); /* Subtle glow */
 }
 
 .offer-item-icon {
@@ -65,11 +73,17 @@
 }
 
 .offer-item-description {
-  color: #495057; /* text-gray-700 (using metal-700) */
+  /* color is inherited from .offer-item-card, or can be set to a secondary text color if available */
+  /* For example, if secondary text color variables were defined: */
+  /* color: var(--text-secondary-light); */
+}
+
+.light-mode .offer-item-description {
+   color: var(--icon-color-secondary-light); /* Using a slightly muted text color */
 }
 
 .dark-mode .offer-item-description {
-  color: #ced4da; /* dark:text-gray-300 (using metal-300) */
+  color: var(--icon-color-secondary-dark); /* Using a slightly muted text color */
 }
 
 

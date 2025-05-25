@@ -193,13 +193,13 @@
 
 .light-mode .contact-form-block .btn-primary {
   background-color: var(--accent-light);
-  color: var(--button-text-light);
+  color: var(--bg-main-light); /* Aligned with index.css */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
 }
 
 .dark-mode .contact-form-block .btn-primary {
   background-color: var(--accent-dark);
-  color: var(--button-text-dark);
+  color: var(--bg-main-dark); /* Aligned with index.css */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12); /* shadow-md, adjusted for dark */
 }
 
@@ -325,4 +325,39 @@
 .contact-info-icon.animate-icon-attention {
   /* Specific styles for animated contact info icons if needed,
      otherwise, the .animate-icon-attention class handles it. */
+}
+
+/* Google Maps Integration */
+.map-container {
+  border-radius: 0.75rem; /* match card rounding */
+  overflow: hidden; /* Ensures the iframe corners are also rounded */
+  position: relative; /* For potential aspect ratio control if needed */
+}
+
+.light-mode .map-container {
+  box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-light);
+}
+
+.dark-mode .map-container {
+  box-shadow: 0 0 10px -2px var(--shadow-dark);
+}
+
+.map-container iframe {
+  display: block; /* Removes extra space below iframe */
+  width: 100%;
+  height: 450px; /* Default height, can be adjusted */
+  border: none; /* Remove default iframe border */
+}
+
+/* Responsive adjustments for the map height */
+@media (max-width: 768px) {
+  .map-container iframe {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-container iframe {
+    height: 250px;
+  }
 }

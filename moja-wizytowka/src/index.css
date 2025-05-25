@@ -2,6 +2,7 @@
 :root {
   /* Light Theme (default) */
   --bg-main-light: #f3f3f3; /* Off-white with lekko kremowym tonem */
+  --bg-gradient-light: linear-gradient(180deg, var(--bg-main-light) 0%, #e8e8f0 100%);
   --text-main-light: #111827; /* Głęboki grafit */
   --accent-light: #1e3a8a; /* Navy */
   --accent-secondary-light: #f59e0b; /* Amber */
@@ -13,6 +14,7 @@
 
   /* Dark Theme */
   --bg-main-dark: #121212; /* Głębia, neutralna czerń */
+  --bg-gradient-dark: linear-gradient(180deg, var(--bg-main-dark) 0%, #181820 100%);
   --text-main-dark: #F3F4F6; /* Delikatny off-white */
   --accent-dark: #FACC15; /* Amber-400 */
   --accent-secondary-dark: #3B82F6; /* Blue-500 */
@@ -31,12 +33,14 @@ body {
 }
 
 body.light-mode {
-  background-color: var(--bg-main-light);
+  background-color: var(--bg-main-light); /* Fallback */
+  background-image: var(--bg-gradient-light);
   color: var(--text-main-light);
 }
 
 body.dark-mode {
-  background-color: var(--bg-main-dark);
+  background-color: var(--bg-main-dark); /* Fallback */
+  background-image: var(--bg-gradient-dark);
   color: var(--text-main-dark);
 }
 
