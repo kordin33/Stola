@@ -37,9 +37,7 @@
 }
 
 @media (min-width: 768px) {
-  .about-title {
-    text-align: left;
-  }
+  /* .about-title text-align: left; was removed to keep it centered */
 }
 
 .light-mode .about-title {
@@ -130,7 +128,7 @@
 @media (min-width: 768px) {
   .about-content-wrapper {
     flex-direction: row;
-    align-items: flex-start; /* Align items to the top */
+    align-items: flex-end; /* Align items to the bottom */
     gap: 2.5rem; /* Adjusted gap */
   }
   .about-image-container {
