@@ -1,5 +1,5 @@
 .portfolio-section {
-  padding: 4rem 0; /* section-padding */
+  padding: 2rem 0; /* section-padding, reduced */
   font-family: 'Roboto', sans-serif; /* font-sans */
 }
 
@@ -23,7 +23,7 @@
   font-size: 2.5rem; /* text-4xl */
   font-weight: 700; /* font-bold */
   text-align: center;
-  margin-bottom: 3rem; /* mb-12 */
+  margin-bottom: 2rem; /* mb-8, reduced */
   font-family: 'Montserrat', sans-serif; /* Heading font */
 }
 
@@ -37,12 +37,43 @@
 .portfolio-items-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
-  gap: 2rem; /* gap-8 */
+  gap: 1rem; /* gap-4, further reduced gap */
 }
 
 @media (min-width: 768px) { /* md breakpoint */
   .portfolio-items-grid {
-    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for the desired layout, back to equal width */
+    grid-template-rows: 0.7fr 1.3fr; /* Adjust row heights for asymmetric layout */
+    gap: 1rem; /* gap-4, further reduced gap */
+    max-height: 650px; /* Set a maximum height for the grid container */
+    align-items: stretch; /* Ensure grid items stretch to fill the height of their cells */
+  }
+
+  .portfolio-item { /* Apply height 100% to all items in this layout */
+    height: 100%; /* Restore explicit height */
+    /* min-height: 100%; */ /* Removed explicit min-height */
+  }
+
+  .portfolio-item-image { /* Ensure image behaves correctly within flex/grid */
+    min-height: 0; /* Prevent flex item from preventing shrinking below content size */
+    height: 100%; /* Make image fill the height of its container */
+  }
+
+  .portfolio-item:nth-child(1) { /* Style for the first tile */
+    grid-column: 1; /* Place in the first column */
+    grid-row: 1 / span 2; /* Span two rows */
+    /* height: 100%; /* Ensure the item fills the full height of the grid rows */ /* Moved to general .portfolio-item rule */
+  }
+
+  .portfolio-item:nth-child(2) { /* Style for the second tile */
+    grid-column: 2; /* Place in the second column */
+    grid-row: 1; /* Place in the first row */
+  }
+
+  .portfolio-item:nth-child(3) { /* Style for the third tile */
+    grid-column: 2; /* Place in the second column */
+    grid-row: 2; /* Place in the second row */
   }
 }
 
@@ -52,6 +83,8 @@
   overflow: hidden; /* Ensure overlay stays within bounds */
   border-radius: 0.75rem; /* rounded-xl, increased rounding */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for box-shadow and transform */
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column; /* Stack image and caption vertically */
 }
 
 .light-mode .portfolio-item {
@@ -77,10 +110,11 @@
 .portfolio-item-image {
   display: block;
   width: 100%;
-  height: 250px; /* Fixed height for images */
+  height: 100%; /* Make image fill the height of its container */
   object-fit: cover; /* Ensure images cover the area, might crop */
   transition: transform 0.3s ease;
   border-radius: 0.75rem 0.75rem 0 0; /* Rounded top corners if caption is below */
+  flex-grow: 1; /* Allow image to grow and fill available space */
 }
 
 .portfolio-item:hover .portfolio-item-image {

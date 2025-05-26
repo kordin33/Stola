@@ -98,7 +98,7 @@ const IntroScreen = ({ onAnimationComplete }) => {
             }}
             className="intro-logo-text"
           >
-            {t('hero_title_pl')}
+            {t('BauGreen')}
           </motion.div>
 
           {/* Glass reflection - will be styled in CSS */}
@@ -121,7 +121,7 @@ const IntroScreen = ({ onAnimationComplete }) => {
           }}
           className="intro-subtitle-text"
         >
-          {t('hero_subtitle_pl')}
+          {t('Tworzymy z Pasją')}
         </motion.p>
       </div>
     </motion.div>

@@ -85,7 +85,7 @@
   .contact-grid {
     grid-template-columns: 1fr 2fr; /* Info block takes 1 part, map+form wrapper takes 2 parts */
     gap: 3rem; /* Increase gap on larger screens */
-    align-items: start; /* Added to prevent uneven vertical stretching */
+    align-items: stretch; /* Explicitly stretch items for better alignment */
   }
 
   .contact-info-block {
@@ -93,11 +93,19 @@
   }
 
   .contact-main-content-wrapper {
-    /* Styles for the map and form wrapper */
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto; /* Map takes available space, form auto */
+    gap: 2rem; /* Spacing between map and form */
   }
 
   .contact-map-block {
-    /* Map specific adjustments if needed */
+    height: 100%; /* Allow map block to fill its grid row */
+    display: flex; /* Use flex to make child (map-responsive-container) fill height */
+    flex-direction: column;
+  }
+
+  .map-responsive-container {
+    flex-grow: 1; /* Allow map container to grow and fill space within map-block */
   }
 
   .contact-form-block {

@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import './Portfolio.css'; // Import component-specific CSS
 
 // Import actual assets
-import portfolioImage1 from '../assets/cezary_baryka.png'; // Use provided image
-import portfolioImage2 from '../assets/Dzwi.png'; // Use provided image
-import portfolioImage3 from '../assets/Window.jpg'; // Use provided image
+import portfolioImage1 from '../assets/Dzwi.png'; // Use provided image
+import portfolioImage2 from '../assets/Window.jpg'; // Use provided image
+import portfolioImage3 from '../assets/cezary_baryka.png'; // Use provided image
 
 
 const Portfolio = () => {
@@ -32,12 +32,6 @@ const Portfolio = () => {
       image: portfolioImage3, // Use actual image
       alt: t('portfolio_image_3_alt'),
       caption: t('portfolio_caption_3'),
-    },
-    {
-      id: 4,
-      image: portfolioImage1, // Use actual image (reused from item 1)
-      alt: t('portfolio_image_4_alt'), // Placeholder, to be updated
-      caption: t('portfolio_caption_4'), // Placeholder, to be updated
     },
     // TODO: Add more portfolio items as needed and replace placeholder images
   ];

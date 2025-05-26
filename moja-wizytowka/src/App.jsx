@@ -43,8 +43,8 @@ function App() {
           <Hero />
           <About />
           {/* <Offer /> */} {/* Offer component removed */}
-          <Testimonials /> {/* Add Testimonials component here */}
           <Portfolio />
+          <Testimonials /> {/* Add Testimonials component here */}
           <Contact />
           <Footer />
         </div>
