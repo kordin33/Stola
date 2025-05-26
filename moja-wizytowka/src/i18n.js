@@ -8,7 +8,7 @@ const resources = {
   pl: {
     translation: {
       // Hero Section
-      hero_title: 'BAU GREEN',
+      hero_title: 'BauGreen',
       hero_subtitle: 'Tworzymy unikalne projekty z pasją.',
       hero_cta: 'Odkryj Naszą Ofertę',
 
@@ -23,7 +23,7 @@ const resources = {
       // About Section
       about_title: 'Poznaj Naszą Historię',
       about_image_alt: 'Nowoczesne wnętrze z drewnianymi elementami',
-      opis_o_nas: "Firma BAU GREEN działa na rynku od 2023 roku, jednak jej obecna forma to efekt nowego podejścia i kierunku, który nadał jej Karol Sobocik po przejęciu działalności.\n\nKarol zdobywał doświadczenie w Niemczech, gdzie nauczył się, czym jest prawdziwa jakość w montażu i sprzedaży stolarki otworowej. Pracując na wymagającym rynku niemieckim, poznał nowoczesne technologie i standardy montażu, które dziś stara się przenieść na polski grunt – oferując klientom usługi na europejskim poziomie.\n\nObecnie BAU GREEN prowadzi działalność zarówno w Polsce, jak i w Niemczech. Współpracujemy z wieloma partnerami z Niemiec, zapewniając kompleksową obsługę w zakresie sprzedaży i montażu okien, drzwi oraz rolet. Naszym priorytetem jest rzetelność, terminowość i dbałość o każdy detal wykonania – dokładnie tak, jak robi się to u naszych zachodnich sąsiadów.",
+      opis_o_nas: "Firma BauGreen działa na rynku od 2023 roku, jednak jej obecna forma to efekt nowego podejścia i kierunku, który nadał jej Karol Sobocik po przejęciu działalności.\n\nKarol zdobywał doświadczenie w Niemczech, gdzie nauczył się, czym jest prawdziwa jakość w montażu i sprzedaży stolarki otworowej. Pracując na wymagającym rynku niemieckim, poznał nowoczesne technologie i standardy montażu, które dziś stara się przenieść na polski grunt – oferując klientom usługi na europejskim poziomie.\n\nObecnie BauGreen prowadzi działalność zarówno w Polsce, jak i w Niemczech. Współpracujemy z wieloma partnerami z Niemiec, zapewniając kompleksową obsługę w zakresie sprzedaży i montażu okien, drzwi oraz rolet. Naszym priorytetem jest rzetelność, terminowość i dbałość o każdy detal wykonania – dokładnie tak, jak robi się to u naszych zachodnich sąsiadów.",
 
       // Offer Section
       offer_title: 'Co Możemy Dla Ciebie Zrobić?',
@@ -42,17 +42,17 @@ const resources = {
       portfolio_caption_2: 'Elegancka szafa wnękowa',
       portfolio_image_3_alt: 'Realizacja nietypowej zabudowy',
       portfolio_caption_3: 'Kreatywna zabudowa pod schodami',
-      portfolio_image_4_alt: 'Czwarty projekt portfolio',
-      portfolio_caption_4: 'Opis czwartego projektu portfolio',
+      portfolio_image_4_alt: 'Czeska Sauna',
+      portfolio_caption_4: 'Czeska Sauna',
 
       // Contact Section
       contact_title: 'Skontaktuj Się z Nami',
       contact_info: 'Masz pytania? Chętnie na nie odpowiemy. Wypełnij formularz lub zadzwoń.',
       contact_name_placeholder: 'Twoje Imię',
-      contact_email_placeholder: 'Twój Email',
+      contact_email_placeholder: 'Twój E-mail',
       contact_message_placeholder: 'Twoja Wiadomość',
       contact_submit_button: 'Wyślij Wiadomość',
-      contact_company_name: "BAUGREEN SP Z O O (w komunikacji handlowej: BAU GREEN)",
+      contact_company_name: "BAUGREEN sp.z o.o.(w komunikacji handlowej: BAU GREEN)",
       contact_address: "Raciborska 97, 47-480 Maków, Polska",
       contact_nip: "PL6472603097",
       contact_phone: "+48 609 320 236",
@@ -65,22 +65,22 @@ const resources = {
       twitter_aria_label: "Twitter",
       instagram_aria_label: "Instagram",
       contact_map_title: "Nasza Lokalizacja",
-      google_maps_title: "Mapa lokalizacji firmy BAU GREEN",
+      google_maps_title: "Mapa lokalizacji firmy BauGreen",
       contact_form_subtitle: "Napisz do Nas",
       contact_label_name: "Imię",
-      contact_label_email: "Email",
+      contact_label_email: "E-mail",
       contact_label_message: "Wiadomość",
 
       // Footer
       footer_text: `© ${new Date().getFullYear()} StolarzNowoczesny. Wszelkie prawa zastrzeżone.`,
       testimonials_title: "Co Mówią Nasi Klienci",
-      footer_company_description: "Firma BAU GREEN działa na rynku od 2023 roku, specjalizując się w sprzedaży i montażu stolarki otworowej. Oferujemy wysokiej jakości okna, drzwi i rolety, działając zarówno w Polsce, jak i w Niemczech.",
+      footer_company_description: "Firma BauGreen działa na rynku od 2023 roku, specjalizując się w sprzedaży i montażu stolarki otworowej. Oferujemy wysokiej jakości okna, drzwi i rolety, działając zarówno w Polsce, jak i w Niemczech.",
     },
   },
   en: {
     translation: {
       // Hero Section
-      hero_title: 'Modern Custom Furniture',
+      hero_title: 'BauGreen',
       hero_subtitle: 'We create unique designs with a passion for wood.',
       hero_cta: 'Discover Our Offer',
 
@@ -93,9 +93,9 @@ const resources = {
       nav_contact: 'Contact',
 
       // About Section
-      about_title: 'Discover Our Story',
+      about_title: 'Learn About Our Story',
       about_image_alt: 'Modern interior with wooden elements',
-      opis_o_nas: "Od lat tworzymy wysokiej jakości drewniane ramy okienne, łącząc tradycyjne rzemiosło z nowoczesną technologią. Specjalizujemy się w produkcji okien, które wyróżniają się trwałością, estetyką oraz doskonałą izolacją termiczną i akustyczną.Każde zlecenie traktujemy indywidualnie — od projektu, przez selekcję materiałów, aż po precyzyjne wykończenie. Pracujemy wyłącznie na sprawdzonym drewnie z certyfikowanych źródeł, dbając o środowisko i zadowolenie naszych klientów. Naszą misją jest tworzenie okien, które nie tylko chronią i izolują, ale też stanowią element stylu i charakteru każdego wnętrza.",
+      opis_o_nas: "BauGreen has been on the market since 2023, but its current form is the result of a new approach and direction that Karol Sobocik gave it after taking over the business.\n\nKarol gained experience in Germany, where he learned what true quality is in the installation and sale of joinery. Working in the demanding German market, he learned modern technologies and installation standards, which today he is trying to transfer to the Polish ground - offering European-level services to customers.\n\nToday BauGreen operates both in Poland and Germany. We work with many partners from Germany, providing comprehensive services in the sale and installation of windows, doors and roller shutters. Our priority is reliability, timeliness and attention to every detail of workmanship - exactly as it is done in our western neighbors.",
 
       // Offer Section
       offer_title: 'What Can We Do For You?',
@@ -108,23 +108,23 @@ const resources = {
 
       // Portfolio Section
       portfolio_title: 'See Our Projects',
-      portfolio_image_1_alt: 'Kitchen project realization',
+      portfolio_image_1_alt: 'Kitchen Design Implementation',
       portfolio_caption_1: 'Modern kitchen with an island',
-      portfolio_image_2_alt: 'Wardrobe project realization',
-      portfolio_caption_2: 'Elegant built-in wardrobe',
-      portfolio_image_3_alt: 'Custom built-in realization',
-      portfolio_caption_3: 'Creative under-stairs storage',
-      portfolio_image_4_alt: 'Fourth portfolio project',
-      portfolio_caption_4: 'Description of the fourth portfolio project',
+      portfolio_image_2_alt: 'Implementation of the Wardrobe Project',
+      portfolio_caption_2: 'Elegant built-in closet',
+      portfolio_image_3_alt: 'Implementation of non-standard development',
+      portfolio_caption_3: 'Creative build-up under the stairs',
+      portfolio_image_4_alt: 'Czech Sauna',
+      portfolio_caption_4: 'Czech Sauna',
 
       // Contact Section
       contact_title: 'Contact Us',
-      contact_info: 'Have questions? We are happy to answer them. Fill out the form or call us.',
+      contact_info: 'Do you have any questions? We will be happy to answer them. Fill out the form or call us!',
       contact_name_placeholder: 'Your Name',
-      contact_email_placeholder: 'Your Email',
+      contact_email_placeholder: 'Your E-mail',
       contact_message_placeholder: 'Your Message',
       contact_submit_button: 'Send Message',
-      contact_company_name: "BAUGREEN SP Z O O (commercial communication: BAU GREEN)",
+      contact_company_name: "BAUGREEN sp.z o.o. (commercial communication: BAU GREEN)",
       contact_address: "Raciborska 97, 47-480 Maków, Poland",
       contact_nip: "PL6472603097",
       contact_phone: "+48 609 320 236",
@@ -146,31 +146,31 @@ const resources = {
       // Footer
       footer_text: `© ${new Date().getFullYear()} ModernCarpenter. All rights reserved.`,
       testimonials_title: "What Our Clients Say",
-      footer_company_description: "BAU GREEN has been operating on the market since 2023, specializing in the sale and installation of windows, doors, and blinds. We offer high-quality products and operate in both Poland and Germany.",
+      footer_company_description: "BauGreen has been on the market since 2023, but its current form is the result of a new approach and direction that Karol Sobocik gave it after taking over the business.Karol gained experience in Germany, where he learned what true quality is in the installation and sale of joinery. Working in the demanding German market, he learned modern technologies and installation standards, which today he is trying to transfer to the Polish ground - offering European-level services to customers.Today BAU GREEN operates both in Poland and Germany. We work with many partners from Germany, providing comprehensive services in the sale and installation of windows, doors and roller shutters. Our priority is reliability, timeliness and attention to every detail of workmanship - exactly as it is done in our western neighbors.",
     },
   },
   de: {
     translation: {
       // Hero Section
-      hero_title: 'Moderne Maßmöbel',
-      hero_subtitle: 'Wir schaffen einzigartige Designs mit Leidenschaft für Holz.',
+      hero_title: 'BauGreen',
+      hero_subtitle: 'Wir entwerfen einzigartige Designs mit Leidenschaft.',
       hero_cta: 'Entdecken Sie Unser Angebot',
 
       // Navbar
-      site_title: 'ModernerTischler',
+      site_title: 'SchreinerModern',
       nav_hero: 'Startseite',
-      nav_about: 'Über Uns',
+      nav_about: 'Über das Unternehmen',
       nav_offer: 'Angebot',
-      nav_portfolio: 'Projekte',
+      nav_portfolio: 'Verwirklichungen',
       nav_contact: 'Kontakt',
 
       // About Section
-      about_title: 'Entdecken Sie Unsere Geschichte',
+      about_title: 'Erfahren Sie mehr über unsere Geschichte',
       about_image_alt: 'Modernes Interieur mit Holzelementen',
-      opis_o_nas: loremIpsum,
+      opis_o_nas: 'BauGreen besteht seit 2023, aber die heutige Form ist das Ergebnis eines neuen Ansatzes und einer neuen Richtung, die Karol Sobocik nach der Übernahme des Unternehmens eingeschlagen hat.\n\n Karol sammelte Erfahrungen in Deutschland, wo er lernte, was wahre Qualität bei der Installation und dem Verkauf von Tischlerarbeiten bedeutet. Durch seine Arbeit auf dem anspruchsvollen deutschen Markt lernte er moderne Technologien und Installationsstandards kennen, die er nun versucht, auf den polnischen Markt zu übertragen, um den Kunden Dienstleistungen auf europäischem Niveau anzubieten.\n\n Heute ist BauGreen sowohl in Polen als auch in Deutschland aktiv. Wir arbeiten mit vielen Partnern in Deutschland zusammen und bieten einen umfassenden Service beim Verkauf und Einbau von Fenstern, Türen und Rollläden. Dabei legen wir Wert auf Zuverlässigkeit, Pünktlichkeit und eine detailgetreue Ausführung der Arbeiten - genau wie bei unseren westlichen Nachbarn.',
 
       // Footer Company Description (Placeholder)
-      footer_company_description: 'Die Firma BAU GREEN ist seit 2023 auf dem Markt tätig und spezialisiert sich auf den Verkauf und die Montage von Fenstern, Türen und Rollläden. Wir bieten hochwertige Produkte an und sind sowohl in Polen als auch in Deutschland tätig.',
+      footer_company_description: 'Ein Unternehmen, das sich auf moderne Schreinerlösungen spezialisiert hat.',
 
       // Offer Section
       offer_title: 'Was Können Wir Für Sie Tun?',
@@ -178,19 +178,19 @@ const resources = {
       offer_item_1_description: loremIpsum.substring(0, 100) + "...",
       offer_item_2_title: 'Schränke & Garderoben',
       offer_item_2_description: loremIpsum.substring(0, 120) + "...",
-      offer_item_3_title: 'Maßanfertigungen',
+      offer_item_3_title: 'Nicht-Standard-Strukturen',
       offer_item_3_description: loremIpsum.substring(0, 110) + "...",
 
       // Portfolio Section
-      portfolio_title: 'Sehen Sie Unsere Projekte',
-      portfolio_image_1_alt: 'Realisierung Küchenprojekt',
+      portfolio_title: 'Unsere Projekte ansehen',
+      portfolio_image_1_alt: 'Durchführung des Küchenprojekts',
       portfolio_caption_1: 'Moderne Küche mit Insel',
       portfolio_image_2_alt: 'Realisierung Schrankprojekt',
       portfolio_caption_2: 'Eleganter Einbauschrank',
-      portfolio_image_3_alt: 'Realisierung Maßanfertigung',
+      portfolio_image_3_alt: 'Verwirklichung von Nicht-Standard-Gebäuden',
       portfolio_caption_3: 'Kreativer Stauraum unter der Treppe',
-      portfolio_image_4_alt: 'Viertes Portfolio-Projekt',
-      portfolio_caption_4: 'Beschreibung des vierten Portfolio-Projekts',
+      portfolio_image_4_alt: 'Tschechische Sauna',
+      portfolio_caption_4: 'Tschechische Sauna',
 
       // Contact Section
       contact_title: 'Kontaktieren Sie Uns',
@@ -199,7 +199,7 @@ const resources = {
       contact_email_placeholder: 'Ihre E-Mail',
       contact_message_placeholder: 'Ihre Nachricht',
       contact_submit_button: 'Nachricht Senden',
-      contact_company_name: "BAUGREEN SP Z O O (Handelskommunikation: BAU GREEN)",
+      contact_company_name: "BAUGREEN sp.z o.o.(Handelskommunikation: BAU GREEN)",
       contact_address: "Raciborska 97, 47-480 Maków, Polen",
       contact_nip: "PL6472603097",
       contact_phone: "+48 609 320 236",
@@ -229,8 +229,9 @@ const resources = {
       footer_link_privacy: 'Datenschutzrichtlinie',
       footer_link_rodo: 'DSGVO',
       footer_services_title: 'Unsere Dienstleistungen', // This key is not used in Footer.jsx anymore, but keeping it in i18n for completeness
-      footer_text: `© ${new Date().getFullYear()} ModernerTischler. Alle Rechte vorbehalten.`,
+      footer_text: `© ${new Date().getFullYear()} SchreinerModern. Alle Rechte vorbehalten.`,
       testimonials_title: "Was unsere Kunden sagen",
+       footer_company_description: "Das Unternehmen BauGreen besteht seit 2023 und ist auf den Verkauf und die Montage von Tischlerarbeiten spezialisiert. Wir bieten Fenster, Türen und Rollläden von hoher Qualität an und sind sowohl in Polen als auch in Deutschland tätig.",
     },
   },
 };
