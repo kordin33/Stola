@@ -5,7 +5,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import './Hero.css'; // Import component-specific CSS
 
 // Import actual assets
-import heroBackground from '../assets/Stolarz_pracuje.jpg'; // Use the provided background image
+import heroBackground from '../assets/Hero.jpg'; // Use the provided background image
 // import siteLogo from '../assets/Logo.png'; // Old PNG logo
 import siteLogoUrl from '../assets/Logo1.png'; // Import SVG as a URL
 

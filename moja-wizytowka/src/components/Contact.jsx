@@ -122,6 +122,7 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Form (Right Side) */}
+          {/*
           <motion.form
             initial={{ opacity: 0, x: 50 }} // Changed y to x for side animation
             whileInView={{ opacity: 1, x: 0 }}
@@ -147,6 +148,7 @@ const Contact = () => {
               {t('contact_submit_button', "Wyślij Wiadomość")}
             </button>
           </motion.form>
+          */}
         </div> {/* Closes contact-main-content-wrapper */}
       </div> {/* Closes contact-grid */}
       </div> {/* Closes container contact-container */}

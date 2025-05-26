@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import './Portfolio.css'; // Import component-specific CSS
 
 // Import actual assets
-import portfolioImage1 from '../assets/Meble_kuchnia.png'; // Use provided image
-import portfolioImage2 from '../assets/Szafa.jpg'; // Use provided image
-import portfolioImage3 from '../assets/Stolarz_pracuje.jpg'; // Use provided image
+import portfolioImage1 from '../assets/cezary_baryka.png'; // Use provided image
+import portfolioImage2 from '../assets/Dzwi.png'; // Use provided image
+import portfolioImage3 from '../assets/Window.jpg'; // Use provided image
 
 
 const Portfolio = () => {
