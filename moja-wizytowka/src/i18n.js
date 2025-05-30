@@ -76,6 +76,40 @@ Obecnie BAU GREEN prowadzi działalność zarówno w Polsce, jak i w Niemczech. 
       footer_text: `© ${new Date().getFullYear()} StolarzNowoczesny. Wszelkie prawa zastrzeżone.`,
       testimonials_title: 'Co Mówią Nasi Klienci',
       footer_company_description: 'Firma BAU GREEN działa na rynku od 2023 roku, specjalizując się w sprzedaży i montażu stolarki otworowej. Oferujemy wysokiej jakości okna, drzwi i rolety, działając zarówno w Polsce, jak i w Niemczech.',
+      offer: {
+        mainTitle: "Nasza Oferta – Kompleksowe Rozwiązania Stolarki Otworowej",
+        intro: "W firmie BAU GREEN stawiamy nie tylko na konkurencyjne ceny, ale przede wszystkim na jakość, terminowość i profesjonalną obsługę. Oferujemy naszym klientom szeroki wybór produktów oraz kompleksową realizację projektów – od dostawy po montaż. Wszystko z jednego źródła.",
+        windowsAndDoors: {
+          title: "Okna i Drzwi",
+          description: "Dostarczamy i montujemy okna oraz drzwi w systemach:",
+          systems: {
+            pvc: "PVC i PVC-Alu",
+            pvcDetails: "nowoczesne rozwiązania łączące energooszczędność i estetykę",
+            wood: "Drewno i drewno-aluminium",
+            woodDetails: "klasyka w nowoczesnym wydaniu, idealna dla domów i obiektów premium",
+            steel: "Stal",
+            steelDetails: "dla obiektów wymagających wyjątkowej trwałości i bezpieczeństwa"
+          },
+          manufacturers: "Współpracujemy z renomowanymi producentami profili:"
+        },
+        aluminiumSystems: {
+          title: "Systemy Aluminiowe",
+          description: "Wykorzystujemy najwyższej klasy profile aluminiowe od: Inotherm, Aluprof, Reynaers – idealne do fasad, drzwi wejściowych i przeszkleń wielkogabarytowych"
+        },
+        blindsAndShades: {
+          title: "Rolety i Osłony Przeciwsłoneczne",
+          description: "Oferujemy systemy rolet, żaluzji fasadowych i screenów renomowanych marek: Roma, Alukon, Beck+Heun, Exte – komfort, ochrona i estetyka w jednym"
+        },
+        safetySystems: {
+          title: "Systemy Zabezpieczające",
+          description: "Dostarczamy balustrady i zabezpieczenia przeciwupadkowe od: Abel-System, Roma i innych uznanych producentów – bezpieczeństwo bez kompromisów"
+        },
+        sills: {
+          title: "Parapety",
+          description: "Oferujemy parapety zewnętrzne i wewnętrzne od: BUG, Gutmann – trwałe, estetyczne i odporne na warunki atmosferyczne"
+        },
+        outro: "Dzięki współpracy z wieloma producentami możemy dopasować produkt do każdego projektu – niezależnie od skali i stopnia skomplikowania. Nasze systemy sprawdzają się zarówno w nowym budownictwie, jak i w modernizacjach."
+      }
     },
   },
   en: {
@@ -150,6 +184,40 @@ Today, BAU GREEN operates in both Poland and Germany. We collaborate with numero
       footer_text: `© ${new Date().getFullYear()} ModernCarpenter. All rights reserved.`,
       testimonials_title: 'What Our Clients Say',
       footer_company_description: 'BAU GREEN has been operating on the market since 2023, specializing in the sale and installation of windows, doors, and blinds. We offer high-quality products and operate in both Poland and Germany.',
+      offer: {
+        mainTitle: "Our Offer – Comprehensive Joinery Solutions",
+        intro: "At BAU GREEN, we focus not only on competitive prices but above all on quality, timeliness, and professional service. We offer our clients a wide selection of products and comprehensive project implementation – from delivery to installation. Everything from a single source.",
+        windowsAndDoors: {
+          title: "Windows and Doors",
+          description: "We supply and install windows and doors in the following systems:",
+          systems: {
+            pvc: "PVC and PVC-Alu",
+            pvcDetails: "modern solutions combining energy efficiency and aesthetics",
+            wood: "Wood and Wood-Aluminum",
+            woodDetails: "classic in a modern edition, ideal for premium homes and buildings",
+            steel: "Steel",
+            steelDetails: "for buildings requiring exceptional durability and security"
+          },
+          manufacturers: "We cooperate with renowned profile manufacturers:"
+        },
+        aluminiumSystems: {
+          title: "Aluminum Systems",
+          description: "We use top-class aluminum profiles from: Inotherm, Aluprof, Reynaers – ideal for facades, entrance doors, and large-scale glazing"
+        },
+        blindsAndShades: {
+          title: "Blinds and Sun Protection",
+          description: "We offer roller shutters, facade blinds, and screen systems from renowned brands: Roma, Alukon, Beck+Heun, Exte – comfort, protection, and aesthetics in one"
+        },
+        safetySystems: {
+          title: "Safety Systems",
+          description: "We supply balustrades and fall protection systems from: Abel-System, Roma, and other recognized manufacturers – safety without compromise"
+        },
+        sills: {
+          title: "Sills",
+          description: "We offer external and internal sills from: BUG, Gutmann – durable, aesthetic, and weather-resistant"
+        },
+        outro: "Thanks to cooperation with many manufacturers, we can tailor the product to any project – regardless of scale and complexity. Our systems prove themselves in both new construction and modernizations."
+      }
     },
   },
   de: {
@@ -226,6 +294,40 @@ Heute ist BAU GREEN sowohl in Polen als auch in Deutschland aktiv. Wir arbeiten 
       footer_text: `© ${new Date().getFullYear()} ModernerTischler. Alle Rechte vorbehalten.`,
       testimonials_title: 'Was unsere Kunden sagen',
       footer_company_description: 'Die Firma BAU GREEN ist seit 2023 auf dem Markt tätig und spezialisiert sich auf den Verkauf und die Montage von Fenstern, Türen und Rollläden. Wir bieten hochwertige Produkte an und sind sowohl in Polen als auch in Deutschland tätig.',
+      offer: {
+        mainTitle: "Unser Angebot – Umfassende Bauelemente-Lösungen",
+        intro: "Bei BAU GREEN setzen wir nicht nur auf wettbewerbsfähige Preise, sondern vor allem auf Qualität, Pünktlichkeit und professionellen Service. Wir bieten unseren Kunden eine große Auswahl an Produkten und eine umfassende Projektabwicklung – von der Lieferung bis zur Montage. Alles aus einer Hand.",
+        windowsAndDoors: {
+          title: "Fenster und Türen",
+          description: "Wir liefern und montieren Fenster und Türen in folgenden Systemen:",
+          systems: {
+            pvc: "PVC und PVC-Alu",
+            pvcDetails: "moderne Lösungen, die Energieeffizienz und Ästhetik verbinden",
+            wood: "Holz und Holz-Aluminium",
+            woodDetails: "Klassik in moderner Ausführung, ideal für Premiumhäuser und -objekte",
+            steel: "Stahl",
+            steelDetails: "für Objekte, die außergewöhnliche Haltbarkeit und Sicherheit erfordern"
+          },
+          manufacturers: "Wir arbeiten mit renommierten Profilherstellern zusammen:"
+        },
+        aluminiumSystems: {
+          title: "Aluminiumsysteme",
+          description: "Wir verwenden hochwertige Aluminiumprofile von: Inotherm, Aluprof, Reynaers – ideal für Fassaden, Eingangstüren und großflächige Verglasungen"
+        },
+        blindsAndShades: {
+          title: "Rollläden und Sonnenschutz",
+          description: "Wir bieten Rollladen-, Fassadenjalousie- und Screensysteme renommierter Marken an: Roma, Alukon, Beck+Heun, Exte – Komfort, Schutz und Ästhetik in einem"
+        },
+        safetySystems: {
+          title: "Sicherheitssysteme",
+          description: "Wir liefern Geländer und Absturzsicherungen von: Abel-System, Roma und anderen anerkannten Herstellern – Sicherheit ohne Kompromisse"
+        },
+        sills: {
+          title: "Fensterbänke",
+          description: "Wir bieten Außen- und Innenfensterbänke von: BUG, Gutmann – langlebig, ästhetisch und witterungsbeständig"
+        },
+        outro: "Dank der Zusammenarbeit mit vielen Herstellern können wir das Produkt an jedes Projekt anpassen – unabhängig von Größe und Komplexität. Unsere Systeme bewähren sich sowohl im Neubau als auch bei Modernisierungen."
+      }
     },
   },
 };

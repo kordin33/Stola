@@ -6,7 +6,7 @@ import IntroScreen from './components/IntroScreen'; // Import IntroScreen
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-// import Offer from './components/Offer'; // Offer component will be replaced
+import Offer from './components/Offer';
 import Testimonials from './components/Testimonials'; // Import Testimonials component
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
@@ -42,8 +42,8 @@ function App() {
           <Navbar theme={theme} toggleTheme={toggleTheme} />
           <Hero />
           <About />
-          {/* <Offer /> */} {/* Offer component removed */}
           <Portfolio />
+          <Offer />
           <Testimonials /> {/* Add Testimonials component here */}
           <Contact />
           <Footer />

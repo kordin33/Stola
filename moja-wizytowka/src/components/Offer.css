@@ -1,87 +1,176 @@
 .offer-section {
-  padding: 4rem 0; /* section-padding */
-  background-color: white; /* bg-white */
-  color: #343a40; /* text-gray-800 */
-  font-family: 'Roboto', sans-serif; /* font-sans */
+  padding: 4rem 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
   transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-.dark-mode .offer-section {
-  background-color: #212529; /* dark:bg-gray-900 */
-  color: white; /* dark:text-white */
 }
 
 .offer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem; /* container px-4 */
+  padding: 0 1rem;
 }
 
-.offer-title {
+.offer-main-title {
   font-size: 2.5rem; /* text-4xl */
   font-weight: 700; /* font-bold */
   text-align: center;
-  margin-bottom: 3rem; /* mb-12 */
-  font-family: 'Montserrat', sans-serif; /* Heading font */
+  margin-bottom: 1.5rem; /* mb-6 */
+  font-family: 'Montserrat', sans-serif;
 }
 
-.offer-items-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
-  gap: 2rem; /* gap-8 */
-}
-
-.offer-item-card {
-  background-color: #f8f9fa; /* bg-gray-100 */
-  padding: 1.5rem; /* p-6 */
-  border-radius: 0.5rem; /* rounded-lg */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+.offer-intro,
+.offer-outro {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.6;
   text-align: center;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  margin-bottom: 3rem; /* mb-12 */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.dark-mode .offer-item-card {
-  background-color: #343a40; /* dark:bg-gray-800 */
-  color: #edebe8; /* text-wood-100 */
+.offer-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; /* gap-8 */
+  margin-bottom: 3rem;
 }
 
-.offer-item-icon {
-  font-size: 3rem; /* text-5xl */
-  margin-bottom: 1rem; /* mb-4 */
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  width: 80px; /* Set a fixed width */
-  height: 80px; /* Set a fixed height */
-  margin-left: auto; /* Center the block element */
-  margin-right: auto; /* Center the block element */
+.offer-category-card {
+  background-color: var(--card-bg-color);
+  padding: 2rem; /* p-8 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.offer-item-title {
-  font-size: 1.5rem; /* text-2xl */
+.offer-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.offer-category-title {
+  font-size: 1.75rem; /* text-2xl */
   font-weight: 600; /* font-semibold */
   margin-bottom: 1rem; /* mb-4 */
-  font-family: 'Montserrat', sans-serif; /* Heading font */
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primary-color);
 }
 
-.offer-item-description {
-  color: #495057; /* text-gray-700 (using metal-700) */
+.dark-mode .offer-category-title {
+  color: var(--primary-color-dark);
 }
 
-.dark-mode .offer-item-description {
-  color: #ced4da; /* dark:text-gray-300 (using metal-300) */
+.offer-category-description {
+  font-size: 1rem; /* text-base */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Allows description to take available space */
 }
 
+.offer-category-details {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.offer-category-details li {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.offer-category-details li strong {
+  font-weight: 500;
+  color: var(--text-color-strong);
+}
+
+.dark-mode .offer-category-details li strong {
+  color: var(--text-color-strong-dark);
+}
+
+.offer-manufacturers-intro {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.offer-logos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* gap-4 */
+  align-items: center;
+  margin-top: auto; /* Pushes logos to the bottom if card height varies */
+  padding-top: 1rem; /* Add some space above logos */
+}
+
+.offer-logo {
+  height: 40px; /* Fixed height for logos */
+  max-width: 120px; /* Max width to prevent oversized logos */
+  object-fit: contain; /* Ensures logo aspect ratio is maintained */
+  filter: grayscale(50%);
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.offer-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
 
 /* Responsive adjustments */
-@media (min-width: 768px) { /* md breakpoint */
-  .offer-items-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-2 */
+@media (max-width: 768px) { /* md breakpoint */
+  .offer-main-title {
+    font-size: 2rem; /* text-3xl */
+  }
+  .offer-intro,
+  .offer-outro {
+    font-size: 1rem; /* text-base */
+    margin-bottom: 2rem;
+  }
+  .offer-category-card {
+    padding: 1.5rem;
+  }
+  .offer-category-title {
+    font-size: 1.5rem; /* text-xl */
+  }
+  .offer-logo {
+    height: 35px;
   }
 }
 
-@media (min-width: 1024px) { /* lg breakpoint */
-  .offer-items-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+@media (max-width: 480px) { /* sm breakpoint */
+  .offer-categories-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
   }
+  .offer-logo {
+    height: 30px;
+    max-width: 100px;
+  }
+}
+
+/* Ensure variables are defined for light and dark mode */
+:root {
+  --background-color: white;
+  --text-color: #343a40;
+  --text-color-strong: #212529;
+  --card-bg-color: #f8f9fa;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --primary-color: #007bff; /* Example primary color */
+}
+
+.dark-mode {
+  --background-color: #1a1a1a; /* Darker background */
+  --text-color: #e0e0e0; /* Lighter text */
+  --text-color-strong: #ffffff;
+  --card-bg-color: #2c2c2c; /* Darker card background */
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --primary-color-dark: #4dabf7; /* Lighter primary for dark mode */
 }
