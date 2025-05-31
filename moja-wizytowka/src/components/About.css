@@ -1,132 +1,298 @@
-.about-section {
-  padding: 4rem 0;
-  font-family: 'Roboto', sans-serif;
-}
+/* ====================================================
+   0. Import fontów z Google Fonts (Montserrat + Roboto)
+   ==================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@300;400;500&display=swap');
 
-.light-mode .about-section {
-  background: linear-gradient(
-    135deg,
-    var(--section-bg-light) 0%,
-    color-mix(in srgb, var(--section-bg-light) 95%, #000000 5%) 100%
-  );
-  color: var(--text-main-light);
-}
-
-.dark-mode .about-section {
-  background: linear-gradient(
-    135deg,
-    var(--section-bg-dark) 0%,
-    color-mix(in srgb, var(--section-bg-dark) 95%, #ffffff 5%) 100%
-  );
-  color: var(--text-main-dark);
-}
-
-/* .about-container, .about-title, and .about-content-wrapper styles removed as they are handled by global .container, .section-title, .accent-line and .about-grid */
-
-.about-image-container {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-}
-
-.about-image-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: rgba(3, 3, 3, 0);
-  border-radius: 0.75rem;
-  z-index: 1;
-}
-
-.about-image-container {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-}
-
-.about-image-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: rgba(3, 3, 3, 0);
-  border-radius: 0.75rem;
-  z-index: 1;
-}
-
-.about-image {
-  display: block;
-  max-width: 80%;
-  height: auto;
-  border-radius: 0.75rem;
-  margin: 0 auto; /* Center the image within its container */
-  object-fit: cover;
-  filter: saturate(0.7) brightness(0.9);
-  transition: filter 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Add transform */
-}
-
-.about-image:hover {
-  transform: scale(1.03); /* Slight zoom on hover */
-}
-
-.light-mode .about-image {
-  box-shadow:
-    0 10px 20px -5px rgba(0, 0, 0, 0.12), /* Adjusted shadow */
-    0 6px 10px -4px rgba(0, 0, 0, 0.08);
-}
-
-.dark-mode .about-image {
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
-}
-
-.about-text-container {
-  width: 100%;
-}
-
-.about-description {
-  letter-spacing: 0.02em; /* Keep this */
-}
-
-.about-description p {
-  margin-bottom: 1.2em;
-  font-size: 1.05rem;
-  line-height: 1.75;
-}
-
-.about-description p:last-child {
-  margin-bottom: 0;
-}
-
-.light-mode .about-description {
-  color: var(--text-main-light);
-  /* text-shadow: 1px 1px 1px rgba(29, 23, 23, 0.08); /* Removed */
-}
-
-.dark-mode .about-description {
-  color: var(--text-main-dark);
-  /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);  Removed */
-}
-
-/* Responsive styles for .about-content-wrapper, .about-image-container, and .about-text-container might need to be adjusted or removed if .about-grid and .card provide sufficient layout. */
-/* For now, keeping specific image and text container adjustments for larger screens, but these might conflict or be redundant. */
-@media (min-width: 768px) {
-  /* .about-content-wrapper is now .about-grid, specific flex properties might not be needed */
-  .about-image-container { /* This is now a .card */
-    width: 40%; 
-    max-width: 450px;
-    flex-shrink: 0;
-  }
-  .about-text-container { /* This is now a .card */
-    width: 60%; 
-    /* padding, border-radius are handled by .card and .card-content */
-  }
-
-  .light-mode .about-text-container { /* Specific background and border for text card in light mode */
-    background-color: #f8f9fa; 
-    border-left: 5px solid #007bff; 
-  }
-
-  .dark-mode .about-text-container { /* Specific background and border for text card in dark mode */
-    background-color: rgba(255, 255, 255, 0.05); 
-    border-left: 5px solid #00aeff; 
-  }
-}
+   /* ===========================
+      1. Ogólne ustawienia sekcji
+      ===========================
+    */
+   .about-section {
+     padding: 6rem 0;
+     font-family: 'Roboto', sans-serif;
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+   }
+   
+   /* Tło i kolor tekstu w light/dark mode */
+   .light-mode .about-section {
+     background-color: #f8fafc;
+     color: #1f2937;
+   }
+   
+   .dark-mode .about-section {
+     background-color: #0f172a;
+     color: #e5e7eb;
+   }
+   
+   /* ==============================
+      2. Główny kontener
+      ==============================
+    */
+   .about-container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 2rem;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 4rem;
+     align-items: center;
+   }
+   
+   /* ==============================
+      3. Sekcja tekstowa (lewa strona)
+      ==============================
+    */
+   .about-content {
+     padding-right: 2rem;
+   }
+   
+   .about-title {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 3rem;
+     font-weight: 700;
+     line-height: 1.2;
+     margin-bottom: 1.5rem;
+     color: #1e293b;
+   }
+   
+   .dark-mode .about-title {
+     color: #f1f5f9;
+   }
+   
+   .about-subtitle {
+     font-size: 1.125rem;
+     line-height: 1.7;
+     margin-bottom: 2rem;
+     color: #64748b;
+     font-weight: 400;
+   }
+   
+   .dark-mode .about-subtitle {
+     color: #94a3b8;
+   }
+   
+   .about-cta {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.5rem;
+     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+     color: white;
+     padding: 1rem 2rem;
+     border-radius: 0.75rem;
+     text-decoration: none;
+     font-weight: 500;
+     font-size: 1.125rem;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.3);
+   }
+   
+   .about-cta:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.4);
+     background: linear-gradient(135deg, #2563eb, #1e40af);
+   }
+   
+   /* ==============================
+      4. Sekcja z obrazem i informacjami (prawa strona)
+      ==============================
+    */
+   .about-image-section {
+     position: relative;
+     height: 600px;
+     border-radius: 1rem;
+     overflow: hidden;
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+   }
+   
+   .about-image {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: center;
+   }
+   
+   /* Info box na obrazie */
+   .about-info-box {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: rgba(15, 23, 42, 0.95);
+     backdrop-filter: blur(10px);
+     padding: 2rem;
+     color: white;
+   }
+   
+   .about-quote {
+     font-size: 1.125rem;
+     line-height: 1.6;
+     margin-bottom: 1rem;
+     font-style: italic;
+     color: #f1f5f9;
+   }
+   
+   .about-quote::before {
+     content: '"';
+     font-size: 1.5rem;
+     color: #3b82f6;
+   }
+   
+   .about-quote::after {
+     content: '"';
+     font-size: 1.5rem;
+     color: #3b82f6;
+   }
+   
+   .about-author {
+     display: flex;
+     flex-direction: column;
+     gap: 0.25rem;
+   }
+   
+   .author-name {
+     font-weight: 600;
+     font-size: 1.125rem;
+     color: #f8fafc;
+   }
+   
+   .author-title {
+     color: #94a3b8;
+     font-size: 0.875rem;
+   }
+   
+   /* ==============================
+      5. Sekcja z cechami/zaletami
+      ==============================
+    */
+   .about-features {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 2rem;
+     margin-top: 3rem;
+     grid-column: 1 / -1;
+   }
+   
+   .feature-item {
+     display: flex;
+     align-items: flex-start;
+     gap: 1rem;
+     padding: 1.5rem;
+     background: rgba(255, 255, 255, 0.8);
+     border-radius: 0.75rem;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+     transition: all 0.3s ease;
+   }
+   
+   .dark-mode .feature-item {
+     background: rgba(30, 41, 59, 0.8);
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+   }
+   
+   .feature-item:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   }
+   
+   .dark-mode .feature-item:hover {
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+   }
+   
+   .feature-icon {
+     width: 48px;
+     height: 48px;
+     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+     border-radius: 0.75rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: white;
+     flex-shrink: 0;
+   }
+   
+   .feature-content h3 {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 1.25rem;
+     font-weight: 600;
+     margin-bottom: 0.5rem;
+     color: #1e293b;
+   }
+   
+   .dark-mode .feature-content h3 {
+     color: #f1f5f9;
+   }
+   
+   .feature-content p {
+     font-size: 0.875rem;
+     line-height: 1.6;
+     color: #64748b;
+     margin: 0;
+   }
+   
+   .dark-mode .feature-content p {
+     color: #94a3b8;
+   }
+   
+   /* ==============================
+      6. Responsywność
+      ==============================
+    */
+   @media (max-width: 768px) {
+     .about-container {
+       grid-template-columns: 1fr;
+       gap: 3rem;
+     }
+   
+     .about-content {
+       padding-right: 0;
+       text-align: center;
+     }
+   
+     .about-title {
+       font-size: 2.5rem;
+     }
+   
+     .about-image-section {
+       height: 400px;
+       order: -1;
+     }
+   
+     .about-info-box {
+       padding: 1.5rem;
+     }
+   
+     .about-features {
+       grid-template-columns: 1fr;
+       gap: 1.5rem;
+       margin-top: 2rem;
+     }
+   
+     .feature-item {
+       padding: 1.25rem;
+     }
+   }
+   
+   @media (max-width: 480px) {
+     .about-section {
+       padding: 4rem 0;
+     }
+   
+     .about-container {
+       padding: 0 1rem;
+     }
+   
+     .about-title {
+       font-size: 2rem;
+     }
+   
+     .about-subtitle {
+       font-size: 1rem;
+     }
+   
+     .about-cta {
+       padding: 0.875rem 1.5rem;
+       font-size: 1rem;
+     }
+   }
+   

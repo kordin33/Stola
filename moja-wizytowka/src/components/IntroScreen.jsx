@@ -98,7 +98,8 @@ const IntroScreen = ({ onAnimationComplete }) => {
             }}
             className="intro-logo-text"
           >
-            {t('BauGreen')}
+            <span className="intro-logo-bau">{t('Bau')}</span>
+            <span className="intro-logo-green">{t('Green')}</span>
           </motion.div>
 
           {/* Glass reflection - will be styled in CSS */}
