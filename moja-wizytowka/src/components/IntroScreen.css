@@ -4,8 +4,11 @@
   left: 0;
   width: 100%;
   height: 100%;
+  background-image: url('../assets/Intro.jpg'); /* Add this line */
+  background-size: cover; /* Add this line */
+  background-position: center; /* Add this line */
   /* background-color: #0e0e0e; */ /* Base color */
-  background: linear-gradient(135deg, #0a0a0a, #121212); /* Gradient background */
+  /*background: linear-gradient(135deg, #0a0a0a, #121212); /* Gradient background */
   display: flex; /* Keep for centering */
   align-items: center; /* Keep for centering */
   justify-content: center; /* Keep for centering */

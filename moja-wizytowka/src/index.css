@@ -1,27 +1,28 @@
 /* Global styles */
 :root {
   /* Light Theme (default) */
-  --bg-main-light: #f3f3f3; /* Off-white with lekko kremowym tonem */
-  --text-main-light: #111827; /* Głęboki grafit */
-  --accent-light: #1e3a8a; /* Navy */
-  --accent-secondary-light: #f59e0b; /* Amber */
-  --card-bg-light: #ffffff;
-  --section-bg-light: #f4f4f4;
+  --bg-main-light: rgba(176, 191, 196, 1); /* $silver */
+  --text-main-light: rgba(37, 48, 54, 1); /* $gunmetal */
+  --accent-light: rgba(92, 99, 101, 1); /* $dim-gray */
+  --accent-secondary-light: rgba(120, 114, 109, 1); /* $dim-gray-2 */
+  --card-bg-light: rgba(176, 191, 196, 1); /* $silver */
+  --section-bg-light: rgba(164, 169, 169, 1); /* $silver-2 */
   --shadow-light: rgba(0,0,0,0.05);
-  --icon-color-light: #111827;
-  --icon-color-secondary-light: #555;
+  --icon-color-light: rgba(37, 48, 54, 1); /* $gunmetal */
+  --icon-color-secondary-light: rgba(92, 99, 101, 1); /* $dim-gray */
 
   /* Dark Theme */
-  --bg-main-dark: #121212; /* Głębia, neutralna czerń */
-  --text-main-dark: #F3F4F6; /* Delikatny off-white */
-  --accent-dark: #FACC15; /* Amber-400 */
-  --accent-secondary-dark: #3B82F6; /* Blue-500 */
-  --card-bg-dark: #1f1f1f;
-  --section-bg-dark: #232323;
+  --bg-main-dark: rgba(37, 48, 54, 1); /* $gunmetal */
+  --text-main-dark: rgba(176, 191, 196, 1); /* $silver */
+  --accent-dark: rgba(164, 169, 169, 1); /* $silver-2 */
+  --accent-secondary-dark: rgba(92, 99, 101, 1); /* $dim-gray */
+  --card-bg-dark: rgba(92, 99, 101, 1); /* $dim-gray */
+  --section-bg-dark: rgba(120, 114, 109, 1); /* $dim-gray-2 */
   --shadow-dark: rgba(255,255,255,0.05);
-  --icon-color-dark: #F3F4F6;
-  --icon-color-secondary-dark: #a0a0a0; /* gray-400 equivalent */
+  --icon-color-dark: rgba(176, 191, 196, 1); /* $silver */
+  --icon-color-secondary-dark: rgba(164, 169, 169, 1); /* $silver-2 */
 }
+  
 
 body {
   margin: 0;
