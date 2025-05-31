@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation, Trans } from 'react-i18next';
 import './About.css';
 import aboutImage from '../assets/stolarz-1.jpeg';
 
@@ -53,6 +54,8 @@ const ServiceIcon = () => (
 );
 
 const About = () => {
+  const { t } = useTranslation();
+  
   return (
     <section id="about" className="about-section">
       <div className="about-container">
@@ -65,14 +68,16 @@ const About = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h2 className="about-title">
-            Tworzymy, Montujemy,<br />
-            i <span style={{ color: '#3b82f6' }}>Realizujemy</span>.
+            <Trans 
+              i18nKey="about_page_title"
+              components={[<span style={{ color: '#3b82f6' }} />]}
+            >
+              Tworzymy, Montujemy,<br/> i <span style={{ color: '#3b82f6' }}>Realizujemy</span>.
+            </Trans>
           </h2>
           
           <p className="about-subtitle">
-            Od 2023 roku BAU GREEN działa na rynku stolarki otworowej, 
-            łącząc niemieckie standardy jakości z polskim rzemiosłem. 
-            Specjalizujemy się w montażu okien i drzwi na najwyższym poziomie.
+            {t('about_intro', 'Od 2023 roku BAU GREEN działa na rynku stolarki otworowej, łącząc niemieckie standardy jakości z polskim rzemiosłem. Specjalizujemy się w montażu okien i drzwi na najwyższym poziomie.')}
           </p>
           
           <a href="#contact" className="about-cta">
@@ -99,9 +104,9 @@ const About = () => {
           
           <div className="about-info-box">
             <p className="about-quote">
-              Doświadczenie zdobywane w Niemczech nauczyło mnie, 
-              czym jest prawdziwa jakość w montażu stolarki otworowej. 
-              Te standardy wprowadzam teraz w Polsce.
+              <Trans i18nKey="about_quote">
+                Doświadczenie zdobywane w Niemczech nauczyło mnie, czym jest prawdziwa jakość w montażu stolarki otworowej. Te standardy wprowadzam teraz w Polsce.
+              </Trans>
             </p>
             <div className="about-author">
               <span className="author-name">Karol Sobocik</span>
@@ -123,8 +128,8 @@ const About = () => {
               <QualityIcon />
             </div>
             <div className="feature-content">
-              <h3>Najwyższa Jakość</h3>
-              <p>Montaż zgodny z niemieckimi standardami, z dbałością o każdy detal i precyzją wykonania.</p>
+              <h3>{t('about_features_quality_title', 'Najwyższa Jakość')}</h3>
+              <p>{t('about_features_quality_description', 'Montaż zgodny z niemieckimi standardami, z dbałością o każdy detal i precyzją wykonania.')}</p>
             </div>
           </div>
 
@@ -133,8 +138,8 @@ const About = () => {
               <ExperienceIcon />
             </div>
             <div className="feature-content">
-              <h3>Doświadczenie</h3>
-              <p>Lata pracy na wymagającym rynku niemieckim przekładają się na usługi najwyższej jakości.</p>
+              <h3>{t('about_features_experience_title', 'Doświadczenie')}</h3>
+              <p>{t('about_features_experience_description', 'Lata pracy na wymagającym rynku niemieckim przekładają się na usługi najwyższej jakości.')}</p>
             </div>
           </div>
 
@@ -143,8 +148,8 @@ const About = () => {
               <ReliabilityIcon />
             </div>
             <div className="feature-content">
-              <h3>Rzetelność</h3>
-              <p>Terminowość realizacji zleceń i precyzja wykonania to podstawa naszej współpracy.</p>
+              <h3>{t('about_features_reliability_title', 'Rzetelność')}</h3>
+              <p>{t('about_features_reliability_description', 'Terminowość realizacji zleceń i precyzja wykonania to podstawa naszej współpracy.')}</p>
             </div>
           </div>
 
@@ -153,8 +158,8 @@ const About = () => {
               <ServiceIcon />
             </div>
             <div className="feature-content">
-              <h3>Kompleksowa Obsługa</h3>
-              <p>Od doradztwa, przez pomiar, aż po montaż i serwis - wszystko w jednym miejscu.</p>
+              <h3>{t('about_features_service_title', 'Kompleksowa Obsługa')}</h3>
+              <p>{t('about_features_service_description', 'Od doradztwa, przez pomiar, aż po montaż i serwis - wszystko w jednym miejscu.')}</p>
             </div>
           </div>
         </motion.div>

@@ -17,23 +17,95 @@ const resources = {
       nav_portfolio: 'Realizacje',
       nav_contact: 'Kontakt',
 
-      // About Section
-      about_title: 'Poznaj Naszą Historię',
-      about_image_alt: 'Nowoczesne wnętrze z drewnianymi elementami',
-      opis_o_nas: `Firma BAU GREEN działa na rynku od 2023 roku, jednak jej obecna forma to efekt nowego podejścia i kierunku, który nadał jej Karol Sobocik po przejęciu działalności.
-      
-Karol zdobywał doświadczenie w Niemczech, gdzie nauczył się, czym jest prawdziwa jakość w montażu i sprzedaży stolarki otworowej. Pracując na wymagającym rynku niemieckim, poznał nowoczesne technologie i standardy montażu, które dziś stara się przenieść na polski grunt – oferując klientom usługi na europejskim poziomie.
+      // About Page Title & Main Content
+      about_page_title: "Tworzymy, Montujemy,<br/> i <0>Realizujemy</0>.",
+      about_intro: "Od 2023 roku BAU GREEN działa na rynku stolarki otworowej, łącząc niemieckie standardy jakości z polskim rzemiosłem. Specjalizujemy się w montażu okien i drzwi na najwyższym poziomie.",
+      about_cta: "Skontaktuj się z nami",
+      about_image_alt: "Karol Sobocik - właściciel BAU GREEN",
+      about_quote: "Doświadczenie zdobywane w Niemczech nauczyło mnie, czym jest prawdziwa jakość w montażu stolarki otworowej. Te standardy wprowadzam teraz w Polsce.",
+      about_authorName: "Karol Sobocik",
+      about_authorTitle: "Założyciel & CEO BAU GREEN",
 
-Obecnie BAU GREEN prowadzi działalność zarówno w Polsce, jak i w Niemczech. Współpracujemy z wieloma partnerami z Niemiec, zapewniając kompleksową obsługę w zakresie sprzedaży i montażu okien, drzwi oraz rolet. Naszym priorytetem jest rzetelność, terminowość i dbałość o każdy detal wykonania – dokładnie tak, jak robi się to u naszych zachodnich sąsiadów.`,
+      // About Section Features
+      about_features_quality_title: 'Najwyższa Jakość',
+      about_features_quality_description: 'Montaż zgodny z niemieckimi standardami, z dbałością o każdy detal i precyzją wykonania.',
+      about_features_experience_title: 'Doświadczenie',
+      about_features_experience_description: 'Lata pracy na wymagającym rynku niemieckim przekładają się na usługi najwyższej jakości.',
+      about_features_reliability_title: 'Rzetelność',
+      about_features_reliability_description: 'Terminowość realizacji zleceń i precyzja wykonania to podstawa naszej współpracy.',
+      about_features_service_title: 'Kompleksowa Obsługa',
+      about_features_service_description: 'Od doradztwa, przez pomiar, aż po montaż i serwis - wszystko w jednym miejscu.',
+
+      // Offer Header
+      offer_header_title: "Nasza Oferta<br/> - <0>Kompleksowe rowziąznia stolarki obrotowej</0>.",
+      offer_header_intro_text: "W firmie <0>BAU GREEN</0> stawiamy nie tylko na konkurencyjne ceny, ale przede wszystkim na <1>jakość, terminowość i profesjonalną obsługę</1>. Oferujemy naszym klientom szeroki wybór produktów oraz <2>kompleksową realizację projektów</2> – od dostawy po montaż. <3>Wszystko z jednego źródła</3>.",
+      offer_image_alt: "Nowoczesna fasada szklano-stalowa",
 
       // Offer Section
-      offer_title: 'Co Możemy Dla Ciebie Zrobić?',
-      offer_item_1_title: 'Meble Kuchenne',
-      offer_item_1_description: 'Projektowanie i montaż funkcjonalnych mebli kuchennych dopasowanych do Twoich potrzeb.',
-      offer_item_2_title: 'Szafy i Garderoby',
-      offer_item_2_description: 'Tworzymy przestronne szafy i garderoby, które maksymalnie wykorzystują dostępną przestrzeń.',
-      offer_item_3_title: 'Zabudowy Nietypowe',
-      offer_item_3_description: 'Realizujemy nietypowe zabudowy – schody, wnęki, antresole i inne, według indywidualnych projektów.',
+      offer: {
+        mainTitle: "Nasza Oferta – Kompleksowe Rozwiązania Stolarki Otworowej",
+        intro: "W firmie BAU GREEN stawiamy nie tylko na konkurencyjne ceny, ale przede wszystkim na jakość, terminowość i profesjonalną obsługę. Oferujemy naszym klientom szeroki wybór produktów oraz kompleksową realizację projektów – od dostawy po montaż. Wszystko z jednego źródła.",
+        windowsAndDoors: {
+          title: "Okna i Drzwi",
+          description: "Dostarczamy i montujemy okna oraz drzwi w systemach:",
+          systems: {
+            pvc: "PVC i PVC-Alu",
+            pvcDetails: "nowoczesne rozwiązania łączące energooszczędność i estetykę",
+            wood: "Drewno i drewno-aluminium",
+            woodDetails: "klasyka w nowoczesnym wydaniu, idealne dla domów i obiektów premium",
+            steel: "Stal",
+            steelDetails: "dla obiektów wymagających wyjątkowej trwałości i bezpieczeństwa"
+          },
+          manufacturers: "Współpracujemy z renomowanymi producentami profili:"
+        },
+        aluminiumSystems: {
+          title: "Systemy Aluminiowe",
+          description: "Wykorzystujemy najwyższej klasy profile aluminiowe – idealne do fasad, drzwi wejściowych i przeszkleń wielkogabarytowych.",
+          manufacturers: "Partnerzy technologiczni:"
+        },
+        outro: "Dzięki współpracy z wieloma producentami możemy dopasować produkt do każdego projektu – niezależnie od skali czy stopnia skomplikowania. Nasze systemy sprawdzają się zarówno w nowym budownictwie, jak i w modernizacjach."
+      },
+
+      // Contact Section
+      contact_title: 'Skontaktuj Się z Nami',
+      contact_info_subtitle: 'Dane Kontaktowe',
+      contact_company_name: 'BAUGREEN SP Z.O.O (w komunikacji handlowej: BAU GREEN)',
+      contact_commercial_name: 'BAU GREEN',
+      contact_commercial_communication: 'w komunikacji handlowej:',
+      contact_address: 'Raciborska 97, 47-480 Maków, Polska',
+      contact_nip: 'PL6472603097',
+      contact_phone: '+48 609 320 236',
+      contact_email1: 'sobocik1991@gmail.com',
+      contact_email2: 'baugreen.pl@gmail.com',
+      contact_person_name: 'Karol Sobocik',
+      contact_person_label: 'Osoba kontaktowa:',
+      contact_address_label: 'Adres:',
+      contact_phone_label: 'Telefon:',
+      contact_email_label: 'Email główny:',
+      contact_email_business_label: 'Email firmowy:',
+      contact_socials_cta: 'Połącz się z nami:',
+      contact_map_title: 'Nasza Lokalizacja',
+      contact_location_description_part1: 'Nasza firma znajduje się w',
+      contact_location_city: 'Makowie',
+      contact_location_description_part2: ', w województwie śląskim. Jesteśmy',
+      contact_location_accessible: 'łatwo dostępni',
+      contact_location_description_part3: ' dla klientów z całego regionu i',
+      contact_location_ready: 'gotowi na realizację projektów',
+      contact_location_description_part4: ' na terenie całej Polski',
+      facebook_aria_label: 'Facebook',
+      twitter_aria_label: 'Twitter',
+      instagram_aria_label: 'Instagram',
+      google_maps_title: 'Mapa lokalizacji firmy BAU GREEN',
+
+      // Form fields
+      contact_name_placeholder: 'Twoje Imię',
+      contact_email_placeholder: 'Twój Email',
+      contact_message_placeholder: 'Twoja Wiadomość',
+      contact_submit_button: 'Wyślij Wiadomość',
+      contact_form_subtitle: 'Napisz do Nas',
+      contact_label_name: 'Imię',
+      contact_label_email: 'Email',
+      contact_label_message: 'Wiadomość',
 
       // Portfolio Section
       portfolio_title: 'Zobacz Nasze Projekty',
@@ -46,144 +118,52 @@ Obecnie BAU GREEN prowadzi działalność zarówno w Polsce, jak i w Niemczech. 
       portfolio_image_4_alt: 'Kolejny projekt portfolio',
       portfolio_caption_4: 'Charakterystyczna zabudowa szafek',
 
-      // Contact Section
-      contact_title: 'Skontaktuj Się z Nami',
-      contact_info: 'Masz pytania? Chętnie na nie odpowiemy. Wypełnij formularz lub zadzwoń.',
-      contact_name_placeholder: 'Twoje Imię',
-      contact_email_placeholder: 'Twój Email',
-      contact_message_placeholder: 'Twoja Wiadomość',
-      contact_submit_button: 'Wyślij Wiadomość',
-      contact_company_name: 'BAUGREEN SP Z.O.O (w komunikacji handlowej: BAU GREEN)',
-      contact_address: 'Raciborska 97, 47-480 Maków, Polska',
-      contact_nip: 'PL6472603097',
-      contact_phone: '+48 609 320 236',
-      contact_email1: 'sobocik1991@gmail.com',
-      contact_email2: 'baugreen.pl@gmail.com',
-      contact_person_name: 'Karol Sobocik',
-      contact_person_label: 'Osoba kontaktowa:',
-      contact_socials_cta: 'Połącz się z nami:',
-      facebook_aria_label: 'Facebook',
-      twitter_aria_label: 'Twitter',
-      instagram_aria_label: 'Instagram',
-      contact_map_title: 'Nasza Lokalizacja',
-      google_maps_title: 'Mapa lokalizacji firmy BAU GREEN',
-      contact_form_subtitle: 'Napisz do Nas',
-      contact_label_name: 'Imię',
-      contact_label_email: 'Email',
-      contact_label_message: 'Wiadomość',
-
       // Footer
-      footer_text: `© ${new Date().getFullYear()} StolarzNowoczesny. Wszelkie prawa zastrzeżone.`,
+      footer_text: `© ${new Date().getFullYear()} BAU GREEN. Wszelkie prawa zastrzeżone.`,
       testimonials_title: 'Co Mówią Nasi Klienci',
       footer_company_description: 'Firma BAU GREEN działa na rynku od 2023 roku, specjalizując się w sprzedaży i montażu stolarki otworowej. Oferujemy wysokiej jakości okna, drzwi i rolety, działając zarówno w Polsce, jak i w Niemczech.',
-      offer: {
-        mainTitle: "Nasza Oferta – Kompleksowe Rozwiązania Stolarki Otworowej",
-        intro: "W firmie BAU GREEN stawiamy nie tylko na konkurencyjne ceny, ale przede wszystkim na jakość, terminowość i profesjonalną obsługę. Oferujemy naszym klientom szeroki wybór produktów oraz kompleksową realizację projektów – od dostawy po montaż. Wszystko z jednego źródła.",
-        windowsAndDoors: {
-          title: "Okna i Drzwi",
-          description: "Dostarczamy i montujemy okna oraz drzwi w systemach:",
-          systems: {
-            pvc: "PVC i PVC-Alu",
-            pvcDetails: "nowoczesne rozwiązania łączące energooszczędność i estetykę",
-            wood: "Drewno i drewno-aluminium",
-            woodDetails: "klasyka w nowoczesnym wydaniu, idealna dla domów i obiektów premium",
-            steel: "Stal",
-            steelDetails: "dla obiektów wymagających wyjątkowej trwałości i bezpieczeństwa"
-          },
-          manufacturers: "Współpracujemy z renomowanymi producentami profili:"
-        },
-        aluminiumSystems: {
-          title: "Systemy Aluminiowe",
-          description: "Wykorzystujemy najwyższej klasy profile aluminiowe od: Inotherm, Aluprof, Reynaers – idealne do fasad, drzwi wejściowych i przeszkleń wielkogabarytowych"
-        },
-        blindsAndShades: {
-          title: "Rolety i Osłony Przeciwsłoneczne",
-          description: "Oferujemy systemy rolet, żaluzji fasadowych i screenów renomowanych marek: Roma, Alukon, Beck+Heun, Exte – komfort, ochrona i estetyka w jednym"
-        },
-        safetySystems: {
-          title: "Systemy Zabezpieczające",
-          description: "Dostarczamy balustrady i zabezpieczenia przeciwupadkowe od: Abel-System, Roma i innych uznanych producentów – bezpieczeństwo bez kompromisów"
-        },
-        sills: {
-          title: "Parapety",
-          description: "Oferujemy parapety zewnętrzne i wewnętrzne od: BUG, Gutmann – trwałe, estetyczne i odporne na warunki atmosferyczne"
-        },
-        outro: "Dzięki współpracy z wieloma producentami możemy dopasować produkt do każdego projektu – niezależnie od skali i stopnia skomplikowania. Nasze systemy sprawdzają się zarówno w nowym budownictwie, jak i w modernizacjach."
-      }
     },
   },
   en: {
     translation: {
       // Hero Section
       hero_title: 'BauGreen',
-      hero_subtitle: 'We create unique designs with a passion for wood.',
+      hero_subtitle: 'We create unique designs with passion.',
       hero_cta: 'Discover Our Offer',
 
       // Navbar
-      site_title: 'ModernCarpenter',
+      site_title: 'BauGreen',
       nav_hero: 'Home',
       nav_about: 'About Us',
       nav_offer: 'Our Services',
       nav_portfolio: 'Portfolio',
       nav_contact: 'Contact',
 
-      // About Section
-      about_title: 'Discover Our Story',
-      about_image_alt: 'Modern interior with wooden elements',
-      opis_o_nas: `BAU GREEN has been operating since 2023 but achieved its current form under the direction of Karol Sobocik. Karol gained experience in Germany, where he learned what true quality means in the installation and sale of building joinery. Working in the demanding German market, he became familiar with modern technologies and installation standards, which he now brings to Poland — offering customers European-level service.
+      // About Page Title & Main Content
+      about_page_title: "We Create, We Assemble,<br/> and <0>We Deliver</0>.",
+      about_intro: "Since 2023, BAU GREEN has been operating in the window and door joinery market, combining German quality standards with Polish craftsmanship. We specialize in the highest level of window and door installation.",
+      about_cta: "Contact us",
+      about_image_alt: "Karol Sobocik - owner of BAU GREEN",
+      about_quote: "Experience gained in Germany taught me what true quality means in window and door installation. I am now introducing these standards in Poland.",
+      about_authorName: "Karol Sobocik",
+      about_authorTitle: "Founder & CEO BAU GREEN",
 
-Today, BAU GREEN operates in both Poland and Germany. We collaborate with numerous German partners, providing comprehensive sales and installation services for windows, doors, and blinds. Our priorities are reliability, punctuality, and attention to every detail — just as done by our western neighbors.`,
+      // About Section Features
+      about_features_quality_title: 'Highest Quality',
+      about_features_quality_description: 'Installation according to German standards, with attention to every detail and precision.',
+      about_features_experience_title: 'Experience',
+      about_features_experience_description: 'Years of work in the demanding German market translate into the highest quality services.',
+      about_features_reliability_title: 'Reliability',
+      about_features_reliability_description: 'Timely execution of orders and precision are the basis of our cooperation.',
+      about_features_service_title: 'Comprehensive Service',
+      about_features_service_description: 'From consulting, through measurement, to installation and service - all in one place.',
+
+      // Offer Header
+      offer_header_title: "Our Offer<br/> - <0>Comprehensive Joinery Solutions</0>.",
+      offer_header_intro_text: "At <0>BAU GREEN</0> we focus not only on competitive prices, but above all on <1>quality, timeliness, and professional service</1>. We offer our clients a wide selection of products and <2>comprehensive project implementation</2> – from delivery to installation. <3>Everything from a single source</3>.",
+      offer_image_alt: "Modern glass and steel facade",
 
       // Offer Section
-      offer_title: 'What Can We Do For You?',
-      offer_item_1_title: 'Kitchen Furniture',
-      offer_item_1_description: 'Designing and installing functional kitchen furniture tailored to your needs.',
-      offer_item_2_title: 'Wardrobes & Closets',
-      offer_item_2_description: 'We craft spacious wardrobes and closets that maximize your available space.',
-      offer_item_3_title: 'Custom Built-ins',
-      offer_item_3_description: 'We deliver unique built-in solutions: staircases, niches, mezzanines and more, according to individual designs.',
-
-      // Portfolio Section
-      portfolio_title: 'See Our Projects',
-      portfolio_image_1_alt: 'Door Installation',
-      portfolio_caption_1: 'Door Installation',
-      portfolio_image_2_alt: 'Window Installation',
-      portfolio_caption_2: 'Window Installation',
-      portfolio_image_3_alt: 'Modern Fittings',
-      portfolio_caption_3: 'Modern Fittings',
-      portfolio_image_4_alt: 'Fourth portfolio project',
-      portfolio_caption_4: 'Distinctive cabinetry design',
-
-      // Contact Section
-      contact_title: 'Contact Us',
-      contact_info: 'Have questions? We are happy to answer them. Fill out the form or call us.',
-      contact_name_placeholder: 'Your Name',
-      contact_email_placeholder: 'Your Email',
-      contact_message_placeholder: 'Your Message',
-      contact_submit_button: 'Send Message',
-      contact_company_name: 'BAUGREEN SP Z.O.O (commercial communication: BAU GREEN)',
-      contact_address: 'Raciborska 97, 47-480 Maków, Poland',
-      contact_nip: 'PL6472603097',
-      contact_phone: '+48 609 320 236',
-      contact_email1: 'sobocik1991@gmail.com',
-      contact_email2: 'baugreen.pl@gmail.com',
-      contact_person_name: 'Karol Sobocik',
-      contact_person_label: 'Contact person:',
-      contact_socials_cta: 'Connect with us:',
-      facebook_aria_label: 'Facebook',
-      twitter_aria_label: 'Twitter',
-      instagram_aria_label: 'Instagram',
-      contact_map_title: 'Our Location',
-      google_maps_title: 'Location map of BAU GREEN company',
-      contact_form_subtitle: 'Write to Us',
-      contact_label_name: 'Name',
-      contact_label_email: 'Email',
-      contact_label_message: 'Message',
-
-      // Footer
-      footer_text: `© ${new Date().getFullYear()} ModernCarpenter. All rights reserved.`,
-      testimonials_title: 'What Our Clients Say',
-      footer_company_description: 'BAU GREEN has been operating on the market since 2023, specializing in the sale and installation of windows, doors, and blinds. We offer high-quality products and operate in both Poland and Germany.',
       offer: {
         mainTitle: "Our Offer – Comprehensive Joinery Solutions",
         intro: "At BAU GREEN, we focus not only on competitive prices but above all on quality, timeliness, and professional service. We offer our clients a wide selection of products and comprehensive project implementation – from delivery to installation. Everything from a single source.",
@@ -202,98 +182,110 @@ Today, BAU GREEN operates in both Poland and Germany. We collaborate with numero
         },
         aluminiumSystems: {
           title: "Aluminum Systems",
-          description: "We use top-class aluminum profiles from: Inotherm, Aluprof, Reynaers – ideal for facades, entrance doors, and large-scale glazing"
-        },
-        blindsAndShades: {
-          title: "Blinds and Sun Protection",
-          description: "We offer roller shutters, facade blinds, and screen systems from renowned brands: Roma, Alukon, Beck+Heun, Exte – comfort, protection, and aesthetics in one"
-        },
-        safetySystems: {
-          title: "Safety Systems",
-          description: "We supply balustrades and fall protection systems from: Abel-System, Roma, and other recognized manufacturers – safety without compromise"
-        },
-        sills: {
-          title: "Sills",
-          description: "We offer external and internal sills from: BUG, Gutmann – durable, aesthetic, and weather-resistant"
+          description: "We use top-class aluminum profiles – ideal for facades, entrance doors, and large-scale glazing.",
+          manufacturers: "Technology partners:"
         },
         outro: "Thanks to cooperation with many manufacturers, we can tailor the product to any project – regardless of scale and complexity. Our systems prove themselves in both new construction and modernizations."
-      }
+      },
+
+      // Contact Section
+      contact_title: 'Contact Us',
+      contact_info_subtitle: 'Contact Information',
+      contact_company_name: 'BAUGREEN SP Z.O.O (commercial communication: BAU GREEN)',
+      contact_commercial_name: 'BAU GREEN',
+      contact_commercial_communication: 'commercial communication:',
+      contact_address: 'Raciborska 97, 47-480 Maków, Poland',
+      contact_nip: 'PL6472603097',
+      contact_phone: '+48 609 320 236',
+      contact_email1: 'sobocik1991@gmail.com',
+      contact_email2: 'baugreen.pl@gmail.com',
+      contact_person_name: 'Karol Sobocik',
+      contact_person_label: 'Contact person:',
+      contact_address_label: 'Address:',
+      contact_phone_label: 'Phone:',
+      contact_email_label: 'Main email:',
+      contact_email_business_label: 'Business email:',
+      contact_socials_cta: 'Connect with us:',
+      contact_map_title: 'Our Location',
+      contact_location_description_part1: 'Our company is located in',
+      contact_location_city: 'Maków',
+      contact_location_description_part2: ', in the Silesian Voivodeship. We are',
+      contact_location_accessible: 'easily accessible',
+      contact_location_description_part3: ' to clients from the entire region and',
+      contact_location_ready: 'ready to implement projects',
+      contact_location_description_part4: ' throughout Poland',
+      facebook_aria_label: 'Facebook',
+      twitter_aria_label: 'Twitter',
+      instagram_aria_label: 'Instagram',
+      google_maps_title: 'Location map of BAU GREEN company',
+
+      // Form fields
+      contact_name_placeholder: 'Your Name',
+      contact_email_placeholder: 'Your Email',
+      contact_message_placeholder: 'Your Message',
+      contact_submit_button: 'Send Message',
+      contact_form_subtitle: 'Write to Us',
+      contact_label_name: 'Name',
+      contact_label_email: 'Email',
+      contact_label_message: 'Message',
+
+      // Portfolio Section
+      portfolio_title: 'See Our Projects',
+      portfolio_image_1_alt: 'Door Installation',
+      portfolio_caption_1: 'Door Installation',
+      portfolio_image_2_alt: 'Window Installation',
+      portfolio_caption_2: 'Window Installation',
+      portfolio_image_3_alt: 'Modern Fittings',
+      portfolio_caption_3: 'Modern Fittings',
+      portfolio_image_4_alt: 'Fourth portfolio project',
+      portfolio_caption_4: 'Distinctive cabinetry design',
+
+      // Footer
+      footer_text: `© ${new Date().getFullYear()} BAU GREEN. All rights reserved.`,
+      testimonials_title: 'What Our Clients Say',
+      footer_company_description: 'BAU GREEN has been operating since 2023, specializing in the sale and installation of joinery. We offer high-quality windows, doors, and blinds, operating in both Poland and Germany.',
     },
   },
   de: {
     translation: {
       // Hero Section
       hero_title: 'BauGreen',
-      hero_subtitle: 'Wir schaffen einzigartige Designs mit Leidenschaft für Holz.',
+      hero_subtitle: 'Wir schaffen einzigartige Designs mit Leidenschaft.',
       hero_cta: 'Entdecken Sie Unser Angebot',
 
       // Navbar
-      site_title: 'ModernerTischler',
+      site_title: 'BauGreen',
       nav_hero: 'Startseite',
       nav_about: 'Über Uns',
       nav_offer: 'Angebot',
       nav_portfolio: 'Projekte',
       nav_contact: 'Kontakt',
 
-      // About Section
-      about_title: 'Entdecken Sie Unsere Geschichte',
-      about_image_alt: 'Modernes Interieur mit Holzelementen',
-      opis_o_nas: `Die BAU GREEN ist seit 2023 auf dem Markt tätig und hat ihre heutige Form dank einer neuen Ausrichtung unter der Leitung von Karol Sobocik erlangt. Karol sammelte Erfahrungen in Deutschland, wo er lernte, was wahre Qualität bei Montage und Verkauf von Bauelementen bedeutet. 
+      // About Page Title & Main Content
+      about_page_title: "Unser Angebot<br/> - <0>Umfassende Lösungen für den Fenster</0>.",
+      about_intro: "Seit 2023 ist BAU GREEN auf dem Markt für Fenster- und Türelemente tätig und verbindet deutsche Qualitätsstandards mit polnischer Handwerkskunst. Wir sind spezialisiert auf die Montage von Fenstern und Türen auf höchstem Niveau.",
+      about_cta: "Kontaktieren Sie uns",
+      about_image_alt: "Karol Sobocik - Inhaber von BAU GREEN",
+      about_quote: 'Die in Deutschland gesammelten Erfahrungen haben mich gelehrt, was wahre Qualität bei der Montage von Fenstern und Türen bedeutet. Diese Standards führe ich jetzt in Polen ein.',
+      about_authorName: "Karol Sobocik",
+      about_authorTitle: "Gründer & CEO BAU GREEN",
 
-Durch seine Tätigkeit auf dem anspruchsvollen deutschen Markt kennt er moderne Technologien und Montagestandards, die er nun in Polen einsetzt — und so seinen Kunden Leistungen auf europäischem Niveau bietet.
+      // About Section Features
+      about_features_quality_title: 'Höchste Qualität',
+      about_features_quality_description: 'Montage nach deutschen Standards, mit Liebe zum Detail und Präzision.',
+      about_features_experience_title: 'Erfahrung',
+      about_features_experience_description: 'Jahrelange Arbeit auf dem anspruchsvollen deutschen Markt führt zu Dienstleistungen höchster Qualität.',
+      about_features_reliability_title: 'Zuverlässigkeit',
+      about_features_reliability_description: 'Termingerechte Ausführung von Aufträgen und Präzision sind die Grundlage unserer Zusammenarbeit.',
+      about_features_service_title: 'Umfassender Service',
+      about_features_service_description: 'Von der Beratung über das Aufmaß bis hin zur Montage und zum Service – alles aus einer Hand.',
 
-Heute ist BAU GREEN sowohl in Polen als auch in Deutschland aktiv. Wir arbeiten mit zahlreichen deutschen Partnern zusammen und bieten umfassende Dienstleistungen im Verkauf und Einbau von Fenstern, Türen und Rollläden. Unsere Prioritäten sind Zuverlässigkeit, Pünktlichkeit und Liebe zum Detail — genau wie bei unseren westlichen Nachbarn.`,
+      // Offer Header
+      offer_header_title: "Wir Erstellen, Wir Montieren,<br/> und <0>Wir Liefern</0>.",
+      offer_header_intro_text: "Bei <0>BAU GREEN</0> setzen wir nicht nur auf wettbewerbsfähige Preise, sondern vor allem auf <1>Qualität, Termintreue und professionellen Service</1>. Wir bieten unseren Kunden eine große Auswahl an Produkten und <2>eine umfassende Projektabwicklung</2> – von der Lieferung bis zur Montage. <3>Alles aus einer Hand</3>.",
+      offer_image_alt: "Moderne Glas- und Stahlfassade",
 
       // Offer Section
-      offer_title: 'Was Können Wir Für Sie Tun?',
-      offer_item_1_title: 'Küchenmöbel',
-      offer_item_1_description: 'Wir planen und montieren funktionale Küchenmöbel, die perfekt auf Ihre Bedürfnisse abgestimmt sind.',
-      offer_item_2_title: 'Schränke & Garderoben',
-      offer_item_2_description: 'Wir fertigen geräumige Schränke und Garderoben, die den vorhandenen Platz optimal nutzen.',
-      offer_item_3_title: 'Maßanfertigungen',
-      offer_item_3_description: 'Wir realisieren individuelle Einbauten: Treppen, Nischen, Hochböden und mehr, ganz nach Ihren Wünschen.',
-
-      // Portfolio Section
-      portfolio_title: 'Sehen Sie Unsere Projekte',
-      portfolio_image_1_alt: 'Türinstallation',
-      portfolio_caption_1: 'Türinstallation',
-      portfolio_image_2_alt: 'Fenstermontage',
-      portfolio_caption_2: 'Fenstermontage',
-      portfolio_image_3_alt: 'Moderne Einbauten',
-      portfolio_caption_3: 'Moderne Einbauten',
-      portfolio_image_4_alt: 'Viertes Portfolio-Projekt',
-      portfolio_caption_4: 'Charakteristische Schranklösung',
-
-      // Contact Section
-      contact_title: 'Kontaktieren Sie Uns',
-      contact_info: 'Haben Sie Fragen? Wir beantworten sie gerne. Füllen Sie das Formular aus oder rufen Sie uns an.',
-      contact_name_placeholder: 'Ihr Name',
-      contact_email_placeholder: 'Ihre E-Mail',
-      contact_message_placeholder: 'Ihre Nachricht',
-      contact_submit_button: 'Nachricht Senden',
-      contact_company_name: 'BAUGREEN SP Z.O.O (Handelskommunikation: BAU GREEN)',
-      contact_address: 'Raciborska 97, 47-480 Maków, Polen',
-      contact_nip: 'PL6472603097',
-      contact_phone: '+48 609 320 236',
-      contact_email1: 'sobocik1991@gmail.com',
-      contact_email2: 'baugreen.pl@gmail.com',
-      contact_person_name: 'Karol Sobocik',
-      contact_person_label: 'Ansprechpartner:',
-      contact_socials_cta: 'Verbinden Sie sich mit uns:',
-      facebook_aria_label: 'Facebook',
-      twitter_aria_label: 'Twitter',
-      instagram_aria_label: 'Instagram',
-      contact_map_title: 'Unser Standort',
-      google_maps_title: 'Standortkarte der Firma BAU GREEN',
-      contact_form_subtitle: 'Schreiben Sie uns',
-      contact_label_name: 'Name',
-      contact_label_email: 'Email',
-      contact_label_message: 'Nachricht',
-
-      // Footer
-      footer_text: `© ${new Date().getFullYear()} ModernerTischler. Alle Rechte vorbehalten.`,
-      testimonials_title: 'Was unsere Kunden sagen',
-      footer_company_description: 'Die Firma BAU GREEN ist seit 2023 auf dem Markt tätig und spezialisiert sich auf den Verkauf und die Montage von Fenstern, Türen und Rollläden. Wir bieten hochwertige Produkte an und sind sowohl in Polen als auch in Deutschland tätig.',
       offer: {
         mainTitle: "Unser Angebot – Umfassende Bauelemente-Lösungen",
         intro: "Bei BAU GREEN setzen wir nicht nur auf wettbewerbsfähige Preise, sondern vor allem auf Qualität, Pünktlichkeit und professionellen Service. Wir bieten unseren Kunden eine große Auswahl an Produkten und eine umfassende Projektabwicklung – von der Lieferung bis zur Montage. Alles aus einer Hand.",
@@ -312,22 +304,68 @@ Heute ist BAU GREEN sowohl in Polen als auch in Deutschland aktiv. Wir arbeiten 
         },
         aluminiumSystems: {
           title: "Aluminiumsysteme",
-          description: "Wir verwenden hochwertige Aluminiumprofile von: Inotherm, Aluprof, Reynaers – ideal für Fassaden, Eingangstüren und großflächige Verglasungen"
-        },
-        blindsAndShades: {
-          title: "Rollläden und Sonnenschutz",
-          description: "Wir bieten Rollladen-, Fassadenjalousie- und Screensysteme renommierter Marken an: Roma, Alukon, Beck+Heun, Exte – Komfort, Schutz und Ästhetik in einem"
-        },
-        safetySystems: {
-          title: "Sicherheitssysteme",
-          description: "Wir liefern Geländer und Absturzsicherungen von: Abel-System, Roma und anderen anerkannten Herstellern – Sicherheit ohne Kompromisse"
-        },
-        sills: {
-          title: "Fensterbänke",
-          description: "Wir bieten Außen- und Innenfensterbänke von: BUG, Gutmann – langlebig, ästhetisch und witterungsbeständig"
+          description: "Wir verwenden hochwertigste Aluminiumprofile – ideal für Fassaden, Eingangstüren und großflächige Verglasungen.",
+          manufacturers: "Technologiepartner:"
         },
         outro: "Dank der Zusammenarbeit mit vielen Herstellern können wir das Produkt an jedes Projekt anpassen – unabhängig von Größe und Komplexität. Unsere Systeme bewähren sich sowohl im Neubau als auch bei Modernisierungen."
-      }
+      },
+
+      // Contact Section
+      contact_title: 'Kontaktieren Sie Uns',
+      contact_info_subtitle: 'Kontaktdaten',
+      contact_company_name: 'BAUGREEN SP Z.O.O (Handelskommunikation: BAU GREEN)',
+      contact_commercial_name: 'BAU GREEN',
+      contact_commercial_communication: 'Handelskommunikation:',
+      contact_address: 'Raciborska 97, 47-480 Maków, Polen',
+      contact_nip: 'PL6472603097',
+      contact_phone: '+48 609 320 236',
+      contact_email1: 'sobocik1991@gmail.com',
+      contact_email2: 'baugreen.pl@gmail.com',
+      contact_person_name: 'Karol Sobocik',
+      contact_person_label: 'Ansprechpartner:',
+      contact_address_label: 'Adresse:',
+      contact_phone_label: 'Telefon:',
+      contact_email_label: 'Haupt-Email:',
+      contact_email_business_label: 'Geschäfts-Email:',
+      contact_socials_cta: 'Verbinden Sie sich mit uns:',
+      contact_map_title: 'Unser Standort',
+      contact_location_description_part1: 'Unser Unternehmen befindet sich in',
+      contact_location_city: 'Maków',
+      contact_location_description_part2: ', in der Woiwodschaft Schlesien. Wir sind',
+      contact_location_accessible: 'leicht erreichbar',
+      contact_location_description_part3: ' für Kunden aus der gesamten Region und',
+      contact_location_ready: 'bereit zur Projektrealisierung',
+      contact_location_description_part4: ' in ganz Polen',
+      facebook_aria_label: 'Facebook',
+      twitter_aria_label: 'Twitter',
+      instagram_aria_label: 'Instagram',
+      google_maps_title: 'Standortkarte der Firma BAU GREEN',
+
+      // Form fields
+      contact_name_placeholder: 'Ihr Name',
+      contact_email_placeholder: 'Ihre E-Mail',
+      contact_message_placeholder: 'Ihre Nachricht',
+      contact_submit_button: 'Nachricht Senden',
+      contact_form_subtitle: 'Schreiben Sie uns',
+      contact_label_name: 'Name',
+      contact_label_email: 'Email',
+      contact_label_message: 'Nachricht',
+
+      // Portfolio Section
+      portfolio_title: 'Sehen Sie Unsere Projekte',
+      portfolio_image_1_alt: 'Türinstallation',
+      portfolio_caption_1: 'Türinstallation',
+      portfolio_image_2_alt: 'Fenstermontage',
+      portfolio_caption_2: 'Fenstermontage',
+      portfolio_image_3_alt: 'Moderne Einbauten',
+      portfolio_caption_3: 'Moderne Einbauten',
+      portfolio_image_4_alt: 'Viertes Portfolio-Projekt',
+      portfolio_caption_4: 'Charakteristische Schranklösung',
+
+      // Footer
+      footer_text: `© ${new Date().getFullYear()} BAU GREEN. Alle Rechte vorbehalten.`,
+      testimonials_title: 'Was unsere Kunden sagen',
+      footer_company_description: 'BAU GREEN ist seit 2023 tätig und spezialisiert auf den Verkauf und die Montage von Bauelementen. Wir bieten hochwertige Fenster, Türen und Rollläden und sind sowohl in Polen als auch in Deutschland tätig.',
     },
   },
 };

@@ -80,8 +80,18 @@
   background-position: -125% 0, 0 0; /* Start błysku bardziej na lewo */
   background-repeat: no-repeat, no-repeat; /* Ważne dla wielu teł */
   
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Dodano cień */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Dodano cień */
   background-origin: border-box; /* Zachowano */
+}
+
+.intro-logo-bau {
+  color: #938050; /* Kolor dla 'Bau' */
+  -webkit-text-fill-color: #938050; /* Dla kompatybilności */
+}
+
+.intro-logo-green {
+  color: #19392f; /* Kolor dla 'Green' */
+  -webkit-text-fill-color: #19392f; /* Dla kompatybilności */
 }
 
 
