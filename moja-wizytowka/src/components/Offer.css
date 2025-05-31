@@ -137,15 +137,66 @@
    }
    
    /* ==============================
-      4. Grid kategorii - lepsze wyrównanie
+      4. Grid kategorii - 2 karty + outro pod prawą kartą
       ==============================
     */
    .offer-categories-grid {
      display: grid;
-     grid-template-columns: 1.5fr 1fr;
+     grid-template-columns: 1fr 1fr;
+     grid-template-rows: auto auto;
      gap: 2rem;
      margin-bottom: 3rem;
      align-items: start;
+   }
+   
+   /* Pierwsza karta - pełna wysokość w pierwszej kolumnie */
+   .offer-category-card:first-child {
+     grid-column: 1;
+     grid-row: 1 / 3;
+     height: 100%;
+   }
+   
+   /* Druga karta - górny rząd drugiej kolumny */
+   .offer-category-card:last-of-type {
+     grid-column: 2;
+     grid-row: 1;
+     height: fit-content;
+   }
+   
+   /* Outro pod prawą kartą */
+   .offer-outro-under-card {
+     grid-column: 2;
+     grid-row: 2;
+     font-size: 0.95rem;
+     line-height: 1.6;
+     padding: 1.25rem;
+     background: rgba(255, 255, 255, 0.98);
+     border-radius: 0.75rem;
+     border: 1px solid var(--silver-2);
+     color: var(--gunmetal);
+     font-weight: 400;
+     position: relative;
+     height: fit-content;
+     box-shadow: 0 2px 10px rgba(37, 48, 54, 0.06);
+     margin-top: 0.5rem;
+   }
+   
+   .dark-mode .offer-outro-under-card {
+     background: rgba(37, 48, 54, 0.98);
+     border: 1px solid var(--dim-gray);
+     color: var(--silver);
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+   }
+   
+   .offer-outro-under-card::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 3px;
+     background: #3b82f6;
+     border-radius: 0.75rem 0.75rem 0 0;
    }
    
    /* ==============================
@@ -398,31 +449,7 @@
    }
    
    /* ==============================
-      11. Outro
-      ==============================
-    */
-   .offer-outro {
-     font-size: 1rem;
-     line-height: 1.6;
-     text-align: center;
-     max-width: 800px;
-     margin: 0 auto;
-     padding: 1.5rem;
-     background: rgba(59, 130, 246, 0.05);
-     border-radius: 0.75rem;
-     border: 1px solid rgba(59, 130, 246, 0.15);
-     color: var(--gunmetal);
-     font-weight: 400;
-   }
-   
-   .dark-mode .offer-outro {
-     background: rgba(59, 130, 246, 0.1);
-     border: 1px solid rgba(59, 130, 246, 0.2);
-     color: var(--silver);
-   }
-   
-   /* ==============================
-      12. Responsywność
+      11. Responsywność
       ==============================
     */
    @media (max-width: 768px) {
@@ -460,15 +487,28 @@
        text-align: center;
      }
    
-     .offer-outro {
-       font-size: 0.95rem;
-       padding: 1.25rem;
-     }
-   
      .offer-categories-grid {
        grid-template-columns: 1fr;
+       grid-template-rows: auto;
        gap: 1.5rem;
        margin-bottom: 2rem;
+     }
+   
+     .offer-category-card:first-child {
+       grid-column: 1;
+       grid-row: auto;
+     }
+   
+     .offer-category-card:last-of-type {
+       grid-column: 1;
+       grid-row: auto;
+     }
+   
+     .offer-outro-under-card {
+       grid-column: 1;
+       grid-row: auto;
+       font-size: 0.9rem;
+       padding: 1rem;
      }
    
      .offer-category-card {
@@ -524,5 +564,10 @@
    
      .company-name {
        font-size: 0.7rem;
+     }
+   
+     .offer-outro-under-card {
+       font-size: 0.85rem;
+       padding: 0.75rem;
      }
    }

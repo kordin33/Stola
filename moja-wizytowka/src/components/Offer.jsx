@@ -221,17 +221,18 @@ const Offer = () => {
               )}
             </motion.div>
           ))}
+          
+          {/* Outro jako osobny element pod prawą kartą */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="offer-outro-under-card"
+          >
+            {offerData.outro}
+          </motion.div>
         </div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="offer-outro"
-        >
-          {offerData.outro}
-        </motion.p>
       </div>
     </section>
   );
