@@ -33,6 +33,7 @@ const Navbar = ({ theme, toggleTheme }) => {
   const navLinks = [
     { name: t('nav_hero'), id: 'hero' },
     { name: t('nav_about'), id: 'about' },
+    { name: t('nav_offer'), id: 'offer' },
     
     { name: t('nav_portfolio'), id: 'portfolio' },
     { name: t('nav_contact'), id: 'contact' },

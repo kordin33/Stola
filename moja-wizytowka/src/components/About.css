@@ -21,40 +21,21 @@
   color: var(--text-main-dark);
 }
 
-.about-container {
-  max-width: 1110px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* .about-container, .about-title, and .about-content-wrapper styles removed as they are handled by global .container, .section-title, .accent-line and .about-grid */
+
+.about-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
 }
 
-.about-title {
-  font-size: 3.5rem;
-  padding-left: 0; /* Removed large padding for mobile */
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  font-family: 'Montserrat', sans-serif;
-}
-
-@media (min-width: 768px) {
-  /* .about-title text-align: left; was removed to keep it centered */
-}
-
-.light-mode .about-title {
-  color: var(--text-main-light);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
-}
-
-.dark-mode .about-title {
-  color: var(--text-main-dark);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-}
-
-.about-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
+.about-image-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(3, 3, 3, 0);
+  border-radius: 0.75rem;
+  z-index: 1;
 }
 
 .about-image-container {
@@ -125,30 +106,27 @@
   /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);  Removed */
 }
 
+/* Responsive styles for .about-content-wrapper, .about-image-container, and .about-text-container might need to be adjusted or removed if .about-grid and .card provide sufficient layout. */
+/* For now, keeping specific image and text container adjustments for larger screens, but these might conflict or be redundant. */
 @media (min-width: 768px) {
-  .about-content-wrapper {
-    flex-direction: row;
-    align-items: flex-end; /* Align items to the bottom */
-    gap: 2.5rem; /* Adjusted gap */
-  }
-  .about-image-container {
-    width: 40%; /* Give image a bit less space */
+  /* .about-content-wrapper is now .about-grid, specific flex properties might not be needed */
+  .about-image-container { /* This is now a .card */
+    width: 40%; 
     max-width: 450px;
     flex-shrink: 0;
   }
-  .about-text-container {
-    width: 60%; /* Give text more space */
-    padding: 1rem 1.5rem; /* Vertical and horizontal padding */
-    border-radius: 8px;
+  .about-text-container { /* This is now a .card */
+    width: 60%; 
+    /* padding, border-radius are handled by .card and .card-content */
   }
 
-  .light-mode .about-text-container {
-    background-color: #f8f9fa; /* A very light grey, almost white */
-    border-left: 5px solid #007bff; /* Example primary blue */
+  .light-mode .about-text-container { /* Specific background and border for text card in light mode */
+    background-color: #f8f9fa; 
+    border-left: 5px solid #007bff; 
   }
 
-  .dark-mode .about-text-container {
-    background-color: rgba(255, 255, 255, 0.05); /* Subtle background for dark mode */
-    border-left: 5px solid #00aeff; /* Lighter blue for dark mode */
+  .dark-mode .about-text-container { /* Specific background and border for text card in dark mode */
+    background-color: rgba(255, 255, 255, 0.05); 
+    border-left: 5px solid #00aeff; 
   }
 }

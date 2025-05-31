@@ -13,112 +13,73 @@
   color: var(--text-main-dark);
 }
 
-.portfolio-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem; /* container px-4 */
-}
+/* .portfolio-container, .portfolio-title, and .portfolio-items-grid styles removed as they are handled by global .container, .section-title, .accent-line and .portfolio-grid */
 
-.portfolio-title {
-  font-size: 2.5rem; /* text-4xl */
-  font-weight: 700; /* font-bold */
-  text-align: center;
-  margin-bottom: 2rem; /* mb-8, reduced */
-  font-family: 'Montserrat', sans-serif; /* Heading font */
-}
-
-.light-mode .portfolio-title {
-  color: var(--text-main-light);
-}
-.dark-mode .portfolio-title {
-  color: var(--text-main-dark);
-}
-
-.portfolio-items-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
-  gap: 1rem; /* gap-4, further reduced gap */
-}
-
-@media (min-width: 768px) { /* md breakpoint */
-  .portfolio-items-grid {
+/* Specific media query for complex grid layout commented out, .portfolio-grid with auto-fit should handle responsiveness.
+@media (min-width: 768px) { 
+  .portfolio-items-grid { // This is now .portfolio-grid
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns for the desired layout, back to equal width */
-    grid-template-rows: 0.7fr 1.3fr; /* Adjust row heights for asymmetric layout */
-    gap: 1rem; /* gap-4, further reduced gap */
-    max-height: 650px; /* Set a maximum height for the grid container */
-    align-items: stretch; /* Ensure grid items stretch to fill the height of their cells */
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: 0.7fr 1.3fr; 
+    gap: 1rem; 
+    max-height: 650px; 
+    align-items: stretch; 
   }
 
-  .portfolio-item { /* Apply height 100% to all items in this layout */
-    height: 100%; /* Restore explicit height */
-    /* min-height: 100%; */ /* Removed explicit min-height */
+  .portfolio-item { // This is now .card
+    height: 100%; 
   }
 
-  .portfolio-item-image { /* Ensure image behaves correctly within flex/grid */
-    min-height: 0; /* Prevent flex item from preventing shrinking below content size */
-    height: 100%; /* Make image fill the height of its container */
+  .portfolio-item-image { 
+    min-height: 0; 
+    height: 100%; 
   }
 
-  .portfolio-item:nth-child(1) { /* Style for the first tile */
-    grid-column: 1; /* Place in the first column */
-    grid-row: 1 / span 2; /* Span two rows */
-    /* height: 100%; /* Ensure the item fills the full height of the grid rows */ /* Moved to general .portfolio-item rule */
+  .portfolio-item:nth-child(1) { 
+    grid-column: 1; 
+    grid-row: 1 / span 2; 
   }
 
-  .portfolio-item:nth-child(2) { /* Style for the second tile */
-    grid-column: 2; /* Place in the second column */
-    grid-row: 1; /* Place in the first row */
+  .portfolio-item:nth-child(2) { 
+    grid-column: 2; 
+    grid-row: 1; 
   }
 
-  .portfolio-item:nth-child(3) { /* Style for the third tile */
-    grid-column: 2; /* Place in the second column */
-    grid-row: 2; /* Place in the second row */
+  .portfolio-item:nth-child(3) { 
+    grid-column: 2; 
+    grid-row: 2; 
   }
 }
+*/
 
-.portfolio-item {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden; /* Ensure overlay stays within bounds */
-  border-radius: 0.75rem; /* rounded-xl, increased rounding */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for box-shadow and transform */
-  display: flex; /* Use flexbox for internal layout */
-  flex-direction: column; /* Stack image and caption vertically */
+/* .portfolio-item is now .card. Specific styles like background, box-shadow, border-radius are handled by .card */
+/* Keeping hover effects for now, but they might need to be adjusted for the global .card:hover or .portfolio-grid .card:hover */
+.portfolio-item:hover { /* This selector should be .card:hover or .portfolio-grid .card:hover */
+  transform: translateY(-5px); 
 }
-
-.light-mode .portfolio-item {
-  background-color: var(--card-bg-light); /* Card background for light mode */
-  box-shadow: 0 4px 6px -1px var(--shadow-light), 0 2px 4px -1px var(--shadow-light); /* shadow-md */
-}
-.dark-mode .portfolio-item {
-  background-color: var(--card-bg-dark); /* Card background for dark mode */
-  box-shadow: 0 0 10px -2px var(--shadow-dark); /* Subtle glow */
-}
-
-.portfolio-item:hover {
-  transform: translateY(-5px); /* Slight lift effect on hover */
-}
+/* Theme-specific hover box-shadows might be redundant if .card has a generic one or if the theme variables cover it */
 .light-mode .portfolio-item:hover {
-  box-shadow: 0 10px 15px -3px var(--shadow-light), 0 4px 6px -2px var(--shadow-light); /* shadow-lg on hover */
+  box-shadow: 0 10px 15px -3px var(--shadow-light), 0 4px 6px -2px var(--shadow-light); 
 }
 .dark-mode .portfolio-item:hover {
-  box-shadow: 0 0 20px -3px var(--shadow-dark); /* Enhanced glow on hover */
+  box-shadow: 0 0 20px -3px var(--shadow-dark); 
 }
 
 
 .portfolio-item-image {
   display: block;
   width: 100%;
-  height: 100%; /* Make image fill the height of its container */
-  object-fit: cover; /* Ensure images cover the area, might crop */
+  height: 100%; 
+  object-fit: cover; 
   transition: transform 0.3s ease;
-  border-radius: 0.75rem 0.75rem 0 0; /* Rounded top corners if caption is below */
-  flex-grow: 1; /* Allow image to grow and fill available space */
+  /* border-radius for top corners might conflict with .card's overall border-radius if .card-content is present */
+  /* border-radius: 0.75rem 0.75rem 0 0; */ 
+  flex-grow: 1; 
 }
 
+/* This hover effect should target .card:hover .portfolio-item-image or similar if .portfolio-item-image is kept */
 .portfolio-item:hover .portfolio-item-image {
-  transform: scale(1.05); /* Example hover effect */
+  transform: scale(1.05); 
 }
 
 .portfolio-item-overlay {
@@ -129,31 +90,34 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 0.75rem; /* rounded-xl */
+  border-radius: 0.75rem; /* This should match .card's border-radius */
 }
 .light-mode .portfolio-item-overlay {
-  background-color: rgba(30, 58, 138, 0.7); /* Navy accent with alpha */
+  background-color: rgba(30, 58, 138, 0.7); 
 }
 .dark-mode .portfolio-item-overlay {
-  background-color: rgba(250, 204, 21, 0.7); /* Amber accent with alpha */
+  background-color: rgba(250, 204, 21, 0.7); 
 }
 
-
+/* This hover should target .card:hover .portfolio-item-overlay */
 .portfolio-item:hover .portfolio-item-overlay {
   opacity: 1;
 }
 
 .portfolio-item-caption {
   text-align: center;
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 600; /* font-semibold */
-  padding: 1rem; /* p-4 */
+  font-size: 1.125rem; 
+  font-weight: 600; 
+  /* padding is handled by .card-content */
+  /* padding: 1rem; */ 
 }
 
 
-/* Responsive adjustments */
-@media (min-width: 640px) { /* sm breakpoint */
+/* Responsive adjustments for .portfolio-items-grid (now .portfolio-grid) are handled by auto-fit, this might be redundant */
+/*
+@media (min-width: 640px) { 
   .portfolio-items-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* sm:grid-cols-2 */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
   }
 }
+*/

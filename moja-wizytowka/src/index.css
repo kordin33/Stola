@@ -11,9 +11,68 @@
   --icon-color-light: rgba(37, 48, 54, 1); /* $gunmetal */
   --icon-color-secondary-light: rgba(92, 99, 101, 1); /* $dim-gray */
 
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+/* Grids */
+.about-grid,
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg-light);
+  border-radius: .5rem;
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+}
+
+.card-content {
+  padding: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-color-light); /* Using theme variable for contrast */
+}
+
+/* Section Titles */
+.section-title {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: .5rem;
+  color: var(--text-color-light);
+}
+
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color-light); /* Using theme variable */
+  margin: .5rem auto 2rem;
+}
+
+/* Hover Effect for Portfolio Cards */
+.portfolio-grid .card {
+  transition: transform .2s ease-out;
+}
+
+.portfolio-grid .card:hover {
+  transform: translateY(-4px);
+}
+
   /* Dark Theme */
   --bg-main-dark: rgba(37, 48, 54, 1); /* $gunmetal */
-  --text-main-dark: rgba(176, 191, 196, 1); /* $silver */
+  --text-main-dark: rgba(255, 255, 255, 1); /* white */
   --accent-dark: rgba(164, 169, 169, 1); /* $silver-2 */
   --accent-secondary-dark: rgba(92, 99, 101, 1); /* $dim-gray */
   --card-bg-dark: rgba(92, 99, 101, 1); /* $dim-gray */

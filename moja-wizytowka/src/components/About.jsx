@@ -10,29 +10,30 @@ const About = () => {
 
   return (
     <section id="about" className="about-section">
-      <div className="container about-container">
+      <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="about-title"
+          className="section-title" // Changed to section-title
         >
           {t('about_title')}
         </motion.h2>
+        <div className="accent-line"></div> {/* Added accent line */}
 
-        <div className="about-content-wrapper">
+        <div className="about-grid"> {/* Changed to about-grid */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="about-image-container"
+            className="card" // Changed to card
           >
             <img
               src={aboutImage}
               alt={t('about_image_alt')}
-              className="about-image"
+              className="about-image" // This class might need to be reviewed or removed if card img styling is enough
             />
           </motion.div>
 
@@ -41,14 +42,16 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="about-text-container"
+            className="card" // Changed to card
           >
-            <div className="about-description">
-              {t('opis_o_nas').split('\n\n').map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
+            <div className="card-content"> {/* Added card-content */}
+              <div className="about-description">
+                {t('opis_o_nas').split('\n\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+              {/* + dodatkowe akapity lub listy wedle potrzeb */}
             </div>
-            {/* + dodatkowe akapity lub listy wedle potrzeb */}
           </motion.div>
         </div>
       </div>

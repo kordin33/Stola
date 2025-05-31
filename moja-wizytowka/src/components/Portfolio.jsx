@@ -37,19 +37,20 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="portfolio-section"> {/* Use custom CSS class */}
-      <div className="container portfolio-container"> {/* Use custom CSS class and global container */}
+    <section id="portfolio" className="portfolio-section">
+      <div className="container"> {/* Removed portfolio-container, using global container */}
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="portfolio-title" // Use custom CSS class
+          className="section-title" // Changed to section-title
         >
           {t('portfolio_title')}
         </motion.h2>
+        <div className="accent-line"></div> {/* Added accent line */}
 
-        <div className="portfolio-items-grid"> {/* Use custom CSS class */}
+        <div className="portfolio-grid"> {/* Changed to portfolio-grid */}
           {portfolioItems.map((item, index) => (
             <motion.div
               key={item.id}
@@ -57,11 +58,13 @@ const Portfolio = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="portfolio-item" // Use custom CSS class
+              className="card" // Changed to card
             >
-              <img src={item.image} alt={item.alt} className="portfolio-item-image" /> {/* Use actual image and custom CSS class */}
-              <div className="portfolio-item-overlay"> {/* Use custom CSS class */}
-                <p className="portfolio-item-caption">{item.caption}</p> {/* Use custom CSS class */}
+              <img src={item.image} alt={item.alt} className="portfolio-item-image" /> {/* This class might need review/removal */}
+              {/* The overlay might need to be re-evaluated or integrated differently with card structure */}
+              {/* For now, let's assume caption is the primary content for the card-content */}
+              <div className="card-content"> {/* Added card-content */}
+                <p className="portfolio-item-caption">{item.caption}</p>
               </div>
             </motion.div>
           ))}
