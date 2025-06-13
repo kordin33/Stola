@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
+import { Link } from 'react-router-dom'; // Zmieniono import
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './Navbar.css'; // Import component-specific CSS
@@ -31,12 +31,12 @@ const Navbar = ({ theme, toggleTheme }) => {
   };
 
   const navLinks = [
-    { name: t('nav_hero'), id: 'hero' },
-    { name: t('nav_about'), id: 'about' },
-    { name: t('nav_offer'), id: 'offer' },
-    
-    { name: t('nav_portfolio'), id: 'portfolio' },
-    { name: t('nav_contact'), id: 'contact' },
+    { name: t('nav_hero'), path: '/' },
+    { name: t('nav_about'), path: '/o-nas' },
+    { name: t('nav_offer'), path: '/' }, // Zakładając, że oferta jest na stronie głównej
+    { name: t('nav_portfolio'), path: '/portfolio' },
+    { name: t('nav_testimonials'), path: '/opinie' }, // Dodano link do opinii
+    { name: t('nav_contact'), path: '/' }, // Zakładając, że kontakt jest na stronie głównej
   ];
 
   return (
@@ -51,35 +51,27 @@ const Navbar = ({ theme, toggleTheme }) => {
               whileHover={{ scale: 1.1 }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
-              <ScrollLink
-                to="hero"
-                smooth
-                duration={500}
-                spy
-                offset={-80} // Adjust for fixed navbar height
+              <Link
+                to="/"
                 className="logo-link"
               >
                 <Logo />
-              </ScrollLink>
+              </Link>
             </motion.div>
           </div>
 
           {/* Desktop Links & Controls */}
           <div className="navbar-links-desktop">
             {navLinks.map((link) => (
-              <ScrollLink
-                key={link.id}
-                to={link.id}
-                smooth
-                duration={500}
-                spy
-                offset={-80}
-                activeClass="active-link"
+              <Link
+                key={link.path} // Użyj path jako klucza
+                to={link.path}
                 className="navbar-link"
+                // activeClassName="active-link" // react-router-dom v6+ używa NavLink dla activeClassName
               >
                 {link.name}
-              </ScrollLink>
-            ))}
+              </Link>
+            ))}Pokaż całość
 
             {/* Language Switcher */}
             <div className="language-switcher">
@@ -165,19 +157,15 @@ const Navbar = ({ theme, toggleTheme }) => {
         >
           <div className="mobile-menu-links">
             {navLinks.map((link) => (
-              <ScrollLink
-                key={link.id}
-                to={link.id}
-                smooth
-                duration={500}
-                spy
-                offset={-80}
-                activeClass="active-link"
+              <Link
+                key={link.path} // Użyj path jako klucza
+                to={link.path}
                 className="navbar-link"
                 onClick={() => setIsOpen(false)}
+                // activeClassName="active-link" // react-router-dom v6+ używa NavLink dla activeClassName
               >
                 {link.name}
-              </ScrollLink>
+              </Link>
             ))}
           </div>
         </motion.div>

@@ -15,6 +15,7 @@ const resources = {
       nav_about: 'O Firmie',
       nav_offer: 'Oferta',
       nav_portfolio: 'Realizacje',
+      nav_testimonials: 'Opinie',
       nav_contact: 'Kontakt',
 
       // About Page Title & Main Content
@@ -137,6 +138,7 @@ const resources = {
       nav_about: 'About Us',
       nav_offer: 'Our Services',
       nav_portfolio: 'Portfolio',
+      nav_testimonials: 'Testimonials',
       nav_contact: 'Contact',
 
       // About Page Title & Main Content
@@ -259,6 +261,7 @@ const resources = {
       nav_about: 'Über Uns',
       nav_offer: 'Angebot',
       nav_portfolio: 'Projekte',
+      nav_testimonials: 'Referenzen',
       nav_contact: 'Kontakt',
 
       // About Page Title & Main Content

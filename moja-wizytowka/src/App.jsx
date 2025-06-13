@@ -1,21 +1,34 @@
-import React, { useState, useEffect } from 'react'; // Import useState and useEffect
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n'; // Import your i18n configuration
+import i18n from './i18n';
 
-import IntroScreen from './components/IntroScreen'; // Import IntroScreen
+import IntroScreen from './components/IntroScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Offer from './components/Offer';
-import Testimonials from './components/Testimonials'; // Import Testimonials component
+import Testimonials from './components/Testimonials';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
-import Footer from './components/Footer'; // Import Footer component
+import Footer from './components/Footer';
+
+// Komponenty dla podstron
+const HomePage = () => (
+  <>
+    <Hero />
+    <Offer />
+    <Contact />
+  </>
+);
+
+const PortfolioPage = () => <Portfolio />;
+const AboutPage = () => <About />;
+const TestimonialsPage = () => <Testimonials />;
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
   const [theme, setTheme] = useState(() => {
-    // Check local storage for saved theme or default to 'light'
     const savedTheme = localStorage.getItem('theme');
     return savedTheme || 'light';
   });
@@ -38,14 +51,14 @@ function App() {
       {showIntro ? (
         <IntroScreen onAnimationComplete={handleIntroComplete} />
       ) : (
-        <div className={`theme-provider ${theme}-mode`}> {/* Apply theme class to a wrapper */}
+        <div className={`theme-provider ${theme}-mode`}>
           <Navbar theme={theme} toggleTheme={toggleTheme} />
-          <Hero />
-          <About />
-          <Portfolio />
-          <Offer />
-          <Testimonials /> {/* Add Testimonials component here */}
-          <Contact />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/o-nas" element={<AboutPage />} />
+            <Route path="/opinie" element={<TestimonialsPage />} />
+          </Routes>
           <Footer />
         </div>
       )}
