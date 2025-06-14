@@ -5,23 +5,13 @@ import i18n from './i18n';
 
 import IntroScreen from './components/IntroScreen';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
 import About from './components/About';
-import Offer from './components/Offer';
 import Testimonials from './components/Testimonials';
 import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import LandingPage from './components/LandingPage'; // Import the new LandingPage component
 
 // Komponenty dla podstron
-const HomePage = () => (
-  <>
-    <Hero />
-    <Offer />
-    <Contact />
-  </>
-);
-
 const PortfolioPage = () => <Portfolio />;
 const AboutPage = () => <About />;
 const TestimonialsPage = () => <Testimonials />;
@@ -54,7 +44,7 @@ function App() {
         <div className={`theme-provider ${theme}-mode`}>
           <Navbar theme={theme} toggleTheme={toggleTheme} />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/o-nas" element={<AboutPage />} />
             <Route path="/opinie" element={<TestimonialsPage />} />

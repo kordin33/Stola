@@ -33,10 +33,8 @@ const Navbar = ({ theme, toggleTheme }) => {
   const navLinks = [
     { name: t('nav_hero'), path: '/' },
     { name: t('nav_about'), path: '/o-nas' },
-    { name: t('nav_offer'), path: '/' }, // Zakładając, że oferta jest na stronie głównej
     { name: t('nav_portfolio'), path: '/portfolio' },
-    { name: t('nav_testimonials'), path: '/opinie' }, // Dodano link do opinii
-    { name: t('nav_contact'), path: '/' }, // Zakładając, że kontakt jest na stronie głównej
+    { name: t('nav_testimonials'), path: '/opinie' },
   ];
 
   return (
