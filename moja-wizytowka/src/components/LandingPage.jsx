@@ -1,15 +1,15 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useTranslation, Trans } from 'react-i18next';
+import React, { useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 
+// CSS imports
+import './LandingPage.css';
+
 // Hero imports
-import './Hero.css';
 import heroBackground from '../assets/Hero1.jpg';
 import siteLogoUrl from '../assets/Logo1.png';
 
 // Offer imports
-import './Offer.css';
 import SalamanderLogo from "../assets/Salalogo.png";
 import KommerlingLogo from '../assets/kommerling-seeklogo.png';
 import RehauLogo from '../assets/rehau-seeklogo.png';
@@ -17,485 +17,789 @@ import AluplastLogo from '../assets/Aluplast.png';
 import GealanLogo from '../assets/gealan-seeklogo.png';
 import InothermLogo from '../assets/Inotherm.png';
 import ReynaersLogo from '../assets/reynaers-aluminium-seeklogo.png';
-import HeroImage from '../assets/Hero2.jpg';
 
-// Contact imports
-import './Contact.css';
-const LocationIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-  </svg>
-);
+// Hero Images for parallax sections - zdjęcia nowoczesnej architektury
+const HERO_IMAGES = [
+  heroBackground,
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop'
+];
 
-const PhoneIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-  </svg>
-);
-
-const EmailIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-  </svg>
-);
-
-const FacebookIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-  </svg>
-);
-
-const TwitterIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-  </svg>
-);
-
-const InstagramIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919-4.919-1.266-.058-1.644-.07-4.85-.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-  </svg>
-);
-
-
-const LandingPage = () => {
-  const { t } = useTranslation();
-
-  // Hero Section Data
-  const heroBackgroundImage = heroBackground;
-  const HeroLogo = () => <img src={siteLogoUrl} alt="StolarzNowoczesny Logo" className="hero-logo-image" />;
-
-  // Offer Section Data
-  const offerData = {
-    mainTitle: t('offer.mainTitle'),
-    intro: t('offer.intro'),
-    categories: [
-      {
-        title: t('offer.windowsAndDoors.title'),
-        description: t('offer.windowsAndDoors.description'),
-        details: [
-          { 
-            name: t('offer.windowsAndDoors.systems.pvc'), 
-            text: t('offer.windowsAndDoors.systems.pvcDetails')
-          },
-          { 
-            name: t('offer.windowsAndDoors.systems.wood'), 
-            text: t('offer.windowsAndDoors.systems.woodDetails')
-          },
-          { 
-            name: t('offer.windowsAndDoors.systems.steel'), 
-            text: t('offer.windowsAndDoors.systems.steelDetails')
-          },
-        ],
-        manufacturersIntro: t('offer.windowsAndDoors.manufacturers'),
-        logos: [SalamanderLogo, KommerlingLogo, RehauLogo, AluplastLogo, GealanLogo],
-      },
-      {
-        title: t('offer.aluminiumSystems.title'),
-        description: t('offer.aluminiumSystems.description'),
-        manufacturersIntro: t('offer.aluminiumSystems.manufacturers'),
-        logos: [InothermLogo, ReynaersLogo],
-        companyNames: ['Aluprof®', 'Beck+Heun®', 'Gutmann®']
-      },
-    ],
-    outro: t('offer.outro'),
-  };
-
-  // Contact Section Data
-  const contactDetails = {
-    companyName: t('contact_company_name', "BAUGREEN SP Z O O"),
-    commercialName: t('contact_commercial_name', "BAU GREEN"),
-    address: t('contact_address', "Raciborska 97, 47-480 Maków, Polska"),
-    nip: t('contact_nip', "PL6472603097"),
-    phone: t('contact_phone', "+48 609 320 236"),
-    email1: t('contact_email1', "sobocik1991@gmail.com"),
-    email2: t('contact_email2', "baugreen.pl@gmail.com"),
-    contactPerson: t('contact_person_name', "Karol Sobocik")
-  };
-
-  // Animations for Offer section
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.9 
+// Hardcoded translations
+const translations = {
+  PL: {
+    nav: {
+      home: 'Start',
+      about: 'O nas',
+      offer: 'Oferta',
+      contact: 'Kontakt'
     },
-    visible: (index) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        delay: index * 0.2,
-        ease: "easeOut"
-      }
-    })
-  };
+    hero: {
+      subheadings: ['BAUGREEN', 'PRECYZJA', 'JAKOŚĆ'],
+      headings: [
+        'Unikalne projekty z pasją',
+        'Detale, które robią różnicę',
+        'Nowoczesne rozwiązania'
+      ],
+      cta: 'Zobacz ofertę'
+    },
+    about: {
+      title: 'Dlaczego BAU GREEN?',
+      subtitle: 'Od 2023 roku łączymy niemieckie standardy jakości z polskim rzemiosłem',
+      since: 'Od',
+      features: [
+        {
+          title: 'Niemieckie Standardy',
+          description: 'Montaż zgodny z niemieckimi normami jakości i precyzji wykonania.'
+        },
+        {
+          title: 'Doświadczenie',
+          description: 'Lata pracy na wymagającym rynku niemieckim przekładają się na najwyższą jakość.'
+        },
+        {
+          title: 'Rzetelność',
+          description: 'Terminowość realizacji i precyzja wykonania to podstawa naszej współpracy.'
+        },
+        {
+          title: 'Kompleksowa Obsługa',
+          description: 'Od doradztwa, przez pomiar, aż po montaż i serwis - wszystko w jednym miejscu.'
+        }
+      ]
+    },
+    offer: {
+      title: 'Nasza Oferta',
+      subtitle: 'Łączymy jakość, terminowość i profesjonalną obsługę',
+      description: 'Pełne wsparcie od doradztwa po montaż',
+      experience: 'Doświadczenie z niemieckiego rynku od 2023 roku',
+      categories: [
+        {
+          title: 'Okna i Drzwi PVC',
+          description: 'Nowoczesne systemy PVC i PVC-Alu łączące energooszczędność z estetyką.',
+          details: 'Współpracujemy z renomowanymi producentami: Salamander, Kömmerling, REHAU, Aluplast, Gealan.'
+        },
+        {
+          title: 'Drewno i Drewno-Aluminium',
+          description: 'Klasyka w nowoczesnym wydaniu, idealne dla domów i obiektów premium.',
+          details: 'Naturalne materiały o wysokiej izolacyjności i prestiżowym wyglądzie.'
+        },
+        {
+          title: 'Systemy Aluminiowe',
+          description: 'Profile aluminiowe najwyższej klasy dla fasad i przeszkleń wielkogabarytowych.',
+          details: 'Partnerzy technologiczni: Inotherm, Reynaers, Aluprof, Beck+Heun, Gutmann.'
+        }
+      ]
+    },
+    contact: {
+      title: 'Kontakt',
+      company: 'BAUGREEN SP Z.O.O',
+      commercialName: '(w komunikacji: BAU GREEN)',
+      labels: {
+        address: 'ADRES',
+        phone: 'TELEFON',
+        email: 'EMAIL'
+      },
+      address: 'Raciborska 97, 47-480 Maków, Polska',
+      phone: '+48 609 320 236',
+      email1: 'sobocik1991@gmail.com',
+      email2: 'baugreen.pl@gmail.com',
+      nip: 'NIP: PL6472603097',
+      person: 'Karol Sobocik',
+      position: 'Założyciel & CEO',
+      mapLocation: 'Lokalizacja',
+      mapCity: 'Maków, Polska'
+    },
+    cta: {
+      title: 'Gotowy na współpracę?',
+      subtitle: 'Skontaktuj się z nami i dowiedz się, jak możemy zrealizować Twój projekt zgodnie z niemieckimi standardami jakości.',
+      button: 'Rozpocznij współpracę'
+    },
+    footer: {
+      description: 'Stolarka otworowa najwyższej jakości',
+      copyright: 'BAU GREEN. Wszelkie prawa zastrzeżone.'
+    }
+  },
+  EN: {
+    nav: {
+      home: 'Home',
+      about: 'About',
+      offer: 'Services',
+      contact: 'Contact'
+    },
+    hero: {
+      subheadings: ['BAUGREEN', 'PRECISION', 'QUALITY'],
+      headings: [
+        'Unique projects with passion',
+        'Details that make the difference',
+        'Modern solutions'
+      ],
+      cta: 'See our offer'
+    },
+    about: {
+      title: 'Why BAU GREEN?',
+      subtitle: 'Since 2023, we combine German quality standards with Polish craftsmanship',
+      since: 'Since',
+      features: [
+        {
+          title: 'German Standards',
+          description: 'Installation according to German quality norms and precision standards.'
+        },
+        {
+          title: 'Experience',
+          description: 'Years of work in the demanding German market translate to highest quality.'
+        },
+        {
+          title: 'Reliability',
+          description: 'Timely delivery and precision are the foundation of our cooperation.'
+        },
+        {
+          title: 'Complete Service',
+          description: 'From consultation, through measurement, to installation and service - all in one place.'
+        }
+      ]
+    },
+    offer: {
+      title: 'Our Services',
+      subtitle: 'We combine quality, timeliness and professional service',
+      description: 'Full support from consultation to installation',
+      experience: 'German market experience since 2023',
+      categories: [
+        {
+          title: 'PVC Windows & Doors',
+          description: 'Modern PVC and PVC-Alu systems combining energy efficiency with aesthetics.',
+          details: 'We work with renowned manufacturers: Salamander, Kömmerling, REHAU, Aluplast, Gealan.'
+        },
+        {
+          title: 'Wood & Wood-Aluminum',
+          description: 'Classic in modern design, ideal for premium homes and buildings.',
+          details: 'Natural materials with high insulation and prestigious appearance.'
+        },
+        {
+          title: 'Aluminum Systems',
+          description: 'Top-class aluminum profiles for facades and large-scale glazing.',
+          details: 'Technology partners: Inotherm, Reynaers, Aluprof, Beck+Heun, Gutmann.'
+        }
+      ]
+    },
+    contact: {
+      title: 'Contact',
+      company: 'BAUGREEN SP Z.O.O',
+      commercialName: '(commercial name: BAU GREEN)',
+      labels: {
+        address: 'ADDRESS',
+        phone: 'PHONE',
+        email: 'EMAIL'
+      },
+      address: 'Raciborska 97, 47-480 Maków, Poland',
+      phone: '+48 609 320 236',
+      email1: 'sobocik1991@gmail.com',
+      email2: 'baugreen.pl@gmail.com',
+      nip: 'VAT: PL6472603097',
+      person: 'Karol Sobocik',
+      position: 'Founder & CEO',
+      mapLocation: 'Location',
+      mapCity: 'Maków, Poland'
+    },
+    cta: {
+      title: 'Ready to collaborate?',
+      subtitle: 'Contact us and find out how we can realize your project according to German quality standards.',
+      button: 'Start collaboration'
+    },
+    footer: {
+      description: 'Highest quality joinery',
+      copyright: 'BAU GREEN. All rights reserved.'
+    }
+  },
+  DE: {
+    nav: {
+      home: 'Startseite',
+      about: 'Über uns',
+      offer: 'Angebot',
+      contact: 'Kontakt'
+    },
+    hero: {
+      subheadings: ['BAUGREEN', 'PRÄZISION', 'QUALITÄT'],
+      headings: [
+        'Einzigartige Projekte mit Leidenschaft',
+        'Details, die den Unterschied machen',
+        'Moderne Lösungen'
+      ],
+      cta: 'Unser Angebot ansehen'
+    },
+    about: {
+      title: 'Warum BAU GREEN?',
+      subtitle: 'Seit 2023 verbinden wir deutsche Qualitätsstandards mit polnischer Handwerkskunst',
+      since: 'Seit',
+      features: [
+        {
+          title: 'Deutsche Standards',
+          description: 'Montage nach deutschen Qualitätsnormen und Präzisionsstandards.'
+        },
+        {
+          title: 'Erfahrung',
+          description: 'Jahrelange Arbeit auf dem anspruchsvollen deutschen Markt garantiert höchste Qualität.'
+        },
+        {
+          title: 'Zuverlässigkeit',
+          description: 'Termingerechte Lieferung und Präzision sind die Grundlage unserer Zusammenarbeit.'
+        },
+        {
+          title: 'Komplettservice',
+          description: 'Von der Beratung über die Vermessung bis zur Montage und Service - alles aus einer Hand.'
+        }
+      ]
+    },
+    offer: {
+      title: 'Unser Angebot',
+      subtitle: 'Wir verbinden Qualität, Pünktlichkeit und professionellen Service',
+      description: 'Vollumfängliche Unterstützung von der Beratung bis zur Montage',
+      experience: 'Deutsche Markterfahrung seit 2023',
+      categories: [
+        {
+          title: 'PVC Fenster & Türen',
+          description: 'Moderne PVC und PVC-Alu Systeme, die Energieeffizienz mit Ästhetik verbinden.',
+          details: 'Wir arbeiten mit renommierten Herstellern: Salamander, Kömmerling, REHAU, Aluplast, Gealan.'
+        },
+        {
+          title: 'Holz & Holz-Aluminium',
+          description: 'Klassik im modernen Design, ideal für Premium-Häuser und Gebäude.',
+          details: 'Natürliche Materialien mit hoher Isolierung und prestigeträchtiger Optik.'
+        },
+        {
+          title: 'Aluminiumsysteme',
+          description: 'Erstklassige Aluminiumprofile für Fassaden und großflächige Verglasungen.',
+          details: 'Technologiepartner: Inotherm, Reynaers, Aluprof, Beck+Heun, Gutmann.'
+        }
+      ]
+    },
+    contact: {
+      title: 'Kontakt',
+      company: 'BAUGREEN SP Z.O.O',
+      commercialName: '(Handelsname: BAU GREEN)',
+      labels: {
+        address: 'ADRESSE',
+        phone: 'TELEFON',
+        email: 'EMAIL'
+      },
+      address: 'Raciborska 97, 47-480 Maków, Polen',
+      phone: '+48 609 320 236',
+      email1: 'sobocik1991@gmail.com',
+      email2: 'baugreen.pl@gmail.com',
+      nip: 'USt-ID: PL6472603097',
+      person: 'Karol Sobocik',
+      position: 'Gründer & CEO',
+      mapLocation: 'Standort',
+      mapCity: 'Maków, Polen'
+    },
+    cta: {
+      title: 'Bereit zur Zusammenarbeit?',
+      subtitle: 'Kontaktieren Sie uns und erfahren Sie, wie wir Ihr Projekt nach deutschen Qualitätsstandards realisieren können.',
+      button: 'Zusammenarbeit beginnen'
+    },
+    footer: {
+      description: 'Hochwertige Bauelemente',
+      copyright: 'BAU GREEN. Alle Rechte vorbehalten.'
+    }
+  }
+};
 
-  const logoVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: (index) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-        delay: index * 0.1,
-        ease: "easeOut"
-      }
-    })
+// Language Selector Component
+function LanguageSelector({ currentLang, setLang }) {
+  return (
+    <div className="language-selector">
+      <select
+        value={currentLang}
+        onChange={(e) => setLang(e.target.value)}
+        className="language-select"
+      >
+        <option value="PL">PL</option>
+        <option value="EN">EN</option>
+        <option value="DE">DE</option>
+      </select>
+    </div>
+  );
+}
+
+// Navigation Component
+function Navigation({ lang, setLang }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = translations[lang];
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
   };
 
   return (
-    <>
-      {/* Hero Section */}
-      <motion.section
-        id="hero"
-        className="hero-section"
-        style={{ backgroundImage: `url("${heroBackgroundImage}")` }}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+    <nav className="navbar">
+      <div className="nav-container">
+        <div className="nav-logo">
+          <span className="nav-logo-bau">BAU</span>
+          <span className="nav-logo-green">GREEN</span>
+        </div>
+        
+        {/* Desktop Menu */}
+        <div className="nav-menu desktop-menu">
+          <a href="#hero" className="nav-link">{t.nav.home}</a>
+          <a href="#about" className="nav-link">{t.nav.about}</a>
+          <a href="#offer" className="nav-link">{t.nav.offer}</a>
+          <a href="#contact" className="nav-link">{t.nav.contact}</a>
+          <div className="nav-divider"></div>
+          <LanguageSelector currentLang={lang} setLang={setLang} />
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="mobile-menu-button"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <div className={`hamburger ${isMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="mobile-menu">
+          <a href="#hero" className="nav-link" onClick={handleLinkClick}>{t.nav.home}</a>
+          <a href="#about" className="nav-link" onClick={handleLinkClick}>{t.nav.about}</a>
+          <a href="#offer" className="nav-link" onClick={handleLinkClick}>{t.nav.offer}</a>
+          <a href="#contact" className="nav-link" onClick={handleLinkClick}>{t.nav.contact}</a>
+          <div className="mobile-divider"></div>
+          <LanguageSelector currentLang={lang} setLang={setLang} />
+        </div>
+      )}
+    </nav>
+  );
+}
+
+// Parallax Hero component
+function ParallaxHero({ imgUrl, subheading, heading, isFirst = false, lang }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['end end', 'end start'] });
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const shade = useTransform(scrollYProgress, [0, 1], [0.4, 0.6]);
+
+  return (
+    <div className="hero-parallax-section" id={isFirst ? "hero" : undefined}>
+      <motion.div
+        ref={ref}
+        className="hero-parallax-bg"
+        style={{ backgroundImage: `url(${imgUrl})`, scale }}
       >
-        <div className="hero-overlay"></div>
+        <motion.div className="hero-parallax-overlay" style={{ opacity: shade }} />
+      </motion.div>
+      <HeroOverlay subheading={subheading} heading={heading} isFirst={isFirst} lang={lang} />
+    </div>
+  );
+}
+
+// Hero Overlay component
+function HeroOverlay({ subheading, heading, isFirst, lang }) {
+  const t = translations[lang];
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  
+  // Parallax effects for text
+  const textY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const textOpacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0, 1, 0]);
+  const textScale = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0.95, 1, 0.95]);
+  
+  return (
+    <motion.div
+      ref={ref}
+      className="hero-overlay-content"
+      style={{ 
+        y: textY, 
+        opacity: textOpacity,
+        scale: textScale
+      }}
+    >
+      {isFirst && (
         <motion.div
-          layoutId="logo"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: -50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
           className="hero-logo-container"
         >
-          <HeroLogo />
+          <img src={siteLogoUrl} alt="BAU GREEN Logo" className="hero-logo" />
         </motion.div>
-        <div className="hero-content">
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-title"
-          >
-            {t('hero_title')}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="hero-subtitle"
-          >
-            {t('hero_subtitle')}
-          </motion.p>
+      )}
+      <div className="hero-text-content">
+        <motion.div 
+          className="hero-subheading-box"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <p className="hero-subheading">{subheading}</p>
+        </motion.div>
+        <motion.h1 
+          className="hero-heading"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          {heading}
+        </motion.h1>
+        {isFirst && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            initial={{ opacity: 0, scale: 0.8, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="hero-cta-container"
           >
             <ScrollLink
-              to="testimonials"
+              to="offer"
               smooth={true}
               duration={500}
-              className="btn btn-primary"
+              className="hero-cta-button"
             >
-              {t('hero_cta', "Zobacz Opinie")}
+              {t.hero.cta}
             </ScrollLink>
           </motion.div>
-        </div>
-      </motion.section>
+        )}
+      </div>
+    </motion.div>
+  );
+}
 
-      {/* Offer Section */}
-      <section id="offer" className="offer-section">
-        <div className="offer-container">
-          <motion.div
-            className="offer-header"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="offer-header-content">
-              <div className="offer-text-section">
-                <h2 className="offer-main-title">
-                  <Trans i18nKey="offer_header_title" components={[<span className="highlight" />]} />
-                </h2>
-                <p className="offer-intro">
-                  <Trans 
-                    i18nKey="offer_header_intro_text" 
-                    components={[
-                      <strong />, 
-                      <span className="highlight" />, 
-                      <strong />, 
-                      <span className="highlight" />
-                    ]} 
-                  />
-                </p>
-              </div>
-              <div className="offer-image-section">
-                <img 
-                  src={HeroImage} 
-                  alt={t('offer_image_alt')}
-                  className="offer-hero-image"
-                  onError={(e) => {
-                    console.error('Error loading hero image:', e);
-                    e.target.style.display = 'none';
-                  }}
-                />
+// About component
+function About({ lang }) {
+  const t = translations[lang];
+  
+  return (
+    <section id="about" className="about-section">
+      <div className="section-container">
+        {/* Header */}
+        <div className="about-header">
+          <div className="about-header-grid">
+            <div className="about-header-content">
+              <h2 className="section-title">{t.about.title}</h2>
+              <div className="section-accent-line"></div>
+              <p className="section-subtitle">{t.about.subtitle}</p>
+            </div>
+            <div className="about-header-badge">
+              <div className="year-badge">
+                <span className="year-badge-label">{t.about.since}</span>
+                <div className="year-badge-number">2023</div>
               </div>
             </div>
-          </motion.div>
-          <div className="offer-categories-grid">
-            {offerData.categories.map((category, categoryIndex) => (
+          </div>
+        </div>
+        
+        {/* Features */}
+        <div className="about-features">
+          <div className="features-grid">
+            {t.about.features.map((feature, index) => (
               <motion.div
-                key={categoryIndex}
-                custom={categoryIndex}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={cardVariants}
-                className="offer-category-card"
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="feature-item"
               >
-                <h3 className="offer-category-title">{category.title}</h3>
-                <div className="offer-category-description">{category.description}</div>
-                {category.details && (
-                  <ul className="offer-category-details">
-                    {category.details.map((detail, detailIndex) => (
-                      <motion.li 
-                        key={detailIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: categoryIndex * 0.2 + detailIndex * 0.1 }}
-                      >
-                        <strong>{detail.name}</strong> – {detail.text}
-                      </motion.li>
-                    ))}
-                  </ul>
-                )}
-                {category.manufacturersIntro && (
-                  <motion.p 
-                    className="offer-manufacturers-intro"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: categoryIndex * 0.2 + 0.3 }}
-                  >
-                    {category.manufacturersIntro}
-                  </motion.p>
-                )}
-                {((category.logos && category.logos.length > 0) || (category.companyNames && category.companyNames.length > 0)) && (
-                  <motion.div 
-                    className="offer-logos-container"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: categoryIndex * 0.2 + 0.4 }}
-                  >
-                    {category.logos && category.logos.map((logo, logoIndex) => (
-                      <motion.img 
-                        key={logoIndex}
-                        custom={logoIndex}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={logoVariants}
-                        src={logo} 
-                        alt={`${category.title} logo ${logoIndex + 1}`} 
-                        className="offer-logo"
-                        onError={(e) => {
-                          console.error(`Error loading logo ${logoIndex}:`, e);
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                    ))}
-                    {category.companyNames && category.companyNames.map((companyName, nameIndex) => (
-                      <motion.span
-                        key={`name-${nameIndex}`}
-                        custom={nameIndex + (category.logos ? category.logos.length : 0)}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={logoVariants}
-                        className="company-name"
-                      >
-                        {companyName}
-                      </motion.span>
-                    ))}
-                  </motion.div>
-                )}
+                <div className="feature-content">
+                  <div className="feature-number">
+                    <div className="feature-number-box">
+                      <span>{String(index + 1).padStart(2, '0')}</span>
+                    </div>
+                  </div>
+                  <div className="feature-text">
+                    <h3 className="feature-title">{feature.title}</h3>
+                    <p className="feature-description">{feature.description}</p>
+                  </div>
+                </div>
+                {index < t.about.features.length - 1 && <div className="feature-connector"></div>}
               </motion.div>
             ))}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="offer-outro-under-card"
-            >
-              {offerData.outro}
-            </motion.div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  );
+}
 
-      {/* Contact Section */}
-      <section id="contact" className="contact-section">
-        <div className="contact-container">
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="contact-title"
-          >
-            {t('contact_title', 'Skontaktuj Się z Nami')}
-          </motion.h2>
-          <div className="contact-grid">
-            <motion.div
-              custom={0}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
-              className="contact-info-block"
-            >
-              <h3 className="contact-subtitle">
-                Dane <span className="highlight">Kontaktowe</span>
-              </h3>
-              <div className="company-info">
-                <div className="company-name">
-                  <strong>{contactDetails.companyName}</strong>
-                </div>
-                <div className="company-details">
-                  {t('contact_commercial_communication', 'w komunikacji handlowej:')} <span className="highlight">{contactDetails.commercialName}</span>
-                  <br />
-                  <strong>NIP:</strong> {contactDetails.nip}
-                </div>
-              </div>
-              <div className="contact-info-item" style={{'--delay': 1}}>
-                <LocationIcon className="contact-info-icon" />
-                <div>
-                  <strong>{t('contact_address_label', 'Adres:')}</strong><br />
-                  {contactDetails.address}
-                </div>
-              </div>
-              <div className="contact-info-item" style={{'--delay': 2}}>
-                <PhoneIcon className="contact-info-icon" />
-                <div>
-                  <strong>{t('contact_phone_label', 'Telefon:')}</strong><br />
-                  <a href={`tel:${contactDetails.phone.replace(/\s/g, '')}`}>
-                    {contactDetails.phone}
-                  </a>
-                </div>
-              </div>
-              <div className="contact-info-item" style={{'--delay': 3}}>
-                <EmailIcon className="contact-info-icon" />
-                <div>
-                  <strong>{t('contact_email_label', 'Email główny:')}</strong><br />
-                  <a href={`mailto:${contactDetails.email1}`}>
-                    {contactDetails.email1}
-                  </a>
-                </div>
-              </div>
-              <div className="contact-info-item" style={{'--delay': 4}}>
-                <EmailIcon className="contact-info-icon" />
-                <div>
-                  <strong>{t('contact_email_business_label', 'Email firmowy:')}</strong><br />
-                  <a href={`mailto:${contactDetails.email2}`}>
-                    {contactDetails.email2}
-                  </a>
-                </div>
-              </div>
-              <div className="contact-info-item" style={{'--delay': 5}}>
-                <div>
-                  <strong>{t('contact_person_label', 'Osoba kontaktowa:')}</strong><br />
-                  <span className="highlight">{contactDetails.contactPerson}</span>
-                </div>
-              </div>
-              <motion.div 
-                className="social-media-section"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <h4 className="contact-socials-title">
-                  {t('contact_socials_cta', 'Połącz się z nami:')}
-                </h4>
-                <div className="social-links-container">
-                  <a 
-                    href="#" 
-                    aria-label={t('facebook_aria_label', 'Facebook')} 
-                    className="social-icon-link"
-                  >
-                    <FacebookIcon className="social-icon-svg" />
-                  </a>
-                  <a 
-                    href="#" 
-                    aria-label={t('twitter_aria_label', 'Twitter')} 
-                    className="social-icon-link"
-                  >
-                    <TwitterIcon className="social-icon-svg" />
-                  </a>
-                  <a 
-                    href="#" 
-                    aria-label={t('instagram_aria_label', 'Instagram')} 
-                    className="social-icon-link"
-                  >
-                    <InstagramIcon className="social-icon-svg" />
-                  </a>
-                </div>
-              </motion.div>
-            </motion.div>
-            <motion.div
-              custom={1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
-              className="contact-map-block"
-            >
-              <div className="map-content-wrapper">
-                <h3 className="contact-subtitle">
-                  {t('contact_map_title_part1', 'Nasza')} <span className="highlight">{t('contact_map_title_part2', 'Lokalizacja')}</span>
-                </h3>
-                <div className="map-responsive-container">
-                  <iframe
-                    src={`https://maps.google.com/maps?q=${encodeURIComponent(contactDetails.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title={t('google_maps_title', 'Mapa lokalizacji firmy BAU GREEN')}
-                  ></iframe>
-                </div>
-              </div>
+// Offer component
+function Offer({ lang }) {
+  const t = translations[lang];
+
+  const categoryLogos = [
+    [SalamanderLogo, KommerlingLogo, RehauLogo, AluplastLogo, GealanLogo],
+    [],
+    [InothermLogo, ReynaersLogo]
+  ];
+
+  const companyNames = [
+    [],
+    [],
+    ['Aluprof®', 'Beck+Heun®', 'Gutmann®']
+  ];
+
+  return (
+    <section id="offer" className="offer-section">
+      <div className="section-container">
+        {/* Header */}
+        <div className="offer-header">
+          <h2 className="section-title">{t.offer.title}</h2>
+          <div className="section-accent-line"></div>
+          <p className="offer-main-subtitle">{t.offer.subtitle}</p>
+          <p className="offer-description">{t.offer.description}</p>
+        </div>
+        
+        {/* Services */}
+        <div className="offer-services">
+          <div className="services-list">
+            {t.offer.categories.map((category, index) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                style={{ 
-                  marginTop: '1.5rem', 
-                  padding: '1.5rem',
-                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(29, 78, 216, 0.02))',
-                  borderRadius: '0.75rem',
-                  border: '1px solid rgba(59, 130, 246, 0.15)',
-                  boxShadow: '0 4px 16px rgba(59, 130, 246, 0.05)'
-                }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="service-item"
               >
-                <p style={{ margin: 0, fontSize: '1rem', lineHeight: '1.6' }}>
-                  {t('contact_location_description_part1', 'Nasza firma znajduje się w')} <strong>{t('contact_location_city', 'Makowie')}</strong>, 
-                  {t('contact_location_description_part2', ' w województwie śląskim. Jesteśmy')} 
-                  <span className="highlight"> {t('contact_location_accessible', 'łatwo dostępni')}</span> 
-                  {t('contact_location_description_part3', ' dla klientów z całego regionu i')} 
-                  <strong> {t('contact_location_ready', 'gotowi na realizację projektów')}</strong> 
-                  {t('contact_location_description_part4', ' na terenie całej Polski')}.
-                </p>
+                <div className="service-accent"></div>
+                <div className="service-content-grid">
+                  <div className="service-number">
+                    <div className="service-number-display">{String(index + 1).padStart(2, '0')}</div>
+                  </div>
+                  <div className="service-details">
+                    <div className="service-info">
+                      <div className="service-title-section">
+                        <h3 className="service-title">{category.title}</h3>
+                      </div>
+                      <div className="service-description-section">
+                        <p className="service-description">{category.description}</p>
+                        <p className="service-details-text">{category.details}</p>
+                        
+                        {/* Logos */}
+                        {categoryLogos[index].length > 0 && (
+                          <div className="service-logos">
+                            {categoryLogos[index].map((logo, logoIndex) => (
+                              <img 
+                                key={logoIndex}
+                                src={logo} 
+                                alt={`Logo ${logoIndex + 1}`} 
+                                className="service-logo"
+                                onError={(e) => e.target.style.display = 'none'}
+                              />
+                            ))}
+                          </div>
+                        )}
+                        
+                        {/* Company names */}
+                        {companyNames[index].length > 0 && (
+                          <div className="service-companies">
+                            {companyNames[index].map((companyName, nameIndex) => (
+                              <span key={nameIndex} className="company-name">
+                                {companyName}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
-            </motion.div>
+            ))}
+          </div>
+          
+          {/* Experience */}
+          <div className="offer-experience">
+            <div className="experience-badge">
+              <p className="experience-text">{t.offer.experience}</p>
+            </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
+  );
+}
+
+// Contact component
+function Contact({ lang }) {
+  const t = translations[lang];
+
+  return (
+    <section id="contact" className="contact-section">
+      <div className="section-container">
+        {/* Header */}
+        <div className="contact-header">
+          <h2 className="section-title">{t.contact.title}</h2>
+          <div className="section-accent-line"></div>
+        </div>
+        
+        <div className="contact-grid">
+          {/* Contact Info */}
+          <div className="contact-info">
+            <div className="contact-company">
+              <h3 className="contact-company-name">{t.contact.company}</h3>
+              <p className="contact-commercial-name">{t.contact.commercialName}</p>
+              
+              <div className="contact-details">
+                <div className="contact-detail-item address-item">
+                  <p className="contact-detail-label">{t.contact.labels.address}</p>
+                  <p className="contact-detail-value">{t.contact.address}</p>
+                </div>
+                
+                <div className="contact-detail-item">
+                  <p className="contact-detail-label">{t.contact.labels.phone}</p>
+                  <a href={`tel:${t.contact.phone}`} className="contact-detail-link">
+                    {t.contact.phone}
+                  </a>
+                </div>
+                
+                <div className="contact-detail-item">
+                  <p className="contact-detail-label">{t.contact.labels.email}</p>
+                  <a href={`mailto:${t.contact.email1}`} className="contact-detail-link">
+                    {t.contact.email1}
+                  </a>
+                  <a href={`mailto:${t.contact.email2}`} className="contact-detail-link">
+                    {t.contact.email2}
+                  </a>
+                </div>
+                
+                <div className="contact-person-info">
+                  <p className="contact-nip">{t.contact.nip}</p>
+                  <div className="contact-person">
+                    <p className="contact-person-name">{t.contact.person}</p>
+                    <p className="contact-person-position">{t.contact.position}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Map */}
+          <div className="contact-map">
+            <div className="map-container">
+              <iframe
+                title="Mapa BauGreen"
+                className="map-iframe"
+                loading="lazy"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(t.contact.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+              ></iframe>
+              <div className="map-overlay">
+                <p className="map-overlay-label">{t.contact.mapLocation}</p>
+                <p className="map-overlay-location">{t.contact.mapCity}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// CTA component
+function CTA({ lang }) {
+  const t = translations[lang];
+  
+  return (
+    <section className="cta-section">
+      <div className="cta-background-accent"></div>
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="cta-content"
+        >
+          <h2 className="cta-title">{t.cta.title}</h2>
+          <div className="cta-accent-line"></div>
+          <p className="cta-subtitle">
+            {t.cta.subtitle}
+          </p>
+          <a href="#contact" className="cta-button">
+            {t.cta.button}
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// Footer component
+function Footer({ lang }) {
+  const t = translations[lang];
+  const currentYear = new Date().getFullYear();
+  
+  return (
+    <footer className="footer-section">
+      <div className="section-container">
+        <div className="footer-content">
+          <div className="footer-logo">
+            <div className="footer-logo-text">
+              <span className="footer-logo-bau">BAU</span>
+              <span className="footer-logo-green">GREEN</span>
+            </div>
+            <div className="footer-accent-line"></div>
+            <p className="footer-description">
+              {t.footer.description}
+            </p>
+          </div>
+          <div className="footer-copyright">
+            <p>&copy; {currentYear} {t.footer.copyright}</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+// Main LandingPage component
+const LandingPage = () => {
+  const [lang, setLang] = useState('PL');
+  const t = translations[lang];
+
+  // Zredukowane hero sections - usuwam redundantną środkową
+  const heroSections = [
+    {
+      image: HERO_IMAGES[0],
+      subheading: t.hero.subheadings[0],
+      heading: t.hero.headings[0],
+      isFirst: true,
+      content: <About lang={lang} />
+    },
+    {
+      image: HERO_IMAGES[1], 
+      subheading: t.hero.subheadings[1],
+      heading: t.hero.headings[1],
+      isFirst: false,
+      content: <Offer lang={lang} />
+    },
+    {
+      image: HERO_IMAGES[2],
+      subheading: t.hero.subheadings[2], 
+      heading: t.hero.headings[2],
+      isFirst: false,
+      content: <Contact lang={lang} />
+    }
+  ];
+
+  return (
+    <div className="landing-page">
+      <Navigation lang={lang} setLang={setLang} />
+      
+      {/* Hero Sections */}
+      {heroSections.map((section, i) => (
+        <React.Fragment key={i}>
+          <ParallaxHero
+            imgUrl={section.image}
+            subheading={section.subheading}
+            heading={section.heading}
+            isFirst={section.isFirst}
+            lang={lang}
+          />
+          {section.content}
+        </React.Fragment>
+      ))}
+      
+      <CTA lang={lang} />
+      <Footer lang={lang} />
+    </div>
   );
 };
 
