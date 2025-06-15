@@ -21,7 +21,8 @@ import ReynaersLogo from '../assets/reynaers-aluminium-seeklogo.png';
 // Hero Images for parallax sections - zdjęcia nowoczesnej architektury
 const HERO_IMAGES = [
   heroBackground,
-  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop'
+  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1553051021-9f94520a6cad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 ];
 
 // Hardcoded translations
@@ -34,10 +35,11 @@ const translations = {
       contact: 'Kontakt'
     },
     hero: {
-      subheadings: ['BAUGREEN', 'PRECYZJA'],
+      subheadings: ['BAUGREEN', 'PRECYZJA', 'PASJA'],
       headings: [
         'Unikalne projekty z pasją',
-        'Nowoczesne rozwiązania'
+        'Nowoczesne rozwiązania',
+        'Niemiecka precyzja w każdym detalu'
       ],
       cta: 'Zobacz ofertę'
     },
@@ -71,19 +73,29 @@ const translations = {
       experience: 'Doświadczenie z niemieckiego rynku od 2023 roku',
       categories: [
         {
-          title: 'Okna i Drzwi PVC',
-          description: 'Nowoczesne systemy PVC i PVC-Alu łączące energooszczędność z estetyką.',
-          details: 'Współpracujemy z renomowanymi producentami: Salamander, Kömmerling, REHAU, Aluplast, Gealan.'
-        },
-        {
-          title: 'Drewno i Drewno-Aluminium',
-          description: 'Klasyka w nowoczesnym wydaniu, idealne dla domów i obiektów premium.',
-          details: 'Naturalne materiały o wysokiej izolacyjności i prestiżowym wyglądzie.'
+          title: 'Okna i Drzwi',
+          description: 'Dostarczamy i montujemy okna oraz drzwi w systemach PVC, drewno, stal.',
+          details: 'PVC i PVC-Alu – nowoczesne rozwiązania łączące energooszczędność i estetykę. Drewno i drewno-aluminium – klasyka w nowoczesnym wydaniu. Stal – dla obiektów wymagających wyjątkowej trwałości.'
         },
         {
           title: 'Systemy Aluminiowe',
-          description: 'Profile aluminiowe najwyższej klasy dla fasad i przeszkleń wielkogabarytowych.',
-          details: 'Partnerzy technologiczni: Inotherm, Reynaers, Aluprof, Beck+Heun, Gutmann.'
+          description: 'Najwyższej klasy profile aluminiowe idealne do fasad, drzwi wejściowych i przeszkleń wielkogabarytowych.',
+          details: 'Wykorzystujemy profile od uznanych producentów, zapewniające najwyższą jakość i nowoczesny design.'
+        },
+        {
+          title: 'Rolety i Osłony Przeciwsłoneczne',
+          description: 'Systemy rolet, żaluzji fasadowych i screenów – komfort, ochrona i estetyka w jednym.',
+          details: 'Oferujemy rozwiązania renomowanych marek zapewniające optymalną ochronę przed słońcem i niepożądanymi spojrzeniami.'
+        },
+        {
+          title: 'Systemy Zabezpieczające',
+          description: 'Balustrady i zabezpieczenia przeciwupadkowe – bezpieczeństwo bez kompromisów.',
+          details: 'Dostarczamy systemy od uznanych producentów, spełniające najwyższe normy bezpieczeństwa.'
+        },
+        {
+          title: 'Parapety',
+          description: 'Parapety zewnętrzne i wewnętrzne – trwałe, estetyczne i odporne na warunki atmosferyczne.',
+          details: 'Oferujemy wysokiej jakości parapety, które idealnie dopełniają montaż okien i drzwi.'
         }
       ]
     },
@@ -124,10 +136,11 @@ const translations = {
       contact: 'Contact'
     },
     hero: {
-      subheadings: ['BAUGREEN', 'PRECISION'],
+      subheadings: ['BAUGREEN', 'PRECISION', 'PASSION'],
       headings: [
         'Unique projects with passion',
-        'Modern solutions'
+        'Modern solutions',
+        'German precision in every detail'
       ],
       cta: 'See our offer'
     },
@@ -161,19 +174,29 @@ const translations = {
       experience: 'German market experience since 2023',
       categories: [
         {
-          title: 'PVC Windows & Doors',
-          description: 'Modern PVC and PVC-Alu systems combining energy efficiency with aesthetics.',
-          details: 'We work with renowned manufacturers: Salamander, Kömmerling, REHAU, Aluplast, Gealan.'
-        },
-        {
-          title: 'Wood & Wood-Aluminum',
-          description: 'Classic in modern design, ideal for premium homes and buildings.',
-          details: 'Natural materials with high insulation and prestigious appearance.'
+          title: 'Windows and Doors',
+          description: 'We supply and install windows and doors in PVC, wood, and steel systems.',
+          details: 'PVC and PVC-Alu – modern solutions combining energy efficiency and aesthetics. Wood and wood-aluminum – classic in modern design. Steel – for objects requiring exceptional durability.'
         },
         {
           title: 'Aluminum Systems',
-          description: 'Top-class aluminum profiles for facades and large-scale glazing.',
-          details: 'Technology partners: Inotherm, Reynaers, Aluprof, Beck+Heun, Gutmann.'
+          description: 'Top-class aluminum profiles ideal for facades, entrance doors and large-scale glazing.',
+          details: 'We use profiles from recognized manufacturers, ensuring the highest quality and modern design.'
+        },
+        {
+          title: 'Shutters and Sun Protection',
+          description: 'Roller shutters, facade blinds and screens – comfort, protection and aesthetics in one.',
+          details: 'We offer solutions from renowned brands providing optimal protection from sun and unwanted views.'
+        },
+        {
+          title: 'Safety Systems',
+          description: 'Balustrades and fall protection – safety without compromise.',
+          details: 'We supply systems from recognized manufacturers that meet the highest safety standards.'
+        },
+        {
+          title: 'Window Sills',
+          description: 'External and internal window sills – durable, aesthetic and weather resistant.',
+          details: 'We offer high-quality window sills that perfectly complement the installation of windows and doors.'
         }
       ]
     },
@@ -214,10 +237,11 @@ const translations = {
       contact: 'Kontakt'
     },
     hero: {
-      subheadings: ['BAUGREEN', 'PRÄZISION'],
+      subheadings: ['BAUGREEN', 'PRÄZISION', 'LEIDENSCHAFT'],
       headings: [
         'Einzigartige Projekte mit Leidenschaft',
-        'Moderne Lösungen'
+        'Moderne Lösungen',
+        'Deutsche Präzision in jedem Detail'
       ],
       cta: 'Unser Angebot ansehen'
     },
@@ -251,19 +275,29 @@ const translations = {
       experience: 'Deutsche Markterfahrung seit 2023',
       categories: [
         {
-          title: 'PVC Fenster & Türen',
-          description: 'Moderne PVC und PVC-Alu Systeme, die Energieeffizienz mit Ästhetik verbinden.',
-          details: 'Wir arbeiten mit renommierten Herstellern: Salamander, Kömmerling, REHAU, Aluplast, Gealan.'
-        },
-        {
-          title: 'Holz & Holz-Aluminium',
-          description: 'Klassik im modernen Design, ideal für Premium-Häuser und Gebäude.',
-          details: 'Natürliche Materialien mit hoher Isolierung und prestigeträchtiger Optik.'
+          title: 'Fenster und Türen',
+          description: 'Wir liefern und montieren Fenster und Türen in PVC-, Holz- und Stahlsystemen.',
+          details: 'PVC und PVC-Alu – moderne Lösungen mit Energieeffizienz und Ästhetik. Holz und Holz-Aluminium – Klassik im modernen Design. Stahl – für Objekte mit außergewöhnlicher Haltbarkeit.'
         },
         {
           title: 'Aluminiumsysteme',
-          description: 'Erstklassige Aluminiumprofile für Fassaden und großflächige Verglasungen.',
-          details: 'Technologiepartner: Inotherm, Reynaers, Aluprof, Beck+Heun, Gutmann.'
+          description: 'Erstklassige Aluminiumprofile ideal für Fassaden, Eingangstüren und großflächige Verglasungen.',
+          details: 'Wir verwenden Profile von anerkannten Herstellern, die höchste Qualität und modernes Design gewährleisten.'
+        },
+        {
+          title: 'Rollläden und Sonnenschutz',
+          description: 'Rollläden, Fassadenjalousien und Screens – Komfort, Schutz und Ästhetik in einem.',
+          details: 'Wir bieten Lösungen renommierter Marken für optimalen Schutz vor Sonne und unerwünschten Blicken.'
+        },
+        {
+          title: 'Sicherheitssysteme',
+          description: 'Geländer und Absturzsicherungen – Sicherheit ohne Kompromisse.',
+          details: 'Wir liefern Systeme von anerkannten Herstellern, die höchste Sicherheitsstandards erfüllen.'
+        },
+        {
+          title: 'Fensterbänke',
+          description: 'Außen- und Innenfensterbänke – langlebig, ästhetisch und wetterbeständig.',
+          details: 'Wir bieten hochwertige Fensterbänke, die die Fenster- und Türmontage perfekt ergänzen.'
         }
       ]
     },
@@ -523,14 +557,18 @@ function Offer({ lang }) {
 
   const categoryLogos = [
     [SalamanderLogo, KommerlingLogo, RehauLogo, AluplastLogo, GealanLogo],
+    [InothermLogo, ReynaersLogo],
     [],
-    [InothermLogo, ReynaersLogo]
+    [],
+    []
   ];
 
   const companyNames = [
     [],
-    [],
-    ['Aluprof®', 'Beck+Heun®', 'Gutmann®']
+    ['Aluprof®'],
+    ['Roma®', 'Alukon®', 'Beck+Heun®', 'Exte®'],
+    ['Abel-System®', 'Roma®'],
+    ['BUG®', 'Gutmann®']
   ];
 
   return (
@@ -765,6 +803,13 @@ const LandingPage = () => {
       heading: t.hero.headings[1],
       isFirst: false,
       content: <Offer lang={lang} />
+    },
+    {
+      image: HERO_IMAGES[2],
+      subheading: t.hero.subheadings[2],
+      heading: t.hero.headings[2],
+      isFirst: false,
+      content: null
     }
   ];
 

@@ -4,11 +4,11 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 
 import IntroScreen from './components/IntroScreen';
-import Navbar from './components/Navbar';
+//import Navbar from './components/Navbar';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
 import Portfolio from './components/Portfolio';
-import Footer from './components/Footer';
+//import Footer from './components/Footer';
 import LandingPage from './components/LandingPage'; // Import the new LandingPage component
 
 // Komponenty dla podstron
@@ -42,14 +42,14 @@ function App() {
         <IntroScreen onAnimationComplete={handleIntroComplete} />
       ) : (
         <div className={`theme-provider ${theme}-mode`}>
-          <Navbar theme={theme} toggleTheme={toggleTheme} />
+          
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/o-nas" element={<AboutPage />} />
             <Route path="/opinie" element={<TestimonialsPage />} />
           </Routes>
-          <Footer />
+          
         </div>
       )}
     </I18nextProvider>

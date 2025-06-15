@@ -1,131 +1,86 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import './IntroScreen.css'; // Import component-specific CSS
+// IntroScreen.jsx
+"use client";
+import React, { useEffect } from 'react';
+import Particles from '@tsparticles/react';
+import { loadSlim } from 'tsparticles-slim';
+import { motion } from 'framer-motion';
+import './IntroScreen.css';
 
+// Simplified SparklesCore using Particles init prop
+const SparklesCore = ({
+  id,
+  background = 'transparent',
+  minSize = 0.6,
+  maxSize = 1.2,
+  speed = 1,
+  particleColor = '#ffffff',
+  particleDensity = 200
+}) => (
+  <Particles
+    id={id}
+    init={loadSlim}
+    options={{
+      background: { color: { value: background } },
+      fullScreen: { enable: false },
+      fpsLimit: 120,
+      interactivity: { events: { resize: true } },
+      particles: {
+        number: { value: particleDensity, density: { enable: true, area: 400 } },
+        color: { value: particleColor },
+        opacity: { value: { min: 0.1, max: 1 }, animation: { enable: true, speed, minimumValue: 0.1 } },
+        size: { value: { min: minSize, max: maxSize } },
+        move: { enable: true, speed, outModes: { default: 'out' } }
+      },
+      detectRetina: true
+    }}
+  />
+);
+
+// Main IntroScreen component
 const IntroScreen = ({ onAnimationComplete }) => {
-  const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(true);
-  const controls = useAnimation();
-
-  const mainScreenControls = useAnimation(); // Controls for the main screen animation (fade/slide out)
-
+  // Auto unmount after 4 seconds
   useEffect(() => {
-    const sequence = async () => {
-      // Start glare effect after a short delay
-      await controls.start({
-        // Animate only the first background layer's position (the glare)
-        // The second background layer (solid color) remains at "0 0"
-        backgroundPosition: ["-100% 0, 0 0", "200% 0, 0 0"], 
-        transition: {
-          duration: 2, // Slower, smoother glare
-          ease: "circInOut", // Smoother ease
-          delay: 0.8, // Delay glare start
-        }
-      });
-
-      // After internal animations (glare, logo, subtitle) are somewhat complete
-      // Wait a bit more, e.g. total 3 seconds from start of component mount
-      // Then start the exit animation for the whole screen
-      setTimeout(async () => {
-        await mainScreenControls.start({
-          opacity: 0,
-          // y: "-20vh", // Optional: slight slide up effect with fade
-          transition: { duration: 0.8, ease: "anticipate" } // Smoother fade out, 'anticipate' gives a nice feel
-        });
-        if (onAnimationComplete) {
-          onAnimationComplete();
-        }
-      }, 2000); // Start exit animation after 3s (adjust based on internal anims)
-    };
-
-    sequence();
-
-    // Cleanup function for timeout if component unmounts early
-    // return () => clearTimeout(timer); // The timer is inside setTimeout now
-  }, [controls, onAnimationComplete, mainScreenControls]);
-
+    const timer = setTimeout(() => {
+      if (onAnimationComplete) onAnimationComplete();
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [onAnimationComplete]);
 
   return (
-    <motion.div
-      className="intro-screen"
-      initial={{ opacity: 1 }} // Start fully visible
-      animate={mainScreenControls} // Controlled by mainScreenControls for exit
-      // onAnimationComplete is handled by the sequence now
-    >
-      {/* Background subtle animation - Apple style: very slow movement or gradient shift */}
-      <motion.div
-        className="intro-background-overlay"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.4 }} // More subtle overlay
-        transition={{ duration: 2.5, ease: "easeInOut" }} // Slower fade in for bg
-      >
-        {/* Inner div for continuous slow movement (example: slow pan) */}
-        <motion.div
-          className="intro-background-mover" // Style this in CSS with a large gradient or image
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"], // Example: diagonal pan
-            // Or scale: [1, 1.05, 1], // Example: very slow zoom in and out
-          }}
-          transition={{
-            duration: 20, // Very long duration for subtle movement
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "mirror",
-          }}
+    <div className="intro-container">
+      {/* Sparkles background */}
+      <div className="intro-sparkles">
+        <SparklesCore
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.2}
+          particleDensity={200}
+          particleColor="#ffffff" // white sparkles
+          speed={1}
         />
-      </motion.div>
+      </div>
 
-
-      <div className="intro-content-centered">
-        {/* Logo */}
-        <div className="intro-logo-wrapper">
-          <motion.div
-            layoutId="logo"
-            initial={{ opacity: 0, scale: 0.9, filter: "blur(8px)", y: 20 }} // Start slightly lower
-            animate={{
-              opacity: 1,
-              scale: 1,
-              filter: "blur(0px)",
-              y: 0,
-              letterSpacing: ["0em", "0.05em"]
-            }}
-            transition={{
-              duration: 1.2,
-              ease: [0.16, 1, 0.3, 1], // Smoother ease (Quintic Out)
-              delay: 0.2, // Start logo animation a bit earlier
-              letterSpacing: { delay: 0.5, duration: 0.8 }
-            }}
-            className="intro-logo-text"
-          >
-            <span className="intro-logo-bau">{t('Bau')}</span>
-            <span className="intro-logo-green">{t('Green')}</span>
-          </motion.div>
-
-          {/* Glass reflection - will be styled in CSS */}
-          <motion.div
-            className="intro-glass-reflection"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }} // More subtle reflection
-            transition={{ duration: 1.2, delay: 0.7, ease: "circOut" }}
-          />
-        </div>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-          animate={{ opacity: 0.7, y: 0, filter: "blur(0px)" }} // Slightly more subtle opacity
-          transition={{
-            duration: 1,
-            delay: 1, // Delay subtitle more
-            ease: [0.25, 1, 0.5, 1] // Ease Out Quad
-          }}
-          className="intro-subtitle-text"
+      {/* Logo and subtitle */}
+      <div className="intro-content">
+        <motion.div
+          className="intro-logo"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2, ease: 'easeOut' }}
         >
-          {t('Tworzymy z Pasją')}
+          <span className="baugreen-text">BauGreen</span>
+        </motion.div>
+
+        <motion.p
+          className="intro-subtitle"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 0.7, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+        >
+          Tworzymy z Pasją
         </motion.p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

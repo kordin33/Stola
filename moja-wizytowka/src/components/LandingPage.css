@@ -864,7 +864,7 @@ body {
 
 .cta-subtitle {
   font-size: 1.25rem;
-  color: var(--gray-300);
+  color: var(--white);
   line-height: 1.6;
   margin-bottom: var(--spacing-xl);
   max-width: 600px;
