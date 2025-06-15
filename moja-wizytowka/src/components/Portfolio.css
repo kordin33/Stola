@@ -1,0 +1,123 @@
+.portfolio-section {
+  padding: 2rem 0; /* section-padding, reduced */
+  font-family: 'Roboto', sans-serif; /* font-sans */
+}
+
+.light-mode .portfolio-section {
+  background: linear-gradient(135deg, var(--section-bg-light) 0%, color-mix(in srgb, var(--section-bg-light) 92%, #000000 8%) 100%);
+  color: var(--text-main-light);
+}
+
+.dark-mode .portfolio-section {
+  background: linear-gradient(135deg, var(--section-bg-dark) 0%, color-mix(in srgb, var(--section-bg-dark) 92%, #ffffff 8%) 100%);
+  color: var(--text-main-dark);
+}
+
+/* .portfolio-container, .portfolio-title, and .portfolio-items-grid styles removed as they are handled by global .container, .section-title, .accent-line and .portfolio-grid */
+
+/* Specific media query for complex grid layout commented out, .portfolio-grid with auto-fit should handle responsiveness.
+@media (min-width: 768px) { 
+  .portfolio-items-grid { // This is now .portfolio-grid
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: 0.7fr 1.3fr; 
+    gap: 1rem; 
+    max-height: 650px; 
+    align-items: stretch; 
+  }
+
+  .portfolio-item { // This is now .card
+    height: 100%; 
+  }
+
+  .portfolio-item-image { 
+    min-height: 0; 
+    height: 100%; 
+  }
+
+  .portfolio-item:nth-child(1) { 
+    grid-column: 1; 
+    grid-row: 1 / span 2; 
+  }
+
+  .portfolio-item:nth-child(2) { 
+    grid-column: 2; 
+    grid-row: 1; 
+  }
+
+  .portfolio-item:nth-child(3) { 
+    grid-column: 2; 
+    grid-row: 2; 
+  }
+}
+*/
+
+/* .portfolio-item is now .card. Specific styles like background, box-shadow, border-radius are handled by .card */
+/* Keeping hover effects for now, but they might need to be adjusted for the global .card:hover or .portfolio-grid .card:hover */
+.portfolio-item:hover { /* This selector should be .card:hover or .portfolio-grid .card:hover */
+  transform: translateY(-5px); 
+}
+/* Theme-specific hover box-shadows might be redundant if .card has a generic one or if the theme variables cover it */
+.light-mode .portfolio-item:hover {
+  box-shadow: 0 10px 15px -3px var(--shadow-light), 0 4px 6px -2px var(--shadow-light); 
+}
+.dark-mode .portfolio-item:hover {
+  box-shadow: 0 0 20px -3px var(--shadow-dark); 
+}
+
+
+.portfolio-item-image {
+  display: block;
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  transition: transform 0.3s ease;
+  /* border-radius for top corners might conflict with .card's overall border-radius if .card-content is present */
+  /* border-radius: 0.75rem 0.75rem 0 0; */ 
+  flex-grow: 1; 
+}
+
+/* This hover effect should target .card:hover .portfolio-item-image or similar if .portfolio-item-image is kept */
+.portfolio-item:hover .portfolio-item-image {
+  transform: scale(1.05); 
+}
+
+.portfolio-item-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.75rem; /* This should match .card's border-radius */
+}
+.light-mode .portfolio-item-overlay {
+  background-color: rgba(30, 58, 138, 0.7); 
+}
+.dark-mode .portfolio-item-overlay {
+  background-color: rgba(250, 204, 21, 0.7); 
+}
+
+/* This hover should target .card:hover .portfolio-item-overlay */
+.portfolio-item:hover .portfolio-item-overlay {
+  opacity: 1;
+}
+
+.portfolio-item-caption {
+  text-align: center;
+  font-size: 1.125rem; 
+  font-weight: 600; 
+  /* padding is handled by .card-content */
+  /* padding: 1rem; */ 
+}
+
+
+/* Responsive adjustments for .portfolio-items-grid (now .portfolio-grid) are handled by auto-fit, this might be redundant */
+/*
+@media (min-width: 640px) { 
+  .portfolio-items-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  }
+}
+*/

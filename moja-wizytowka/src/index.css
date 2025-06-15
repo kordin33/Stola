@@ -1,0 +1,405 @@
+/* Global styles */
+:root {
+  /* Light Theme (default) */
+  --bg-main-light: rgba(176, 191, 196, 1); /* $silver */
+  --text-main-light: rgba(37, 48, 54, 1); /* $gunmetal */
+  --accent-light: rgba(92, 99, 101, 1); /* $dim-gray */
+  --accent-secondary-light: rgba(120, 114, 109, 1); /* $dim-gray-2 */
+  --card-bg-light: rgba(176, 191, 196, 1); /* $silver */
+  --section-bg-light: rgba(164, 169, 169, 1); /* $silver-2 */
+  --shadow-light: rgba(0,0,0,0.05);
+  --icon-color-light: rgba(37, 48, 54, 1); /* $gunmetal */
+  --icon-color-secondary-light: rgba(92, 99, 101, 1); /* $dim-gray */
+
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+/* Grids */
+.about-grid,
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg-light);
+  border-radius: .5rem;
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+}
+
+.card-content {
+  padding: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-color-light); /* Using theme variable for contrast */
+}
+
+/* Section Titles */
+.section-title {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: .5rem;
+  color: var(--text-color-light);
+}
+
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color-light); /* Using theme variable */
+  margin: .5rem auto 2rem;
+}
+
+/* Hover Effect for Portfolio Cards */
+.portfolio-grid .card {
+  transition: transform .2s ease-out;
+}
+
+.portfolio-grid .card:hover {
+  transform: translateY(-4px);
+}
+
+  /* Dark Theme */
+  --bg-main-dark: rgba(37, 48, 54, 1); /* $gunmetal */
+  --text-main-dark: rgba(255, 255, 255, 1); /* white */
+  --accent-dark: rgba(164, 169, 169, 1); /* $silver-2 */
+  --accent-secondary-dark: rgba(92, 99, 101, 1); /* $dim-gray */
+  --card-bg-dark: rgba(92, 99, 101, 1); /* $dim-gray */
+  --section-bg-dark: rgba(120, 114, 109, 1); /* $dim-gray-2 */
+  --shadow-dark: rgba(255,255,255,0.05);
+  --icon-color-dark: rgba(176, 191, 196, 1); /* $silver */
+  --icon-color-secondary-dark: rgba(164, 169, 169, 1); /* $silver-2 */
+}
+  
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+  background-color: var(--bg-main-light);
+  color: var(--text-main-light);
+}
+
+body.dark-mode {
+  background-color: var(--bg-main-dark);
+  color: var(--text-main-dark);
+}
+
+/* Basic container for sections */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Section padding */
+.section-padding {
+  padding: 4rem 0; /* Equivalent to py-16 */
+}
+
+/* Text alignment */
+.text-center {
+  text-align: center;
+}
+
+/* Font styles */
+.font-bold {
+  font-weight: 700;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em; /* Subtle tracking for headings */
+}
+
+.light-mode h1, .light-mode h2, .light-mode h3, .light-mode h4, .light-mode h5, .light-mode h6 {
+  color: var(--text-main-light);
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+  color: var(--text-main-dark);
+}
+
+
+h1 {
+  font-size: 3rem; /* Equivalent to text-5xl */
+}
+
+h2 {
+  font-size: 2.5rem; /* Equivalent to text-4xl */
+}
+
+h3 {
+  font-size: 2rem; /* Equivalent to text-2xl */
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.light-mode a {
+  color: var(--accent-light);
+}
+
+.light-mode a:hover {
+  color: var(--accent-secondary-light);
+}
+
+.dark-mode a {
+  color: var(--accent-dark);
+}
+
+.dark-mode a:hover {
+  color: var(--accent-secondary-dark);
+}
+
+/* Buttons */
+button, .btn { /* Added .btn class for semantic elements like <a> styled as buttons */
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 9999px; /* Equivalent to rounded-full */
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
+}
+
+/* Example button style */
+.btn-primary {
+  border: none;
+}
+
+.light-mode .btn-primary {
+  background-color: var(--accent-light);
+  color: var(--bg-main-light); /* Text color for light mode button */
+}
+
+.light-mode .btn-primary:hover {
+  background-color: var(--accent-secondary-light);
+  color: var(--text-main-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dark-mode .btn-primary {
+  background-color: var(--accent-dark);
+  color: var(--bg-main-dark); /* Text color for dark mode button */
+}
+
+.dark-mode .btn-primary:hover {
+  background-color: var(--accent-secondary-dark);
+  color: var(--text-main-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+}
+
+
+/* Utility classes for spacing (basic examples) */
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+
+.mr-4 { margin-right: 1rem; }
+
+.space-x-2 > * + * { margin-left: 0.5rem; }
+.space-x-6 > * + * { margin-left: 1.5rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+.gap-12 { gap: 3rem; }
+
+/* Flexbox utilities */
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.flex-col { flex-direction: column; }
+
+/* Grid utilities */
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.gap-6 { gap: 1.5rem; }
+
+/* Responsive grid (example) */
+@media (min-width: 768px) { /* md breakpoint */
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:flex-row { flex-direction: row; }
+  .md\:w-1\/2 { width: 50%; }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Image styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-lg {
+  /* box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); */
+}
+.light-mode .shadow-lg {
+  box-shadow: 0 10px 15px -3px var(--shadow-light), 0 4px 6px -2px var(--shadow-light);
+}
+.dark-mode .shadow-lg {
+  box-shadow: 0 0 15px -3px var(--shadow-dark); /* Subtle glow for dark mode */
+}
+
+
+/* Position utilities */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.z-10 { z-index: 10; }
+.fixed { position: fixed; }
+.w-full { width: 100%; }
+.h-screen { height: 100vh; }
+
+/* Background utilities */
+.bg-cover { background-size: cover; }
+.bg-center { background-position: center; }
+
+/* Opacity */
+.opacity-40 { opacity: 0.4; }
+.opacity-50 { opacity: 0.5; }
+.opacity-60 { opacity: 0.6; }
+.opacity-0 { opacity: 0; }
+.group:hover .group-hover\:opacity-100 { opacity: 1; }
+
+/* Transitions */
+.transition-opacity { transition: opacity 0.3s ease; }
+.duration-300 { transition-duration: 0.3s; }
+.duration-500 { transition-duration: 0.5s; }
+
+/* Cursor */
+.cursor-pointer { cursor: pointer; }
+
+/* Display */
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+
+/* Max width */
+.max-w-2xl { max-width: 42rem; }
+.max-w-4xl { max-width: 56rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Padding */
+.p-4 { padding: 1rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.pb-4 { padding-bottom: 1rem; }
+
+/* Text color (using new palette) */
+.text-wood-800 { color: #504740; }
+.dark .text-wood-100 { color: #edebe8; }
+.text-gray-800 { /* To be replaced by theme variables */ }
+.dark .text-white { /* To be replaced by theme variables */ }
+.text-gray-200 { /* To be replaced by theme variables */ }
+.dark .text-gray-300 { /* To be replaced by theme variables */ }
+
+/* Background color (using new palette) */
+.bg-wood-100 { /* To be replaced by theme variables */ }
+.dark .bg-wood-800 { /* To be replaced by theme variables */ }
+.bg-white { /* To be replaced by theme variables */ }
+.dark .bg-gray-900 { /* To be replaced by theme variables */ }
+.bg-gray-100 { /* To be replaced by theme variables */ }
+.dark .bg-gray-800 { /* To be replaced by theme variables */ }
+.bg-blue-600 { /* To be replaced by theme variables */ }
+.hover\:bg-blue-700:hover { /* To be replaced by theme variables */ }
+
+
+/* Form elements */
+input, textarea {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.light-mode input, .light-mode textarea {
+  border: 1px solid var(--accent-secondary-light); /* Amber for light mode border */
+  background-color: var(--bg-main-light);
+  color: var(--text-main-light);
+}
+
+.light-mode input::placeholder, .light-mode textarea::placeholder {
+  color: var(--icon-color-secondary-light);
+}
+
+.dark-mode input, .dark-mode textarea {
+  border: 1px solid var(--accent-secondary-dark); /* Blue for dark mode border */
+  background-color: var(--card-bg-dark);
+  color: var(--text-main-dark);
+}
+
+.dark-mode input::placeholder, .dark-mode textarea::placeholder {
+  color: var(--icon-color-secondary-dark);
+}
+
+
+/* Specific component styles (will be moved to separate files later) */
+/* Example for Hero section */
+#hero {
+  /* Styles for the hero section */
+}
+
+/* Example for Navbar */
+nav {
+  /* Styles for the navbar */
+}
+
+/* Example for About section */
+#about {
+  /* Styles for the about section */
+}
+
+/* Example for Offer section */
+#offer {
+  /* Styles for the offer section */
+}
+
+/* Example for Portfolio section */
+#portfolio {
+  /* Styles for the portfolio section */
+}
+
+/* Example for Contact section */
+#contact {
+  /* Styles for the contact section */
+}
+
+/* Example for Footer */
+footer {
+  /* Styles for the footer */
+}

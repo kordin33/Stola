@@ -1,0 +1,123 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-main-dark); /* Default to dark theme text color for hero */
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-main-dark); /* Default to dark theme bg for hero */
+  padding: 6rem 1rem; /* Increased vertical padding */
+}
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Increased opacity as requested */
+  z-index: 1;
+}
+
+/* Optional subtle texture */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* Above overlay, below content */
+  /* Example texture: subtle radial gradient */
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  pointer-events: none; /* Don't block interaction */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 1rem;
+  max-width: 56rem; /* max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-logo-container {
+  position: absolute; /* Position absolutely within hero-section */
+  top: 2rem; /* Distance from top */
+  left: 2rem; /* Distance from left */
+  z-index: 20; /* Ensure it's above other content */
+  /* margin-bottom: 2rem; */ /* Not needed with absolute positioning */
+}
+
+.hero-logo-image {
+  /* max-width: 220px; */ /* Max width can be set, but height is primary */
+  width: auto; /* Allow width to adjust based on height */
+  height: 40px; /* Set height as requested */
+  display: block;
+  /* margin: 0 auto 1.5rem auto; */ /* Not needed with absolute positioning */
+  color: #FFFFFF; /* Forcing white color for logo in Hero section for better contrast */
+}
+/* currentColor might not work as expected when SVG is used in <img> tag for fill/stroke.
+   If the SVG itself uses currentColor, this CSS 'color' might not affect its internal parts.
+   The SVG I created uses currentColor, so this CSS 'color' *should* work.
+   If not, we might need to embed the SVG differently or have a white version of the SVG.
+*/
+
+
+.hero-title {
+  font-size: 3rem; /* text-5xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  /* color: white; */ /* Zmienione na transparent dla background-clip */
+  font-family: 'Montserrat', sans-serif; /* Heading font */
+  text-transform: uppercase; /* Match logo style */
+  letter-spacing: -0.02em; /* Reduced letter-spacing */
+  line-height: 1.2; /* Adjusted line-height */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Zaktualizowany cień */
+  position: relative; /* Needed for absolute positioning of glare */
+  /* overflow: hidden; */ /* Usunięto, aby błysk mógł być animowany przez background-position */
+
+  display: inline-block; /* Dla poprawnego działania background-clip */
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #FAF0E6; /* Kolor dla text-shadow i jako fallback */
+
+  /* Pierwszy gradient to błysk (węższy), drugi to stały kolor tekstu */
+  background-image: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.8) 55%, transparent 100%), linear-gradient(to right, #FAF0E6, #FAF0E6);
+  background-size: 250% 100%, 100% 100%; /* Błysk nieco węższy */
+  background-position: -125% 0, 0 0; /* Start błysku bardziej na lewo */
+  background-repeat: no-repeat, no-repeat;
+
+  animation: heroGlareAnimation 3s infinite linear 1s; /* Dodano opóźnienie startu animacji */
+}
+
+/* Keyframes for glare animation - now directly on background-position */
+@keyframes heroGlareAnimation {
+  0% { background-position: -125% 0, 0 0; } /* Start bardziej na lewo */
+  50% { background-position: 125% 0, 0 0; } /* Koniec bardziej na prawo */
+  100% { background-position: -125% 0, 0 0; } /* Powrót do pozycji startowej dla pętli */
+}
+
+/* Usunięto ::before pseudo-element, błysk jest teraz częścią tła .hero-title */
+
+
+.hero-subtitle {
+  font-size: 1.25rem; /* text-xl */
+  margin-bottom: 2rem; /* mb-8 */
+  color: #E0E0E0; /* Bardziej kremowy odcień dla podtytułu */
+  opacity: 1; /* Full opacity */
+  font-family: 'Roboto', sans-serif; /* Body font */
+  letter-spacing: -0.01em; /* Reduced letter-spacing */
+  line-height: 1.4; /* Adjusted line-height */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+/* Responsive adjustments */
+@media (min-width: 768px) { /* md breakpoint */
+  .hero-title {
+    font-size: 4.5rem; /* md:text-7xl */
+  }
+  .hero-subtitle {
+    font-size: 1.5rem; /* md:text-2xl */
+  }
+}

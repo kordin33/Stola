@@ -1,0 +1,483 @@
+/* ====================================================
+   Import fontów z Google Fonts (Montserrat + Roboto)
+   ==================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@300;400;500;600&display=swap');
+
+   /* Nowa paleta kolorów */
+   :root {
+     --silver: rgba(176, 191, 196, 1);      /* jasne tło */
+     --gunmetal: rgba(37, 48, 54, 1);       /* główne ciemne tło */
+     --silver-2: rgba(164, 169, 169, 1);    /* neutralny szary */
+     --dim-gray: rgba(92, 99, 101, 1);      /* ciemniejszy */
+     --dim-gray-2: rgba(120, 114, 109, 1);  /* cieplejszy szary */
+   }
+   
+   /* ===========================
+      1. Ogólne ustawienia sekcji
+      ===========================
+    */
+   .contact-section {
+     padding: 6rem 0;
+     font-family: 'Roboto', sans-serif;
+     position: relative;
+     overflow: hidden;
+   }
+   
+   /* Tło i kolor tekstu w light/dark mode */
+   .light-mode .contact-section {
+     background-color: var(--silver);
+     color: var(--gunmetal);
+   }
+   
+   .dark-mode .contact-section {
+     background-color: var(--gunmetal);
+     color: var(--silver);
+   }
+   
+   /* ==============================
+      2. Kontener główny
+      ==============================
+    */
+   .contact-container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 2rem;
+   }
+   
+   /* ==============================
+      3. Tytuł sekcji
+      ==============================
+    */
+   .contact-title {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 3rem;
+     font-weight: 700;
+     text-align: center;
+     margin-bottom: 3rem;
+     color: var(--gunmetal);
+     position: relative;
+     line-height: 1.2;
+   }
+   
+   .dark-mode .contact-title {
+     color: var(--silver);
+   }
+   
+   .contact-title::after {
+     content: '';
+     position: absolute;
+     bottom: -15px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 100px;
+     height: 4px;
+     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+     border-radius: 2px;
+   }
+   
+   /* ==============================
+      4. Grid układu
+      ==============================
+    */
+   .contact-grid {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 2rem;
+     align-items: stretch;
+   }
+   
+   /* ==============================
+      5. Karty kontaktowe
+      ==============================
+    */
+   .contact-info-block, .contact-map-block {
+     background: rgba(255, 255, 255, 0.98);
+     border: 1px solid var(--silver-2);
+     border-radius: 1rem;
+     padding: 2.5rem;
+     position: relative;
+     overflow: hidden;
+     transition: all 0.3s ease;
+     box-shadow: 0 8px 32px rgba(37, 48, 54, 0.08);
+     display: flex;
+     flex-direction: column;
+     min-height: 600px;
+   }
+   
+   .dark-mode .contact-info-block, 
+   .dark-mode .contact-map-block {
+     background: rgba(37, 48, 54, 0.98);
+     border: 1px solid var(--dim-gray);
+     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+   }
+   
+   .contact-info-block::before, 
+   .contact-map-block::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 4px;
+     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+   }
+   
+   .contact-info-block:hover, 
+   .contact-map-block:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 16px 48px rgba(37, 48, 54, 0.12);
+   }
+   
+   .dark-mode .contact-info-block:hover, 
+   .dark-mode .contact-map-block:hover {
+     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+   }
+   
+   /* Dodatkowe style dla lepszej proporcji */
+   .contact-map-block {
+     justify-content: space-between;
+   }
+   
+   .map-content-wrapper {
+     flex-grow: 1;
+     display: flex;
+     flex-direction: column;
+   }
+   
+   /* ==============================
+      6. Tytuły podsekcji
+      ==============================
+    */
+   .contact-subtitle {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 1.75rem;
+     font-weight: 600;
+     margin-bottom: 2rem;
+     color: var(--gunmetal);
+     position: relative;
+     text-align: left;
+   }
+   
+   .dark-mode .contact-subtitle {
+     color: var(--silver);
+   }
+   
+   .contact-subtitle::after {
+     content: '';
+     position: absolute;
+     bottom: -8px;
+     left: 0;
+     width: 60px;
+     height: 3px;
+     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+     border-radius: 2px;
+   }
+   
+   /* ==============================
+      7. Informacje kontaktowe
+      ==============================
+    */
+   .contact-info-item {
+     display: flex;
+     align-items: flex-start;
+     gap: 1rem;
+     margin-bottom: 1.5rem;
+     font-size: 1rem;
+     line-height: 1.6;
+     padding: 1.25rem;
+     background: rgba(248, 250, 252, 0.8);
+     border-radius: 0.75rem;
+     border: 1px solid rgba(226, 232, 240, 0.8);
+     transition: all 0.3s ease;
+     box-shadow: 0 2px 8px rgba(37, 48, 54, 0.04);
+   }
+   
+   .dark-mode .contact-info-item {
+     background: rgba(71, 85, 105, 0.3);
+     border: 1px solid var(--dim-gray);
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   }
+   
+   .contact-info-item:hover {
+     background: rgba(255, 255, 255, 0.95);
+     transform: translateY(-2px);
+     box-shadow: 0 8px 24px rgba(37, 48, 54, 0.08);
+   }
+   
+   .dark-mode .contact-info-item:hover {
+     background: rgba(71, 85, 105, 0.5);
+     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+   }
+   
+   .contact-info-icon {
+     width: 24px;
+     height: 24px;
+     color: #3b82f6;
+     flex-shrink: 0;
+     margin-top: 2px;
+   }
+   
+   .contact-info-item p, .contact-info-item div {
+     margin: 0;
+     color: var(--gunmetal);
+   }
+   
+   .dark-mode .contact-info-item p,
+   .dark-mode .contact-info-item div {
+     color: var(--silver);
+   }
+   
+   .contact-info-item a {
+     color: #3b82f6;
+     text-decoration: none;
+     font-weight: 500;
+     transition: color 0.2s ease;
+   }
+   
+   .contact-info-item a:hover {
+     color: #2563eb;
+     text-decoration: underline;
+   }
+   
+   /* ============================
+      Pogrubienia i akcenty w tekście
+      ============================
+    */
+   .highlight {
+     color: #3b82f6;
+     font-weight: 700;
+   }
+   
+   strong {
+     font-weight: 700;
+     color: inherit;
+   }
+   
+   /* ==============================
+      8. Nazwa firmy i dane
+      ==============================
+    */
+   .company-info {
+     margin-bottom: 2rem;
+     padding: 1.75rem;
+     background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(29, 78, 216, 0.02));
+     border-radius: 1rem;
+     border: 1px solid rgba(59, 130, 246, 0.15);
+     box-shadow: 0 4px 16px rgba(59, 130, 246, 0.05);
+   }
+   
+   .dark-mode .company-info {
+     background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.05));
+     border: 1px solid rgba(59, 130, 246, 0.2);
+     box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1);
+   }
+   
+   .company-name {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 1.25rem;
+     font-weight: 600;
+     color: var(--gunmetal);
+     margin-bottom: 0.75rem;
+   }
+   
+   .dark-mode .company-name {
+     color: var(--silver);
+   }
+   
+   .company-details {
+     font-size: 0.95rem;
+     color: var(--dim-gray-2);
+     line-height: 1.6;
+   }
+   
+   .dark-mode .company-details {
+     color: var(--silver-2);
+   }
+   
+   /* ==============================
+      9. Social Media
+      ==============================
+    */
+   .social-media-section {
+     margin-top: 2.5rem;
+     padding-top: 2rem;
+     border-top: 2px solid rgba(59, 130, 246, 0.1);
+   }
+   
+   .dark-mode .social-media-section {
+     border-top-color: rgba(59, 130, 246, 0.2);
+   }
+   
+   .contact-socials-title {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 1.125rem;
+     font-weight: 600;
+     margin-bottom: 1.25rem;
+     color: var(--gunmetal);
+   }
+   
+   .dark-mode .contact-socials-title {
+     color: var(--silver);
+   }
+   
+   .social-links-container {
+     display: flex;
+     gap: 1rem;
+     align-items: center;
+   }
+   
+   .social-icon-link {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 48px;
+     height: 48px;
+     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+     color: white;
+     border-radius: 50%;
+     transition: all 0.3s ease;
+     text-decoration: none;
+     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+   }
+   
+   .social-icon-link:hover {
+     background: linear-gradient(135deg, #2563eb, #1e40af);
+     transform: translateY(-3px);
+     box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+   }
+   
+   .social-icon-svg {
+     width: 22px;
+     height: 22px;
+   }
+   
+   /* ==============================
+      10. Mapa
+      ==============================
+    */
+   .map-responsive-container {
+     position: relative;
+     height: 350px;
+     border-radius: 0.75rem;
+     overflow: hidden;
+     border: 1px solid var(--silver-2);
+     background: #f8fafc;
+     box-shadow: 0 4px 16px rgba(37, 48, 54, 0.06);
+     flex-grow: 1;
+     margin-bottom: 1rem;
+   }
+   
+   .dark-mode .map-responsive-container {
+     border-color: var(--dim-gray);
+     background: var(--dim-gray);
+     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+   }
+   
+   .map-responsive-container iframe {
+     width: 100%;
+     height: 100%;
+     border: none;
+     border-radius: 0.75rem;
+   }
+   
+   /* ==============================
+      11. Animacje ikon
+      ==============================
+    */
+   @keyframes gentle-float {
+     0%, 100% {
+       transform: translateY(0) scale(1);
+     }
+     50% {
+       transform: translateY(-3px) scale(1.02);
+     }
+   }
+   
+   .contact-info-icon {
+     animation: gentle-float 4s ease-in-out infinite;
+     animation-delay: calc(var(--delay, 0) * 0.3s);
+   }
+   
+   .contact-info-item:hover .contact-info-icon {
+     animation: none;
+     transform: scale(1.15);
+     transition: transform 0.3s ease;
+   }
+   
+   /* ==============================
+      12. Responsywność
+      ==============================
+    */
+   @media (max-width: 768px) {
+     .contact-section {
+       padding: 4rem 0;
+     }
+   
+     .contact-container {
+       padding: 0 1rem;
+     }
+   
+     .contact-title {
+       font-size: 2.5rem;
+     }
+   
+     .contact-grid {
+       grid-template-columns: 1fr;
+       gap: 1.5rem;
+     }
+   
+     .contact-info-block, .contact-map-block {
+       padding: 2rem;
+       min-height: auto;
+     }
+   
+     .contact-subtitle {
+       font-size: 1.5rem;
+     }
+   
+     .map-responsive-container {
+       height: 300px;
+     }
+   
+     .social-icon-link {
+       width: 40px;
+       height: 40px;
+     }
+   
+     .social-icon-svg {
+       width: 18px;
+       height: 18px;
+     }
+   }
+   
+   @media (max-width: 480px) {
+     .contact-title {
+       font-size: 2rem;
+     }
+   
+     .contact-info-block, .contact-map-block {
+       padding: 1.5rem;
+     }
+   
+     .contact-info-item {
+       padding: 1rem;
+       font-size: 0.9rem;
+     }
+   
+     .contact-info-icon {
+       width: 20px;
+       height: 20px;
+     }
+   
+     .map-responsive-container {
+       height: 250px;
+     }
+   
+     .company-info {
+       padding: 1rem;
+     }
+   
+     .contact-subtitle {
+       font-size: 1.25rem;
+     }
+   }

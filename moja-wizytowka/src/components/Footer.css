@@ -1,0 +1,133 @@
+.footer-section {
+  background-color: #343a40; /* metal-800 */
+  color: white;
+  padding: 2rem 1rem; /* py-8 px-4 */
+  font-family: 'Roboto', sans-serif; /* font-sans */
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode .footer-section {
+  background-color: #212529; /* dark:bg-gray-900 */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* container px-4 */
+}
+
+.footer-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Space between columns on small screens */
+  margin-bottom: 2rem; /* Space above copyright */
+}
+
+.footer-col {
+  flex: 1; /* Allow columns to grow */
+}
+
+.footer-logo {
+  max-width: 150px; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.company-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #ced4da; /* metal-300 */
+}
+
+.footer-col h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: white; /* Ensure headings are white */
+}
+
+.footer-col.contact-info p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #ced4da; /* metal-300 */
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ced4da; /* metal-300 */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.service-logos {
+  display: flex;
+  flex-direction: column; /* Stack logos vertically on small screens */
+  gap: 1rem; /* Space between logos */
+}
+
+.service-logo-placeholder {
+  background-color: #6c757d; /* metal-500 */
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 0.25rem;
+}
+
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #495057; /* metal-700 */
+  padding-top: 1.5rem;
+}
+
+.footer-text-small {
+  font-size: 0.8rem;
+  color: #adb5bd; /* metal-400 */
+}
+
+
+/* Responsive adjustments */
+@media (min-width: 768px) { /* md breakpoint */
+  .footer-content-wrapper {
+    flex-direction: row;
+    gap: 4rem; /* Increased gap for desktop */
+    text-align: left; /* Align text to left on desktop */
+  }
+
+  .footer-col {
+    flex: 1;
+  }
+
+  .footer-col.company-info {
+    flex: 1.5; /* Give more space to company info */
+  }
+
+  .footer-col h4 {
+    text-align: left; /* Align headings to left on desktop */
+  }
+
+  .contact-info-item {
+    justify-content: flex-start; /* Align contact info items to left */
+  }
+
+  .service-logos {
+    flex-direction: row; /* Arrange logos horizontally on desktop */
+    gap: 1.5rem;
+  }
+}
