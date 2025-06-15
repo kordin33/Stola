@@ -21,7 +21,6 @@ import ReynaersLogo from '../assets/reynaers-aluminium-seeklogo.png';
 // Hero Images for parallax sections - zdjęcia nowoczesnej architektury
 const HERO_IMAGES = [
   heroBackground,
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop'
 ];
 
@@ -35,10 +34,9 @@ const translations = {
       contact: 'Kontakt'
     },
     hero: {
-      subheadings: ['BAUGREEN', 'PRECYZJA', 'JAKOŚĆ'],
+      subheadings: ['BAUGREEN', 'PRECYZJA'],
       headings: [
         'Unikalne projekty z pasją',
-        'Detale, które robią różnicę',
         'Nowoczesne rozwiązania'
       ],
       cta: 'Zobacz ofertę'
@@ -126,10 +124,9 @@ const translations = {
       contact: 'Contact'
     },
     hero: {
-      subheadings: ['BAUGREEN', 'PRECISION', 'QUALITY'],
+      subheadings: ['BAUGREEN', 'PRECISION'],
       headings: [
         'Unique projects with passion',
-        'Details that make the difference',
         'Modern solutions'
       ],
       cta: 'See our offer'
@@ -217,10 +214,9 @@ const translations = {
       contact: 'Kontakt'
     },
     hero: {
-      subheadings: ['BAUGREEN', 'PRÄZISION', 'QUALITÄT'],
+      subheadings: ['BAUGREEN', 'PRÄZISION'],
       headings: [
         'Einzigartige Projekte mit Leidenschaft',
-        'Details, die den Unterschied machen',
         'Moderne Lösungen'
       ],
       cta: 'Unser Angebot ansehen'
@@ -401,10 +397,10 @@ function HeroOverlay({ subheading, heading, isFirst, lang }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   
-  // Parallax effects for text
-  const textY = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const textOpacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0, 1, 0]);
-  const textScale = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0.95, 1, 0.95]);
+  // Enhanced parallax effects for text
+  const textY = useTransform(scrollYProgress, [0, 0.5, 1], [-100, 0, 100]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const textScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.9, 1, 1, 0.9]);
   
   return (
     <motion.div
@@ -754,7 +750,7 @@ const LandingPage = () => {
   const [lang, setLang] = useState('PL');
   const t = translations[lang];
 
-  // Zredukowane hero sections - usuwam redundantną środkową
+  // Zredukowane hero sections - tylko 2 zamiast 3
   const heroSections = [
     {
       image: HERO_IMAGES[0],
@@ -764,18 +760,11 @@ const LandingPage = () => {
       content: <About lang={lang} />
     },
     {
-      image: HERO_IMAGES[1], 
+      image: HERO_IMAGES[1],
       subheading: t.hero.subheadings[1],
       heading: t.hero.headings[1],
       isFirst: false,
       content: <Offer lang={lang} />
-    },
-    {
-      image: HERO_IMAGES[2],
-      subheading: t.hero.subheadings[2], 
-      heading: t.hero.headings[2],
-      isFirst: false,
-      content: <Contact lang={lang} />
     }
   ];
 
@@ -797,6 +786,7 @@ const LandingPage = () => {
         </React.Fragment>
       ))}
       
+      <Contact lang={lang} />
       <CTA lang={lang} />
       <Footer lang={lang} />
     </div>
