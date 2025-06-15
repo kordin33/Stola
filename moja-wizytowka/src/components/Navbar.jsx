@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion'; // Import AnimatePresence
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Zmieniono import
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import './Navbar.css';
+import './Navbar.css'; // Import component-specific CSS
 
 // Import SVG logo as URL
 import siteLogoUrl from '../assets/Logo1.png';
@@ -11,67 +11,6 @@ const Navbar = ({ theme, toggleTheme }) => {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState(i18n.language);
-  const [isVisible, setIsVisible] = useState(true); // State for Navbar visibility
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const timeoutRef = useRef(null);
-
-  const handleScroll = () => {
-    if (window.scrollY > lastScrollY && window.scrollY > 100) { // Scrolling down
-      setIsVisible(false);
-    } else { // Scrolling up or at the very top
-      setIsVisible(true);
-    }
-    setLastScrollY(window.scrollY);
-    
-    // Clear any existing timeout
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    // Set a new timeout to hide after inactivity if not at the top
-    if (window.scrollY > 100) {
-      timeoutRef.current = setTimeout(() => {
-        setIsVisible(false);
-      }, 3000); // Hide after 3 seconds of inactivity
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [lastScrollY]); // Re-run effect when lastScrollY changes
-
-  // Handle mouse movement to show navbar
-  const handleMouseMove = () => {
-    // If navbar is hidden and not at the very top, show it on mouse move
-    if (!isVisible && window.scrollY > 100) {
-      setIsVisible(true);
-    }
-    // Always reset the timeout on mouse move if scrolling down
-    if (window.scrollY > 100) {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-      timeoutRef.current = setTimeout(() => {
-        setIsVisible(false);
-      }, 3000); // Hide after 3 seconds of inactivity
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
   const Logo = () => (
     <img
@@ -99,17 +38,9 @@ const Navbar = ({ theme, toggleTheme }) => {
   ];
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.nav
-          className="navbar"
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="container navbar-container">
-            <div className="navbar-header">
+    <nav className="navbar">
+      <div className="container navbar-container">
+        <div className="navbar-header">
 
           {/* Logo */}
           <div className="navbar-logo-container">
@@ -134,10 +65,11 @@ const Navbar = ({ theme, toggleTheme }) => {
                 key={link.path} // Użyj path jako klucza
                 to={link.path}
                 className="navbar-link"
+                // activeClassName="active-link" // react-router-dom v6+ używa NavLink dla activeClassName
               >
                 {link.name}
               </Link>
-            ))}
+            ))}Pokaż całość
 
             {/* Language Switcher */}
             <div className="language-switcher">
@@ -236,9 +168,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           </div>
         </motion.div>
       </div>
-    </motion.nav>
-  )}
-</AnimatePresence>
+    </nav>
   );
 };
 
